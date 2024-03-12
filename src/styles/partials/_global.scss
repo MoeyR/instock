@@ -1,0 +1,251 @@
+@use "./colors" as *;
+@use "./fonts" as *;
+@use "./mixins" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// headers
+
+h1 {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  @include desktop {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  @include desktop {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+h3 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+h4 {
+  font-size: 11px;
+  line-height: 16px;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @include desktop {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+// paragraphs
+
+.p1 {
+  font-size: 15px;
+  line-height: 26px;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+.p2 {
+  font-size: 13px;
+  line-height: 20px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+.p3 {
+  font-size: 11px;
+  line-height: 16px;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @include desktop {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+//buttons
+
+.primary-button {
+  background-color: $indigo;
+  color: $white;
+  height: 36px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+
+  @include tablet {
+    height: 38px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  @include desktop {
+    height: 38px;
+    font-size: 14px;
+    width: auto;
+    width: auto;
+  }
+
+  &:hover {
+    background-color: $black;
+  }
+}
+
+.secondary-button {
+  background-color: $white;
+  color: $black;
+  height: 36px;
+  border: 1px solid $cloud;
+  border-radius: 20px;
+  text-align: center;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+
+  @include tablet {
+    height: 38px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  @include desktop {
+    height: 38px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $indigo;
+    border: 1px solid $indigo;
+  }
+}
+
+.delete-button {
+  background-color: $red;
+  color: $white;
+  height: 36px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+
+  @include tablet {
+    height: 38px;
+    padding: 7px 16px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  @include desktop {
+    height: 38px;
+    padding: 7px 16px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  &:hover {
+    background-color: $black;
+  }
+}
+
+//input boxes
+
+.form-input {
+  height: 36px;
+  background-color: $white;
+  border: 1px solid $cloud;
+  border-radius: 20px;
+  padding: 10px 16px;
+
+  @include tablet {
+    height: 38px;
+  }
+
+  @include desktop {
+    height: 38px;
+  }
+
+  &:focus {
+    border-color: $indigo;
+    outline: none;
+    border-color: $indigo;
+
+    &::placeholder {
+      color: $black;
+    }
+  }
+
+  &--error-state {
+    border-color: $red;
+  }
+}
+
+::placeholder {
+  color: $slate;
+}
