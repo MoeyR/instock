@@ -1,11 +1,8 @@
-import './App.scss';
+import "./App.scss";
+import "../src/styles/partials/_global.scss";
 
 function App() {
-  return (
-    <>
-    
-    </>
-  );
+  return <></>;
 }
 
 export default App;
