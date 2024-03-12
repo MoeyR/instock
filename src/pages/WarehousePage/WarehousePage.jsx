@@ -1,7 +1,7 @@
 function WarehousePage(){
     return (
         <>
-            <p>Hello World!</p>
+            <p>Hello WarehousePage!</p>
         </>
     )
 }
