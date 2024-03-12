@@ -1,0 +1,18 @@
+// @use "../../styles/partials/fonts" as *;
+// @use '../../styles/partials/colors' as *;
+// @use '../../styles/partials/global' as *;
+// @use '../../styles/partials/mixins' as *;
+
+.deletemodal {
+    width: 5rem;
+    height: 10rem;
+    position: fixed;
+    top: 0%;
+    left: 30%;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    padding: 20px;
+    z-Index: 1000;
+}
