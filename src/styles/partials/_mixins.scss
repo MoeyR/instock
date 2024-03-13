@@ -11,3 +11,15 @@
     @content;
   }
 }
+
+// Flexbox Mixions
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
