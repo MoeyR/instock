@@ -13,7 +13,7 @@
     @include tablet{
         top: 15%;
         left: 2.5rem;
-        width: calc(100% - 5rem);
+        width: calc(100% - 4rem);
     }
 
     @include desktop{
@@ -28,7 +28,7 @@
 
     }
     &__img{
-        height:24px;
+        height:1.5rem;
         margin-right: 0.5rem;
     }
     &__title{
@@ -47,17 +47,17 @@
     background-color: $indigo;
     background-image: url(../../assets/icons/edit-24px-white.svg);
     background-repeat: no-repeat;
-    background-size: 20px 20px; 
-    background-position: 8px center; /* 水平位置和垂直居中 */
+    background-size: 1.25rem 1.25rem; 
+    background-position: 0.5rem center; /* 水平位置和垂直居中 */
     border: none;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
 
     @include tablet{
-        width: 81px;
-        height: 38px;
-        border-radius: 20px;
+        width: 5.0625rem;
+        height: 2.375rem;
+        border-radius: 1.25rem;
         text-indent: 0;
         padding: 10px 10px 10px 20px; 
         color: $white;
