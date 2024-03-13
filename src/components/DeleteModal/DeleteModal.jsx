@@ -21,6 +21,7 @@ function DeleteModal({ name, isOpen, onCancel, onConfirm }) {
       <button className="delete-button deletemodal__delete"
         onClick={() => {
           onConfirm(); // 处理确认动作，比如导航
+          onCancel();
         }}
       >
         Delete

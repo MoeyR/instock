@@ -1,0 +1,58 @@
+@use "../../styles/partials/fonts" as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+.warehouse-detail{
+
+    &__imgname{
+        display: flex;
+
+    }
+    &__title{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+
+        @include tablet{
+            padding: 1rem 2rem;
+        }
+    }
+&__edit{
+    width: 2.25rem; //36px
+    height: 2.25rem; //36px
+    border-radius: 50%;
+    background-color: salmon;
+    background-image: url(../../assets/icons/edit-24px.svg);
+    background-size: cover;
+}
+&__info{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $cloud;
+    border-bottom: 1px solid $cloud;
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: none;
+        padding: 1rem 2rem;
+    }   
+}
+&__address{
+    padding: 1rem 1rem;
+
+}
+&__addressCity{
+    display: flex;
+    flex-direction: row;
+
+    @include tablet{
+        flex-direction: column;
+    }
+}
+&__contact{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 1rem;
+
+}
+}
