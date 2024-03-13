@@ -1,6 +1,7 @@
 import backarrow from "../../assets/icons/arrow_back-24px.svg";
 import "./WarehouseDetailPage.scss";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 function WarehouseDetailPage() {
   const params = useParams();
   const warehouseId = params.id;
@@ -17,14 +18,20 @@ function WarehouseDetailPage() {
     };
     return detail;
   };
+
+  const handleClick = ()=>{
+    window.history.back();
+  }
   return (
     <div className="warehouse-detail">
       <div className="warehouse-detail__title">
         <div className="warehouse-detail__imgname">
-          <img src={backarrow} alt="back" />
+          <img src={backarrow} alt="back" onClick={handleClick}/>
           <h1>{getDetailbyId(warehouseId).name}</h1>
         </div>
-        <button className="warehouse-detail__edit">Edit</button>
+        <Link to={`/warehouses/${warehouseId}/edit`}>
+          <button className="warehouse-detail__edit">Edit</button>
+        </Link>
       </div>
       <div className="warehouse-detail__info">
         <div className="warehouse-detail__address">

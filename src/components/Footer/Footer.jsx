@@ -1,7 +1,7 @@
 function Footer(){
     return (
         <>
-            <p>Hello Footer!</p>
+            {/* <p>Hello Footer!</p> */}
         </>
     )
 }

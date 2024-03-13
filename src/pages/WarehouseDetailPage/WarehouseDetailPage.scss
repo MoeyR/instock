@@ -3,6 +3,21 @@
 @use '../../styles/partials/global' as *;
 @use '../../styles/partials/mixins' as *;
 .warehouse-detail{
+    background-color: $white;
+    width: calc(100% - 2rem);
+    position: absolute;
+    top: 25%;
+    left: 1rem;
+    border: $lightgrey;
+
+    @include tablet{
+        top: 15%;
+    }
+
+    @include desktop{
+        left: 8rem;
+        width: calc(100% - 16rem);
+    }
 
     &__imgname{
         display: flex;
@@ -12,7 +27,7 @@
     &__title{
         display: flex;
         justify-content: space-between;
-        padding: 1rem;
+        padding: 1rem 0.5rem;
 
         @include tablet{
             padding: 1rem 2rem;
@@ -57,7 +72,7 @@
     }   
 }
 &__address{
-    padding: 1rem 1rem;
+    padding: 1rem 0.5rem;
     @include tablet{
         padding: 0 1rem;
         margin-top: 1rem;
@@ -78,7 +93,7 @@
 &__contact{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1rem;
+    padding: 1rem 0.5rem;
 
     @include tablet{
         margin-top: 1rem;
@@ -88,11 +103,8 @@
 
 }
 
-&__addressCity{
-
-}
-
 &__contactName{
+    margin-right: 0.5rem;
     @include tablet{
         margin-right: 2rem;
     }
