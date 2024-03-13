@@ -31,7 +31,7 @@ function WarehouseDetailPage() {
           <h4>WAREHOUSE ADDRESS:</h4>
           <div className="warehouse-detail__addressCity">
             <p className="p2">{getDetailbyId(warehouseId).address}</p>
-            <p>
+            <p className="p2">
               {getDetailbyId(warehouseId).city},
               {getDetailbyId(warehouseId).country}
             </p>
