@@ -1,8 +1,10 @@
+import './Footer.scss'
+
 function Footer(){
     return (
         <>
-            <div>
-                <p>&copy; InStock Inc. All Rights Reserved.</p>
+            <div className='footer'>
+                <h4 className='footer__text'>&copy; InStock Inc. All Rights Reserved.</h4>
             </div>
         </>
     );
