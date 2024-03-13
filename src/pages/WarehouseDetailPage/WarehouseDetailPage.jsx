@@ -24,7 +24,7 @@ function WarehouseDetailPage() {
           <img src={backarrow} alt="back" />
           <h1>{getDetailbyId(warehouseId).name}</h1>
         </div>
-        <div className="warehouse-detail__edit"></div>
+        <button className="warehouse-detail__edit">Edit</button>
       </div>
       <div className="warehouse-detail__info">
         <div className="warehouse-detail__address">
