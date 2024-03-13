@@ -12,7 +12,7 @@ function Header(){
                 <nav className='header__nav'>
                     <ul className='header-list'>
                         <li className='header-list__item'>
-                            <Link to="/warehouses" className='header-list__link'>Warehouses</Link>
+                            <Link to="/warehouses" className='header-list__link header-list__link--active'>Warehouses</Link>
                         </li>
                         <li className='header-list__item'>
                             <Link to="/inventory" className='header-list__link'>Inventory</Link>

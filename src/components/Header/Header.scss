@@ -17,13 +17,6 @@
             flex-direction: row;
             justify-content: space-between;
         }
-
-        @include desktop{
-            margin: 0 auto ;
-            flex-direction: row;
-            height: 11.625rem;
-            justify-content: space-between;
-        }
     }
 
     .header-logo-link {
@@ -49,21 +42,12 @@
             width: 8.0625rem;
             height: 1.875rem;
         }
-        @include desktop {
-            width: 8.0625rem;
-            height: 1.875rem;
-        }
     }
 
     &__nav {
         min-width: 15rem;
         height: 3rem;
         @include tablet{
-            min-width: 0;
-            height: 4.18rem;
-            line-height: 4.18rem;
-        }
-        @include desktop {
             min-width: 0;
             height: 4.18rem;
             line-height: 4.18rem;
@@ -85,11 +69,6 @@
                 height: 2.1875rem;
                 line-height: 2.1875rem;
             }
-            @include desktop{
-                width: auto;
-                height: 2.1875rem;
-                line-height: 2.1875rem;
-            }
         }
 
         &__link{
@@ -102,14 +81,6 @@
             border-radius: 1.25rem;
 
             @include tablet {
-                font-size: .8125rem;
-                margin: 1.8rem 0 0 0;
-                width: auto;
-                padding: 0 .9375rem;
-                height: 2.1875rem;
-            }
-
-            @include desktop {
                 font-size: .8125rem;
                 margin: 1.8rem 0 0 0;
                 width: auto;
