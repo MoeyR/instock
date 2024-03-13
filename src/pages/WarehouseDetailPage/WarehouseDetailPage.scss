@@ -6,13 +6,13 @@
     background-color: $white;
     width: calc(100% - 2rem);
     position: absolute;
-    top: 25%;
+    top: 8.5rem;
     left: 1rem;
     border-color: $cloud;
 
     @include tablet{
-        top: 17.3%;
-        left: 2.5rem;
+        top: 5.75rem;
+        left: 2rem;
         width: calc(100% - 4rem);
     }
 
@@ -37,7 +37,7 @@
         padding: 1rem 1rem;
 
         @include tablet{
-            padding: 1rem 2rem;
+            padding: 1.65rem 2rem;
         }
     }
 &__edit{
