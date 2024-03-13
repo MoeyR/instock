@@ -6,8 +6,8 @@ function WarehousePage(){
         <main className="warehouses">
             <section className="warehouses-title-section-wrap">
                 <h1 className="warehouses__title">Warehouses</h1>
-                <input type="warehouses__search-bar" placeholder="search..." />
-                <button className="warehouses__add-button">+ Add New Warehouse</button>
+                <input className="form-input warehouses__search-bar" type="search" placeholder="search..." />
+                <button className="primary-button warehouses__add-button">+ Add New Warehouse</button>
             </section>
             <section className="warehouses-list-section">
                 <ul className="warehouses-list">

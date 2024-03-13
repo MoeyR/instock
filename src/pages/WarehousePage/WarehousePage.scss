@@ -1,0 +1,35 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.warehouses{
+    box-shadow: 1px 2px 2px 2px $cloud;
+    border-radius: .25rem;
+    margin: 0 1rem;
+    // position: absolute;
+    // top: -50px;
+
+    &-title-section-wrap{
+        display: flex;
+        flex-direction: column;
+        margin: 24px;
+    }
+
+    &__title{
+        margin-top: 0.5rem;
+    }
+
+    .warehouses-list{
+
+        &__item{
+            border-top: 1px solid $slate;
+        }       
+        
+        .name-address-wrap, .contact-name-info-wrap{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+}
+
