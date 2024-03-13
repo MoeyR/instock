@@ -1,8 +1,10 @@
 function Footer(){
     return (
         <>
-            <p>Hello Footer!</p>
+            <div>
+                <p>&copy; InStock Inc. All Rights Reserved.</p>
+            </div>
         </>
-    )
-}
+    );
+};
 export default Footer;
