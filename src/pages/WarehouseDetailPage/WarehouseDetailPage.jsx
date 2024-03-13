@@ -50,7 +50,7 @@ function WarehouseDetailPage() {
     <div className="warehouse-detail">
       <div className="warehouse-detail__title">
         <div className="warehouse-detail__imgname">
-          <img src={backarrow} alt="back" onClick={handleClick}/>
+          <img src={backarrow} alt="back" onClick={handleClick} className="warehouse-detail__img"/>
           <h1>{warehouse_name}</h1>
         </div>
         <Link to={`/warehouses/${params.id}/edit`}>
