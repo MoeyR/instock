@@ -5,48 +5,52 @@ import { Link } from "react-router-dom";
 
 function InventoryListItem({ inventoryItem }) {
   return (
-    <li className="warehouses-list__item">
-      {/* warehouses list details */}
-      <section className="warehouse-details-wrap">
-        <div className="heading-detail-wrap">
-          <h4 className="warehouses-list__heading">INVENTORY ITEM</h4>
-          <Link className="link-style warehouses-list__detail">
-            <p>{inventoryItem.item_name}</p>
-            <span className="right-arrow"> </span>
-          </Link>
-        </div>
-        <div className="heading-detail-wrap">
-          <h4 className="warehouses-list__heading">CATEGORY</h4>
-          <p className="warehouses-list__detail">{inventoryItem.category}</p>
+    <li className="inventory-items">
+      <section className="inventory-items__wrap">
+          <div className="inventory-items__item-wrap">
+            <h4 className="inventory-items__heading">INVENTORY ITEM</h4>
+            <Link className="link-style inventory-items__detail">
+              <p>{inventoryItem.item_name}</p>
+              <span className="right-arrow"> </span>
+            </Link>
+          </div>
+        <div className="inventory-items__item-wrap">
+          <h4 className="inventory-items__heading">CATEGORY</h4>
+          <p className="inventory-items__detail">{inventoryItem.category}</p>
         </div>
 
-        <div className="heading-detail-wrap">
-          <h4 className="warehouses-list__heading">STATUS</h4>
-          <p className="warehouses-list__detail contact-name">
-            {inventoryItem.status}
-          </p>
+        <div className="inventory-items__item-wrap">
+          <h4 className="inventory-items__heading">STATUS</h4>
+          <p className="inventory-items__detail">{inventoryItem.status}</p>
         </div>
-        <div className="heading-detail-wrap">
-          <h4 className="warehouses-list__heading">QTY</h4>
-          <p className="warehouses-list__detail">{inventoryItem.quantity}</p>
+        <div className="qty-warehouse-flex">
+          <div className="inventory-items__item-wrap">
+            <h4 className="inventory-items__heading">QTY</h4>
+            <p className="inventory-items__detail">{inventoryItem.quantity}</p>
+          </div>
+          <div className="inventory-items__item-wrap">
+            <h4 className="inventory-items__heading">WAREHOUSE</h4>
+            <p className="inventory-items__detail">
+              {inventoryItem.warehouse_name}
+            </p>
+          </div>
         </div>
-        <div className="heading-detail-wrap">
-          <h4 className="warehouses-list__heading">WAREHOUSE</h4>
-          <p className="warehouses-list__detail">{inventoryItem.warehouse_name}</p>
+
+        {/* icons */}
+        <div className="inventory-items__item-wrap">
+          <div className="inventory-items__icons-wrap">
+            <img
+              className="inventory-items__heading__delete-icon"
+              src={deleteIcon}
+              alt="delete icon"
+            />
+            <img
+              className="inventory-items__heading__edit-icon"
+              src={editIcon}
+              alt="delete icon"
+            />
+          </div>
         </div>
-      </section>
-      {/* icons */}
-      <section className="icons-wrap">
-        <img
-          className="warehouses-list__delete-icon"
-          src={deleteIcon}
-          alt="delete-icon"
-        />
-        <img
-          className="warehouses-list__edit-icon"
-          src={editIcon}
-          alt="delete-icon"
-        />
       </section>
     </li>
   );

@@ -2,7 +2,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .inventory-list {
-
   &__headings-container {
     display: none;
     @include tablet {
@@ -19,7 +18,7 @@
     display: flex;
   }
 
-   &__headings-action {
+  &__headings-action {
     font-size: 0.6875rem;
     display: flex;
   }
@@ -34,12 +33,10 @@
     font-size: 0.6875rem;
     text-align: left;
   }
-
-
 }
 
 .qty-warehouse {
-    display: flex;
-    width: 30%;
-    gap: 40px;
+  display: flex;
+  width: 30%;
+  gap: 40px;
 }
