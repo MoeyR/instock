@@ -6,51 +6,54 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 function WarehouseDetailPage() {
   const params = useParams();
-  // const warehouseId = params.id;
   const [activeWarehouse, setActiveWarehouse] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const baseUrl = "http://localhost:8080";
 
-  useEffect(()=>{
-    const fetchDetailbyId = async() => {
+  useEffect(() => {
+    const fetchDetailbyId = async () => {
       try {
-          const response = await axios.get(
-            `${baseUrl}/api/warehouses/${Number(params.id)}`
-          );
-          document.title = `${response.data.warehouse_name} | InStock`;
+        const response = await axios.get(
+          `${baseUrl}/api/warehouses/${Number(params.id)}`
+        );
+        document.title = `${response.data.warehouse_name} | InStock`;
         setIsLoading(false);
         setActiveWarehouse(response.data);
       } catch (error) {
         setIsLoading(false);
         console.error(`error:  ${error}`);
-      }      
+      }
     };
     fetchDetailbyId();
-  },[params.id]
-  );
+  }, [params.id]);
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
-  const handleClick = ()=>{
+  const handleClick = () => {
     window.history.back();
-  }
-      const  {
-        warehouse_name,
-        address,
-        city,
-        country,
-        contact_name,
-        contact_position,
-        contact_phone,
-        contact_email,
-      } = activeWarehouse;
+  };
+  const {
+    warehouse_name,
+    address,
+    city,
+    country,
+    contact_name,
+    contact_position,
+    contact_phone,
+    contact_email,
+  } = activeWarehouse;
 
   return (
     <div className="warehouse-detail">
       <div className="warehouse-detail__title">
         <div className="warehouse-detail__imgname">
-          <img src={backarrow} alt="back" onClick={handleClick} className="warehouse-detail__img"/>
+          <img
+            src={backarrow}
+            alt="back"
+            onClick={handleClick}
+            className="warehouse-detail__img"
+          />
           <h1>{warehouse_name}</h1>
         </div>
         <Link to={`/warehouses/${params.id}/edit`}>
@@ -63,8 +66,7 @@ function WarehouseDetailPage() {
           <div className="warehouse-detail__addressCity">
             <p className="p2">{address}</p>
             <p className="p2">
-              {city},
-              {country}
+              {city},{country}
             </p>
           </div>
         </div>
