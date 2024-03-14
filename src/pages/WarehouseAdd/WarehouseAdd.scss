@@ -1,0 +1,25 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.main{
+    box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
+  border-radius: 0.125rem;
+  background-color: $white;
+  position: absolute;
+  top: 8.0625rem;
+  left: 50%;
+  margin-left: -44%;
+  width: 87%;
+  min-width: 18.375rem;
+  z-index: 1;
+
+  @include tablet {
+    top: 5.8125rem;
+    margin-left: -45.5%;
+    width: 91%;
+  }
+  @include desktop {
+    width: 63rem;
+    margin-left: -31.5625rem;
+  }
+}
