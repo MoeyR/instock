@@ -1,35 +1,276 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/global" as *;
 
-.warehouses{
-    box-shadow: 1px 2px 2px 2px $cloud;
-    border-radius: .25rem;
-    margin: 0 1rem;
-    // position: absolute;
-    // top: -50px;
+.warehouses {
+  box-shadow: 0 2px 5px 0 $cloud;
+  border-radius: 2px;
+  background-color: $white;
+  position: absolute;
+  top: 129px;
+  left: 50%;
+  margin-left: -44%;
+  width: 87%;
+  min-width: 294px;
 
-    &-title-section-wrap{
-        display: flex;
-        flex-direction: column;
-        margin: 24px;
+  @include tablet {
+    top: 93px;
+    margin-left: -46%;
+    width: 91%;
+  }
+  @include desktop {
+    width: 1008px;
+    margin-left: -505px;
+  }
+
+  // Title Section Styles
+  &-title-section-wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 24px;
+
+    @include tablet {
+      margin: 32px 32px 27px 32px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-size: 26px;
+    line-height: 28px;
+    margin-top: 0.4rem;
+    @include tablet {
+      font-size: 28px;
+    }
+  }
+
+  .search-button-wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  .search-bar-wrap {
+    position: relative;
+  }
+  &__search-bar,
+  &__add-button {
+    margin-top: 16px;
+
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__search-bar {
+    padding: 0px 13px;
+    width: 100%;
+    @include tablet {
+      width: 91%;
+    }
+    @include desktop{
+        width: 278px;
+        margin-right: 16px;
     }
 
-    &__title{
-        margin-top: 0.5rem;
+    &::placeholder {
+      font-size: 12px;
+      @include tablet {
+        font-size: 13px;
+      }
     }
+  }
 
-    .warehouses-list{
+  &__search-icon {
+    position: absolute;
+    right: 13px;
+    top: 23px;
+    width: 23px;
 
-        &__item{
-            border-top: 1px solid $slate;
-        }       
-        
-        .name-address-wrap, .contact-name-info-wrap{
-            display: flex;
-            flex-direction: column;
+    @include tablet {
+      right: 30px;
+      top: 7px;
+      width: 25px;
+    }
+  }
+
+  &__add-button {
+    font-size: 12px;
+    font-weight: 100;
+    @include tablet {
+      font-size: 13px;
+    }
+  }
+
+  // Lists Section Styles
+  .warehouses-list {
+    &:last-child{
+        @include tablet{
+            border-bottom: none;
         }
     }
+    //list main headings
+    &__main-headings {
+      display: none;
+      @include tablet {
+        display: block;
+        display: flex;
+        flex-direction: row;
+        padding: 9px 32px;
+        color: $slate;
+        background-color: $lightgrey;
+      }
 
+      .warehouse-headers-wrap{
+        display: flex;
+        width: 100%;
+
+        .name-address-headers, .contact-name-info-headers{
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            margin-right: -43px;
+        }
+        
+        .main-headings-texts{
+            width: 50%;
+            font-size: 11px;
+            display: flex;
+
+            .sort-icon{
+                width: 16px;
+                height: 16px;
+                margin-left: 2px;
+            }
+        }
+        
+        .contact-info-header{
+            width: 56%;
+        }
+        
+    }
+    .warehouse-headers,.action-text{
+        font-size: 11px;
+    }
+
+        
+    }
+
+    // warehouses list details
+    &__item {
+      padding: 18px 24px;
+      border-top: 1px solid $cloud;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        @include flex-space-between;
+        padding: 19px 32px;
+        flex-direction: row;
+        border-top: none;
+        border-bottom: 1px solid $cloud;
+      }
+    }
+
+    .warehouse-details-wrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      @include tablet {
+        width: 100%;
+        justify-content: normal;
+      }
+    }
+
+    .name-address-wrap,
+    .contact-name-info-wrap {
+      display: flex;
+      flex-direction: column;
+      min-width: 145px;
+      @include tablet {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 50%;
+        margin-right: -43px;
+      }
+    }
+
+    .heading-detail-wrap {
+      margin-right: 10px;
+      margin-bottom: 15px;
+
+      @include tablet {
+        justify-content: space-around;
+        margin: 0;
+        width: 50%;
+      }
+    }
+
+    .contact-name {
+      @include tablet{
+        margin-left: 5%;
+      }
+    }
+
+    &__heading {
+      display: block;
+      font-size: 10px;
+      color: $slate;
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &__detail {
+      font-size: 12px;
+      margin-top: 2px;
+      margin-right: 20px;
+      line-height: 18px;
+      @include tablet {
+        font-size: 13px;
+        width: 80%;
+        margin: 0;
+      }
+    }
+
+    .link-style {
+      color: $indigo;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+
+        .right-arrow{
+            display: inline-block;
+            width: 19px;
+            height: 19px;
+            margin-left: 3px;
+            background-image: url(../../assets/icons/chevron_right-24px.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+      
+    }
+
+    // icons
+    .icons-wrap {
+      @include flex-space-between;
+      @include tablet {
+        align-items: center;
+        width: 70px;
+      }
+    }
+
+    &__delete-icon,
+    &__edit-icon {
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 23px;
+      height: 23px;
+      margin-bottom: 3px;
+    }
+  }
 }
-
