@@ -1,0 +1,121 @@
+@use "../../styles/partials/fonts" as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/mixins' as *;
+.warehouse-detail{
+    background-color: $white;
+    width: calc(100% - 2rem);
+    position: absolute;
+    top: 8.5rem;
+    left: 1rem;
+    border-color: $cloud;
+
+    @include tablet{
+        top: 5.75rem;
+        left: 2rem;
+        width: calc(100% - 4rem);
+    }
+
+    @include desktop{
+        left: 8rem;
+        width: calc(100% - 16rem);
+    }
+
+    &__imgname{
+        display: flex;
+        align-items: center;
+        color: $black;
+
+    }
+    &__img{
+        height:1.5rem;
+        margin-right: 0.5rem;
+    }
+    &__title{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+
+        @include tablet{
+            padding: 1.65rem 2rem;
+        }
+    }
+&__edit{
+    width: 2.25rem; //36px
+    height: 2.25rem; //36px
+    border-radius: 50%;
+    background-color: $indigo;
+    background-image: url(../../assets/icons/edit-24px-white.svg);
+    background-repeat: no-repeat;
+    background-size: 1.25rem 1.25rem; 
+    background-position: 0.5rem center; /* 水平位置和垂直居中 */
+    border: none;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @include tablet{
+        width: 5.0625rem;
+        height: 2.375rem;
+        border-radius: 1.25rem;
+        text-indent: 0;
+        background-position: 0.8rem center;
+        padding: 10px 10px 10px 25px; 
+        color: $white;
+        text-align: center;
+    }
+}
+&__info{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $cloud;
+    border-bottom: 1px solid $cloud;
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: none;
+        padding: 1rem 2rem;
+    }
+    @include desktop{
+        justify-content: flex-start;
+    }   
+}
+&__address{
+    padding: 1rem 1rem;
+    @include tablet{
+        padding: 0 1rem;
+        margin-top: 1rem;
+    }
+    @include desktop{
+        margin-right: 25rem;
+    }
+
+}
+&__addressCity{
+    display: flex;
+    flex-direction: row;
+
+    @include tablet{
+        flex-direction: column;
+    }
+}
+&__contact{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+
+    @include tablet{
+        margin-top: 1rem;
+        padding: 0 1rem 0 2rem;
+        border-left: 1px solid $cloud;
+    }
+
+}
+
+&__contactName{
+    margin-right: 0.5rem;
+    @include tablet{
+        margin-right: 2rem;
+    }
+}
+}
