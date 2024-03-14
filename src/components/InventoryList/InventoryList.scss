@@ -1,0 +1,58 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-list {
+  &:last-child {
+    @include tablet {
+      border-bottom: none;
+    }
+  }
+
+  &__headings-container {
+    display: none;
+    @include tablet {
+      display: block;
+      display: flex;
+      flex-direction: row;
+      padding: 0.5625rem 2rem;
+      color: $slate;
+      background-color: $lightgrey;
+    }
+
+    &__headers {
+      display: flex;
+      width: 100%;
+    }
+
+    &__headings {
+      width: 47%;
+      font-size: 0.6875rem;
+      display: flex;
+    }
+
+    &__sort-icon {
+      width: 1rem;
+      height: 1rem;
+      margin-left: 0.125rem;
+    }
+
+    .name-address-headers,
+    .contact-name-info-headers {
+      display: flex;
+      width: 50%;
+      margin-right: -2.6875rem;
+    }
+  }
+
+  .contact-info-header {
+    width: 64%;
+  }
+}
+.inventory-list__header-item,
+.action-text {
+  font-size: 0.6875rem;
+}
+
+.address-header {
+  margin-left: -0.8125rem;
+}
