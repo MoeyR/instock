@@ -39,55 +39,53 @@ function InventoryList() {
   return (
     <ul className="inventory-list">
       <li className="inventory-list__headings-container">
-        <div className="inventory-list__headers-wrap">
-          <div className="item-category-headers">
-            <div className="inventory-list__headings">
-              <h4 className="inventory-list__header-item">INVENTORY ITEM</h4>
-              <img
-                className="inventory-list__sort-icon"
-                src={sortIcon}
-                alt="sort icon"
-              />
-            </div>
-            <div className="inventory-list__headings inventory-list__category">
-              <h4 className="inventory-list__header-item">CATEGORY</h4>
-              <img
-                className="inventory-list__sort-icon"
-                src={sortIcon}
-                alt="sort icon"
-              />
-            </div>
+        <div className="inventory-list__headings">
+          <h4 className="inventory-list__header-item">INVENTORY ITEM</h4>
+          <img
+            className="inventory-list__sort-icon"
+            src={sortIcon}
+            alt="sort icon"
+          />
+        </div>
+        <div className="inventory-list__headings">
+          <h4 className="inventory-list__header-item">CATEGORY</h4>
+          <img
+            className="inventory-list__sort-icon"
+            src={sortIcon}
+            alt="sort icon"
+          />
+        </div>
+
+        <div className="inventory-list__headings">
+          <h4 className="inventory-list__header-item">STATUS</h4>
+          <img
+            className="inventory-list__sort-icon"
+            src={sortIcon}
+            alt="sort icon"
+          />
+        </div>
+        <div className="qty-warehouse">
+          <div className="inventory-list__headings">
+            <h4 className="inventory-list__header-item">QTY</h4>
+            <img
+              className="inventory-list__sort-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
           </div>
-          <div className="status-qty-headers">
-            <div className="inventory-list__headings">
-              <h4 className="inventory-list__header-item">STATUS</h4>
-              <img
-                className="inventory-list__sort-icon"
-                src={sortIcon}
-                alt="sort icon"
-              />
-            </div>
-            <div className="inventory-list__headings qty-info-header">
-              <h4 className="inventory-list__header-item">QTY</h4>
-              <img
-                className="warehouse-items__sort-icon"
-                src={sortIcon}
-                alt="sort icon"
-              />
-            </div>
-          </div>
-          <div className="inventory-list__headings qty-info-header">
+
+          <div className="inventory-list__headings">
             <h4 className="inventory-list__header-item">WAREHOUSE</h4>
             <img
-              className="warehouse-items__sort-icon"
+              className="inventory-list__sort-icon"
               src={sortIcon}
               alt="sort icon"
             />
           </div>
         </div>
-        <h4 className="inventory-list__headings inventory-list__action">
-          ACTIONS
-        </h4>
+        <div className="inventory-list__headings-action">
+          <h4 className="inventory-list__header-item">ACTIONS</h4>
+        </div>
       </li>
       {inventoryList.map((inventoryItem) => {
         return (

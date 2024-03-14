@@ -2,17 +2,12 @@
 @use "../../styles/partials/mixins" as *;
 
 .inventory-list {
-  &:last-child {
-    @include tablet {
-      border-bottom: none;
-    }
-  }
 
   &__headings-container {
     display: none;
     @include tablet {
-      display: block;
       display: flex;
+      justify-content: space-between;
       flex-direction: row;
       padding: 0.5625rem 2rem;
       color: $slate;
@@ -20,13 +15,11 @@
     }
   }
 
-  &__headers-wrap {
+  &__headings {
     display: flex;
-    width: 100%;
   }
 
-  &__headings {
-    width: 47%;
+   &__headings-action {
     font-size: 0.6875rem;
     display: flex;
   }
@@ -37,23 +30,16 @@
     margin-left: 0.125rem;
   }
 
-  &__header-item,
-  &__action {
+  &__header-item {
     font-size: 0.6875rem;
+    text-align: left;
   }
 
-  &__category {
-    margin-left: -0.8125rem;
-  }
+
 }
 
-.item-category-headers,
-.status-qty-headers {
-  display: flex;
-  width: 50%;
-  margin-right: -2.6875rem;
-}
-
-.qty-info-header {
-  width: 64%;
+.qty-warehouse {
+    display: flex;
+    width: 30%;
+    gap: 40px;
 }
