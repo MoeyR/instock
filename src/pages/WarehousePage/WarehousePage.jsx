@@ -1,35 +1,39 @@
-import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import DeleteModal from "../../components/DeleteModal/DeleteModal";
+
+import "./WarehousePage.scss";
+import searchIcon from "../../assets/icons/search-24px.svg";
+import WarehouseList from "../../components/WarehouseList/WarehouseList";
 
 function WarehousePage() {
-  const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const warehousename = "Washington";
-  const handleClick = async (event) => {
-    setIsModalOpen(true);
-  };
 
-  const handleConfirm = async (event) => {
-    try {
-      // await axios.delete("http://localhost:8080/warehouses/{id}");
-      navigate("/");
-    } catch (error) {
-      console.log(`error is ${error}`);
-    }
-  };
   return (
-    <>
-      <p>Hello WarehousePage!</p>
-      <button onClick={handleClick}>Delete</button>
-      <DeleteModal
-        name={warehousename}
-        isOpen={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-        onConfirm={handleConfirm}
-      />
-    </>
+    <main className="warehouses">
+      {/* ---- Title Section ---- */}
+      <section className="warehouses-title-section-wrap">
+        <h1 className="warehouses__title">Warehouses</h1>
+        <section className="search-button-wrap">
+          <div className="search-bar-wrap">
+            <input
+              className="form-input warehouses__search-bar"
+              type="search"
+              placeholder="Search..."
+            />
+            <img
+              className="warehouses__search-icon"
+              src={searchIcon}
+              alt="search-icon"
+            />
+          </div>
+          <button className="primary-button warehouses__add-button">
+            + Add New Warehouse
+          </button>
+        </section>
+      </section>
+      {/* ---- Lists Section ---- */}
+      <section className="warehouses-list-section">
+        <WarehouseList />
+        
+      </section>
+    </main>
   );
 }
 export default WarehousePage;
