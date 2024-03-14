@@ -6,53 +6,60 @@ import { Link } from "react-router-dom";
 function InventoryListItem({ inventoryItem }) {
   return (
     <li className="inventory-items">
-      <section className="inventory-items__wrap">
-        <div className="name-category">
-          <div className="inventory-items__item-wrap">
-            <h4 className="inventory-items__heading">INVENTORY ITEM</h4>
-            <Link className="link-style inventory-items__detail">
-              <p>{inventoryItem.item_name}</p>
-              <span className="right-arrow"> </span>
-            </Link>
+      <div className="tablet-wrap">
+        <section className="inventory-items__wrap">
+          <div className="name-category">
+            <div className="inventory-items__item-wrap">
+              <h4 className="inventory-items__heading">INVENTORY ITEM</h4>
+              <Link className="link-style inventory-items__detail">
+                <p>{inventoryItem.item_name}</p>
+                <span className="right-arrow"> </span>
+              </Link>
+            </div>
+            <div className="inventory-items__item-wrap">
+              <h4 className="inventory-items__heading">CATEGORY</h4>
+              <p className="inventory-items__detail">
+                {inventoryItem.category}
+              </p>
+            </div>
           </div>
-          <div className="inventory-items__item-wrap">
-            <h4 className="inventory-items__heading">CATEGORY</h4>
-            <p className="inventory-items__detail">{inventoryItem.category}</p>
-          </div>
-        </div>
-        <div className="status-qty-warehouse">
-          <div className="inventory-items__item-wrap">
-            <h4 className="inventory-items__heading">STATUS</h4>
-            <p className="inventory-items__detail">{inventoryItem.status}</p>
-          </div>
+          <div className="status-qty-warehouse">
+            <div className="inventory-items__item-wrap">
+              <h4 className="inventory-items__heading">STATUS</h4>
+              <p className="inventory-items__detail">{inventoryItem.status}</p>
+            </div>
 
-          <div className="inventory-items__item-wrap">
-            <h4 className="inventory-items__heading">QTY</h4>
-            <p className="inventory-items__detail">{inventoryItem.quantity}</p>
+            <div className="quantity-warehouse">
+              <div className="inventory-items__item-wrap">
+                <h4 className="inventory-items__heading">QTY</h4>
+                <p className="inventory-items__detail">
+                  {inventoryItem.quantity}
+                </p>
+              </div>
+            </div>
+            <div className="inventory-items__item-wrap">
+              <h4 className="inventory-items__heading">WAREHOUSE</h4>
+              <p className="inventory-items__detail">
+                {inventoryItem.warehouse_name}
+              </p>
+            </div>
           </div>
+        </section>
 
-          <div className="inventory-items__item-wrap">
-            <h4 className="inventory-items__heading">WAREHOUSE</h4>
-            <p className="inventory-items__detail">
-              {inventoryItem.warehouse_name}
-            </p>
+        {/* icons */}
+        <div className="inventory-items__item-wrap">
+          <div className="inventory-items__icons-wrap">
+            <img
+              className="inventory-items__heading__delete-icon"
+              src={deleteIcon}
+              alt="delete icon"
+            />
+            <img
+              className="inventory-items__heading__edit-icon"
+              src={editIcon}
+              alt="delete icon"
+            />
           </div>
-        </div>
-      </section>
-
-      {/* icons */}
-      <div className="inventory-items__item-wrap">
-        <div className="inventory-items__icons-wrap">
-          <img
-            className="inventory-items__heading__delete-icon"
-            src={deleteIcon}
-            alt="delete icon"
-          />
-          <img
-            className="inventory-items__heading__edit-icon"
-            src={editIcon}
-            alt="delete icon"
-          />
         </div>
       </div>
     </li>

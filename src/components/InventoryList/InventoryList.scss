@@ -5,12 +5,15 @@
   &__headings-container {
     display: none;
     @include tablet {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
       justify-content: space-between;
       flex-direction: row;
       padding: 0.5625rem 2rem;
       color: $slate;
       background-color: $lightgrey;
+      width: 100%;
     }
   }
 
@@ -21,6 +24,8 @@
   &__headings-action {
     font-size: 0.6875rem;
     display: flex;
+    justify-content: right;
+    text-align: right;
   }
 
   &__sort-icon {
