@@ -18,7 +18,11 @@ function WarehousePage() {
               type="search"
               placeholder="Search..."
             />
-            <img className="warehouses__search-icon" src={searchIcon} alt="search-icon" />
+            <img
+              className="warehouses__search-icon"
+              src={searchIcon}
+              alt="search-icon"
+            />
           </div>
           <button className="primary-button warehouses__add-button">
             + Add New Warehouse
@@ -31,26 +35,26 @@ function WarehousePage() {
           {/* list main headings */}
           <li className="warehouses-list__main-headings">
             <div className="warehouse-headers-wrap">
-                <div className="name-address-headers">
-                    <div className="main-headings-texts">
-                        <h4 className="warehouse-headers">WAREHOUSE</h4>
-                        <img className="sort-icon" src={sortIcon} alt="sort-icon"/>
-                    </div>
-                    <div className="main-headings-texts">
-                        <h4 className="warehouse-headers">ADDRESS</h4>
-                        <img className="sort-icon" src={sortIcon} alt="sort-icon"/>
-                    </div>
+              <div className="name-address-headers">
+                <div className="main-headings-texts">
+                  <h4 className="warehouse-headers">WAREHOUSE</h4>
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
                 </div>
-                <div className="contact-name-info-headers">
-                    <div className="main-headings-texts">
-                        <h4 className="warehouse-headers">CONTACT NAME</h4>
-                        <img className="sort-icon" src={sortIcon} alt="sort-icon"/>
-                    </div>
-                    <div className="main-headings-texts contact-info-header">
-                        <h4 className="warehouse-headers">CONTACT INFORMATION</h4>
-                        <img className="sort-icon" src={sortIcon} alt="sort-icon"/>
-                    </div>
+                <div className="main-headings-texts address-header">
+                  <h4 className="warehouse-headers">ADDRESS</h4>
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
                 </div>
+              </div>
+              <div className="contact-name-info-headers">
+                <div className="main-headings-texts">
+                  <h4 className="warehouse-headers">CONTACT NAME</h4>
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
+                </div>
+                <div className="main-headings-texts contact-info-header">
+                  <h4 className="warehouse-headers">CONTACT INFORMATION</h4>
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
+                </div>
+              </div>
             </div>
             <h4 className="main-headings-texts action-text">ACTIONS</h4>
           </li>
@@ -75,7 +79,9 @@ function WarehousePage() {
               <section className="contact-name-info-wrap">
                 <div className="heading-detail-wrap">
                   <h4 className="warehouses-list__heading">CONTACT NAME</h4>
-                  <p className="warehouses-list__detail contact-name">Parmin Aujla</p>
+                  <p className="warehouses-list__detail contact-name">
+                    Parmin Aujla
+                  </p>
                 </div>
                 <div className="heading-detail-wrap">
                   <h4 className="warehouses-list__heading">
@@ -88,8 +94,16 @@ function WarehousePage() {
             </section>
             {/* icons */}
             <section className="icons-wrap">
-              <img className="warehouses-list__delete-icon" src={deleteIcon} alt="delete-icon"/>
-              <img className="warehouses-list__edit-icon" src={editIcon} alt="delete-icon"/>
+              <img
+                className="warehouses-list__delete-icon"
+                src={deleteIcon}
+                alt="delete-icon"
+              />
+              <img
+                className="warehouses-list__edit-icon"
+                src={editIcon}
+                alt="delete-icon"
+              />
             </section>
           </li>
         </ul>

@@ -2,8 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouses {
-  box-shadow: 0 .125rem .3125rem 0 $cloud;
-  border-radius: .125rem;
+  box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
+  border-radius: 0.125rem;
   background-color: $white;
   position: absolute;
   top: 8.0625rem;
@@ -38,7 +38,7 @@
   &__title {
     font-size: 1.625rem;
     line-height: 1.75rem;
-    margin-top: .4rem;
+    margin-top: 0.4rem;
     @include tablet {
       font-size: 1.75rem;
     }
@@ -66,51 +66,51 @@
   }
 
   &__search-bar {
-    padding: 0rem .8125rem;
+    padding: 0rem 0.8125rem;
     width: 100%;
     @include tablet {
       width: 91%;
     }
-    @include desktop{
-        width: 17.375rem;
-        margin-right: 1rem;
+    @include desktop {
+      width: 17.375rem;
+      margin-right: 1rem;
     }
 
     &::placeholder {
-      font-size: .75rem;
+      font-size: 0.75rem;
       @include tablet {
-        font-size: .8125rem;
+        font-size: 0.8125rem;
       }
     }
   }
 
   &__search-icon {
     position: absolute;
-    right: .8125rem;
+    right: 0.8125rem;
     top: 1.4375rem;
     width: 1.4375rem;
 
     @include tablet {
       right: 1.875rem;
-      top: .4375rem;
+      top: 0.4375rem;
       width: 1.5625rem;
     }
   }
 
   &__add-button {
-    font-size: .75rem;
+    font-size: 0.75rem;
     font-weight: 100;
     @include tablet {
-      font-size: .8125rem;
+      font-size: 0.8125rem;
     }
   }
 
   // Lists Section Styles
   .warehouses-list {
-    &:last-child{
-        @include tablet{
-            border-bottom: none;
-        }
+    &:last-child {
+      @include tablet {
+        border-bottom: none;
+      }
     }
     //list main headings
     &__main-headings {
@@ -119,50 +119,52 @@
         display: block;
         display: flex;
         flex-direction: row;
-        padding: .5625rem 2rem;
+        padding: 0.5625rem 2rem;
         color: $slate;
         background-color: $lightgrey;
       }
 
-      .warehouse-headers-wrap{
+      .warehouse-headers-wrap {
         display: flex;
         width: 100%;
 
-        .name-address-headers, .contact-name-info-headers{
-            display: flex;
-            justify-content: space-around;
-            width: 50%;
-            margin-right: -2.6875rem;
+        .name-address-headers,
+        .contact-name-info-headers {
+          display: flex;
+          width: 50%;
+          margin-right: -2.6875rem;
         }
-        
-        .main-headings-texts{
-            width: 50%;
-            font-size: .6875rem;
-            display: flex;
 
-            .sort-icon{
-                width: 1rem;
-                height: 1rem;
-                margin-left: .125rem;
-            }
-        }
-        
-        .contact-info-header{
-            width: 56%;
-        }
-        
-    }
-    .warehouse-headers,.action-text{
-        font-size: .6875rem;
-    }
+        .main-headings-texts {
+          width: 47%;
+          font-size: 0.6875rem;
+          display: flex;
 
-        
+          .sort-icon {
+            width: 1rem;
+            height: 1rem;
+            margin-left: 0.125rem;
+          }
+        }
+
+        .contact-info-header {
+          width: 64%;
+        }
+      }
+      .warehouse-headers,
+      .action-text {
+        font-size: 0.6875rem;
+      }
+
+      .address-header {
+        margin-left: -0.8125rem;
+      }
     }
 
     // warehouses list details
     &__item {
       padding: 1.125rem 1.5rem;
-      border-top: .0625rem solid $cloud;
+      border-top: 0.0625rem solid $cloud;
       display: flex;
       flex-direction: column;
 
@@ -171,7 +173,7 @@
         padding: 1.1875rem 2rem;
         flex-direction: row;
         border-top: none;
-        border-bottom: .0625rem solid $cloud;
+        border-bottom: 0.0625rem solid $cloud;
       }
     }
 
@@ -193,32 +195,31 @@
       @include tablet {
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
         width: 50%;
         margin-right: -2.6875rem;
       }
     }
 
     .heading-detail-wrap {
-      margin-right: .625rem;
-      margin-bottom: .9375rem;
+      margin-right: 0.625rem;
+      margin-bottom: 0.9375rem;
 
       @include tablet {
         justify-content: space-around;
         margin: 0;
-        width: 50%;
+        width: 45%;
       }
     }
 
     .contact-name {
-      @include tablet{
+      @include tablet {
         margin-left: 5%;
       }
     }
 
     &__heading {
       display: block;
-      font-size: .625rem;
+      font-size: 0.625rem;
       color: $slate;
       @include tablet {
         display: none;
@@ -226,13 +227,13 @@
     }
 
     &__detail {
-      font-size: .75rem;
-      margin-top: .125rem;
+      font-size: 0.75rem;
+      margin-top: 0.125rem;
       margin-right: 1.25rem;
       line-height: 1.125rem;
       @include tablet {
-        font-size: .8125rem;
-        width: 80%;
+        font-size: 0.8125rem;
+        width: 93%;
         margin: 0;
       }
     }
@@ -243,16 +244,15 @@
       display: flex;
       align-items: center;
 
-        .right-arrow{
-            display: inline-block;
-            width: 1.1875rem;
-            height: 1.1875rem;
-            margin-left: .1875rem;
-            background-image: url(../../assets/icons/chevron_right-1.5rem.svg);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-      
+      .right-arrow {
+        display: inline-block;
+        width: 1.1875rem;
+        height: 1.1875rem;
+        margin-left: 0.1875rem;
+        background-image: url(../../assets/icons/chevron_right-24px.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
 
     // icons
@@ -270,7 +270,7 @@
       background-size: cover;
       width: 1.4375rem;
       height: 1.4375rem;
-      margin-bottom: .1875rem;
+      margin-bottom: 0.1875rem;
     }
   }
 }
