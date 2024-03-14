@@ -16,8 +16,11 @@ function InventoryList() {
         const response = await axios.get(`${baseUrl}/api/inventory`);
         document.title = "Inventory | InStock";
         setInventoryList(response.data);
+        setDataLoading(false);
       } catch (error) {
         console.error(`error:  ${error}`);
+        setHasError(true);
+        setDataLoading(false);
       }
     };
     fetchInventory();
@@ -36,48 +39,63 @@ function InventoryList() {
   return (
     <ul className="inventory-list">
       <li className="inventory-list__headings-container">
-        <div className="inventory-list__headers">
-          <div className="name-address-headers">
+        <div className="inventory-list__headers-wrap">
+          <div className="item-category-headers">
             <div className="inventory-list__headings">
               <h4 className="inventory-list__header-item">INVENTORY ITEM</h4>
               <img
-                className="warehouse-items__sort-icon"
+                className="inventory-list__sort-icon"
                 src={sortIcon}
-                alt="sort-icon"
+                alt="sort icon"
               />
             </div>
-            <div className="inventory-list__headings address-header">
+            <div className="inventory-list__headings inventory-list__category">
               <h4 className="inventory-list__header-item">CATEGORY</h4>
               <img
-                className="warehouse-items__sort-icon"
+                className="inventory-list__sort-icon"
                 src={sortIcon}
-                alt="sort-icon"
+                alt="sort icon"
               />
             </div>
           </div>
-          <div className="contact-name-info-headers">
+          <div className="status-qty-headers">
             <div className="inventory-list__headings">
               <h4 className="inventory-list__header-item">STATUS</h4>
               <img
-                className="warehouse-items__sort-icon"
+                className="inventory-list__sort-icon"
                 src={sortIcon}
-                alt="sort-icon"
+                alt="sort icon"
               />
             </div>
-            <div className="inventory-list__headings contact-info-header">
+            <div className="inventory-list__headings qty-info-header">
               <h4 className="inventory-list__header-item">QTY</h4>
               <img
                 className="warehouse-items__sort-icon"
                 src={sortIcon}
-                alt="sort-icon"
+                alt="sort icon"
               />
             </div>
           </div>
+          <div className="inventory-list__headings qty-info-header">
+            <h4 className="inventory-list__header-item">WAREHOUSE</h4>
+            <img
+              className="warehouse-items__sort-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
+          </div>
         </div>
-        <h4 className="inventory-list__headings action-text">ACTIONS</h4>
+        <h4 className="inventory-list__headings inventory-list__action">
+          ACTIONS
+        </h4>
       </li>
-      {warehouses.map((warehouse) => {
-        return <WarehouseListItem key={warehouse.id} warehouse={warehouse} />;
+      {inventoryList.map((inventoryItem) => {
+        return (
+          <InventoryListItem
+            key={inventoryItem.id}
+            inventoryItem={inventoryItem}
+          />
+        );
       })}
     </ul>
   );

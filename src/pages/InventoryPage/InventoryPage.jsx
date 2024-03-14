@@ -1,7 +1,7 @@
 import "./inventoryPage.scss";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import InventoryList from "../../components/InventoryList/InventoryList";
+
 
 function InventoryPage() {
 
@@ -10,7 +10,7 @@ function InventoryPage() {
 
   return (
     <>
-      <p>Hello InventoryPage!</p>
+      <InventoryList />
     </>
   );
 }
