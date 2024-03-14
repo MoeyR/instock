@@ -1,24 +1,22 @@
 import './WarehouseEdit.scss'
+import { Link } from 'react-router-dom'
+import arrowBack from '../../assets/icons/arrow_back-24px.svg'
 
 
 function WarehouseEdit(){
     return (
-      <form>
+      <section>
+      <form className='warehouse'>
+        <div className='WarehouseEdit_header'>
+          <Link to="/warehouses" className='warehouseEdit__header-arrow'>
+            <img src={arrowBack} alt={arrowBack} />
+          </Link>
+          <h2 className='warehouseEdit__header-title'>Edit Warehouse</h2>
+        </div>  
         <div>
-          <h2>Edit Warehouse</h2>
-        </div>
-        
-        <div>
-            <div>
-                <h3>Warehouse Details</h3>
-                <label htmlFor='name' >Warehouse Name</label>
-                <input type='text' name='name' id='name' placeholder="Washington" required />
-                <label htmlFor='address'>Street Address</label>
-                <input type='text' name='address' id='address' placeholder="300 Pearl Street SW" required />
-                <label htmlFor='city'>City</label>
-                <input type='text' name='city' id='city' placeholder="Washington" required />
-                <label htmlFor='country'>Country</label>
-                <input type='text' name='country' id='country' placeholder="USA" required />
+            <div className='warehouseEdit__wh-details'>
+                <h3 className='warehouseEdit__wh-heading'>Warehouse Details</h3>
+                
             </div>
              <div>
                 <h3>Contact Details</h3>
@@ -30,13 +28,14 @@ function WarehouseEdit(){
                 <input type='tel' name='phone' id='phone' placeholder="+1(647) 504-0911" required />
                 <label htmlFor='email'>Email</label>
                 <input type='email' id='email' placeholder="glyon@instock.com" required />
-            </div>
-            <div>
-              <button>Cancel</button>
-              <button>Save</button>
-            </div>            
+            </div>          
         </div>
+        <div>
+            <button>Cancel</button>
+            <button>Save</button>
+          </div>  
       </form>
-    )
-}
+      </section>
+    );
+};
 export default WarehouseEdit;
