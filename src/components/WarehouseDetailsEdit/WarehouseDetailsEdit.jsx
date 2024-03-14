@@ -1,7 +1,9 @@
 import "./WarehouseDetailsEdit.scss"
+import ErrorForm from "../ErrorForm/ErrorForm"
 
 function WarehouseDetailsEdit({}) {
     return (
+        <div>
         <div>
             <div>
                 <h2>Warehouse Details</h2>
@@ -16,5 +18,8 @@ function WarehouseDetailsEdit({}) {
 
             </div>
         </div>
+    </div>
     )
 }
+
+export default WarehouseDetailsEdit;

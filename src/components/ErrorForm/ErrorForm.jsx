@@ -9,4 +9,4 @@ function ErrorForm(){
     );
 };
 
-export default ErrorStateForm;
+export default ErrorForm;
