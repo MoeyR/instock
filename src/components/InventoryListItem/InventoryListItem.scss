@@ -129,10 +129,10 @@
   min-width: 9.0625rem;
   @include tablet {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2.5fr 1fr 1fr;
     flex-direction: row;
     align-items: center;
     width: 140%;
-    margin-left: 27%;
+    margin-left: 20%;
   }
 }
