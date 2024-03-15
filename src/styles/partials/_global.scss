@@ -229,18 +229,19 @@ h4 {
 //input boxes
 
 .form-input {
-  height: 36px;
+  height: 2.25rem;
+  width: 100%;
   background-color: $white;
-  border: 1px solid $cloud;
-  border-radius: 20px;
-  padding: 10px 16px;
+  border: .0625rem solid $cloud;
+  border-radius: 1.25rem;
+  padding: .625rem 1rem;
 
   @include tablet {
-    height: 38px;
+    height: 2.375rem;
   }
 
   @include desktop {
-    height: 38px;
+    height: 2.375rem;
   }
 
   &:focus {

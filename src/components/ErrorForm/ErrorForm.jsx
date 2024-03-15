@@ -4,7 +4,7 @@ function ErrorForm(){
     return (
         <div className="error__box">
             <img src={ErrorLogo} alt={ErrorLogo} />
-            <p>Required field</p>
+            <p>This field is required</p>
         </div>
     );
 };

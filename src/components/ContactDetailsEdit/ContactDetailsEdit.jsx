@@ -1,4 +1,4 @@
-import "./ContactDetailEdit.scss"
+import "./ContactDetailsEdit.scss"
 import ErrorForm from "../ErrorForm/ErrorForm"
 
 function ContactDetailsEdit({}) {

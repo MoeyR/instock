@@ -1,7 +1,7 @@
 import './WarehouseEdit.scss'
 import { Link } from 'react-router-dom'
 import WarehouseDetailsEdit from '../../components/WarehouseDetailsEdit/WarehouseDetailsEdit';
-import ContactDetailsEdit from '../../components/ContactDetailEdit/ContactDetailsEdit';
+import ContactDetailsEdit from '../../components/ContactDetailsEdit/ContactDetailsEdit';
 import arrowBack from '../../assets/icons/arrow_back-24px.svg'
 
 
