@@ -24,7 +24,7 @@ function WarehouseList () {
       }
     }
     fetchWarehouses();
-  }, [])
+  }, [warehouses])
 
   
   if (hasError) {

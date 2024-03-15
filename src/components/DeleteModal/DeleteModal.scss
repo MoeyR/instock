@@ -1,4 +1,3 @@
-@use "../../styles/partials/fonts" as *;
 @use '../../styles/partials/colors' as *;
 @use '../../styles/partials/global' as *;
 @use '../../styles/partials/mixins' as *;
@@ -13,46 +12,81 @@
     z-Index: 1000;
 
     @include tablet{
-        width: 600px;
-        height:15rem;
-        padding: 2rem;
-        top: 15%;
-        left: 10%;
+        // width: 42rem; 
+        height: 16.375rem;
+        top: 11.5625rem;
+        width: 88%;
+        left: 6%;
         border-radius: 4px;
+        padding: 1rem 4rem;
     }
 
     @include desktop{
-        top: 20%;
-        left: 25%;
+        width: 42rem;
+        margin-left: -21rem;
+        left: 50%;
     }
 
     &__close{
         position: absolute;
-        right: 0%;
+        right: 1rem;
+        top: 1rem;
+
+    }
+    &__header{
+        margin: 3.75rem 1rem 1rem 1rem;
+        @include tablet{
+        margin-top: 1rem;
+        }
     }
 
     &__text{
-        margin:1rem 0;
+        margin:1rem;
         font-weight: 400;
+    }
+    &__buttonwrapper{
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 0%;
+        right: 5%;
+        margin-bottom: 1rem;
+        width: 90%;
+        box-sizing: border-box;
+
+        @include tablet{
+            width: 88%;
+            justify-content: flex-end;
+            margin-right: 1rem;
+            bottom: 10%;
+        }
     }
 
     &__cancel{
-        position: absolute;
-        bottom: 0%;
-        width: 8rem;
+
+        width: 45%;
+        margin-right: 1rem;
+
         @include tablet{
-            left:65%;
-            width: 5rem;
-        }
+            width: fit-content;
+        } 
     }
     &__delete{
-        position: absolute;
-        left:50%;
-        bottom: 0%;
-        width: 8rem;
+        width: 45%;
         @include tablet{
-            left: 85%;
-            width: 5rem;
-        }
+            width: fit-content; 
+        } 
+    }
+
+    &__backdrop{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(19, 24, 44, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
