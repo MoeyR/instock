@@ -7,29 +7,27 @@ import './WarehouseEdit.scss';
 function WarehouseEdit() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [warehouseName, setWarehouseName] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [contactName, setContactName] = useState('');
-  const [contactPosition, setContactPosition] = useState('');
-  const [contactPhone, setContactPhone] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
+  const [warehouseData, setWarehouseData] = useState({
+    warehouse_name: '',
+    address: '',
+    city: '',
+    country: '',
+    contact_name: '',
+    contact_position: '',
+    contact_phone: '',
+    contact_email: ''
+  });
   const [isLoading, setIsLoading] = useState(true);
+  const [phoneError, setPhoneError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const phoneRegex = /^\+\d{1,3} \(\d{3}\) \d{3}-\d{4}$/;
 
   useEffect(() => {
     const fetchWarehouseData = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/api/warehouses/${id}`);
-        const { warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = response.data;
-        setWarehouseName(warehouse_name);
-        setAddress(address);
-        setCity(city);
-        setCountry(country);
-        setContactName(contact_name);
-        setContactPosition(contact_position);
-        setContactPhone(contact_phone);
-        setContactEmail(contact_email);
+        setWarehouseData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching warehouse data:', error);
@@ -44,24 +42,40 @@ function WarehouseEdit() {
     return <p>Loading...</p>;
   }
 
+  const { warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = warehouseData;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validatePhoneNumber(contact_phone)) {
+      setPhoneError(true);
+      setErrorMessage("Please enter a valid phone number");
+      return;
+    }
+    if (!validateEmail(contact_email)) {
+      setEmailError(true);
+      setErrorMessage("Please enter a valid email");
+      return;
+    }
+
     try {
       await axios.put(`http://localhost:8080/api/warehouses/${id}`, {
-        warehouse_name: warehouseName,
+        warehouse_name,
         address,
         city,
         country,
-        contact_name: contactName,
-        contact_position: contactPosition,
-        contact_phone: contactPhone,
-        contact_email: contactEmail
+        contact_name,
+        contact_position,
+        contact_phone,
+        contact_email
       });
       navigate('/warehouses');
     } catch (error) {
       console.error('Error updating warehouse data:', error);
     }
   };
+
+  const validatePhoneNumber = (value) => phoneRegex.test(value);
+  const validateEmail = (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value);
 
   return (
     <section className="main">
@@ -80,8 +94,8 @@ function WarehouseEdit() {
               <input
                 className="form-input"
                 type="text"
-                value={warehouseName}
-                onChange={(e) => setWarehouseName(e.target.value)}
+                value={warehouse_name}
+                onChange={(e) => setWarehouseData({ ...warehouseData, warehouse_name: e.target.value })}
                 placeholder="Warehouse Name"
               />
             </label>
@@ -91,7 +105,7 @@ function WarehouseEdit() {
                 className="form-input"
                 type="text"
                 value={address}
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={(e) => setWarehouseData({ ...warehouseData, address: e.target.value })}
                 placeholder="Street Address"
               />
             </label>
@@ -101,7 +115,7 @@ function WarehouseEdit() {
                 className="form-input"
                 type="text"
                 value={city}
-                onChange={(e) => setCity(e.target.value)}
+                onChange={(e) => setWarehouseData({ ...warehouseData, city: e.target.value })}
                 placeholder="City"
               />
             </label>
@@ -111,7 +125,7 @@ function WarehouseEdit() {
                 className="form-input"
                 type="text"
                 value={country}
-                onChange={(e) => setCountry(e.target.value)}
+                onChange={(e) => setWarehouseData({ ...warehouseData, country: e.target.value })}
                 placeholder="Country"
               />
             </label>
@@ -123,8 +137,8 @@ function WarehouseEdit() {
               <input
                 className="form-input"
                 type="text"
-                value={contactName}
-                onChange={(e) => setContactName(e.target.value)}
+                value={contact_name}
+                onChange={(e) => setWarehouseData({ ...warehouseData, contact_name: e.target.value })}
                 placeholder="Contact Name"
               />
             </label>
@@ -133,30 +147,38 @@ function WarehouseEdit() {
               <input
                 className="form-input"
                 type="text"
-                value={contactPosition}
-                onChange={(e) => setContactPosition(e.target.value)}
+                value={contact_position}
+                onChange={(e) => setWarehouseData({ ...warehouseData, contact_position: e.target.value })}
                 placeholder="Position"
               />
             </label>
-            <label className="form__labels">
+                        <label className="form__labels">
               <h3 className="label-text">Phone Number</h3>
               <input
-                className="form-input"
+                className={`form-input ${phoneError ? 'error' : ''}`}
                 type="text"
-                value={contactPhone}
-                onChange={(e) => setContactPhone(e.target.value)}
+                value={contact_phone}
+                onChange={(e) => {
+                  setWarehouseData({ ...warehouseData, contact_phone: e.target.value });
+                  setPhoneError(false);
+                }}
                 placeholder="Phone Number"
               />
+              {phoneError && <p className="error-message">Please enter a valid phone number</p>}
             </label>
             <label className="form__labels">
               <h3 className="label-text">Email</h3>
               <input
-                className="form-input"
+                className={`form-input ${emailError ? 'error' : ''}`}
                 type="text"
-                value={contactEmail}
-                onChange={(e) => setContactEmail(e.target.value)}
+                value={contact_email}
+                onChange={(e) => {
+                  setWarehouseData({ ...warehouseData, contact_email: e.target.value });
+                  setEmailError(false);
+                }}
                 placeholder="Email"
               />
+              {emailError && <p className="error-message">Please enter a valid email</p>}
             </label>
           </section>
         </section>
@@ -170,3 +192,5 @@ function WarehouseEdit() {
 }
 
 export default WarehouseEdit;
+  
+
