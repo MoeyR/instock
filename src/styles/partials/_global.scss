@@ -8,7 +8,9 @@
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -20,7 +22,7 @@ a {
   text-decoration: none;
 }
 
-body{
+body {
   background-color: $lightgrey;
 }
 
@@ -268,4 +270,41 @@ h4 {
 
 ::placeholder {
   color: $slate;
+}
+
+//in and out of stock labels
+
+.in-stock {
+  color: $green;
+  background-color: #15846312;
+  text-transform: uppercase;
+  border-radius: 20px;
+  height: 24px;
+  text-align: center;
+  padding: 4px 16px;
+  display: inline-block;
+  width: 75%;
+  @include tablet {
+    height: 26px;
+    max-width: 95px;
+    min-width: 95px;
+  }
+}
+
+.out-of-stock {
+  color: $red;
+  background-color: #c9451512;
+  text-transform: uppercase;
+
+  border-radius: 20px;
+  height: 24px;
+  text-align: center;
+  padding-top: 4px;
+  display: inline-block;
+
+  @include tablet {
+    height: 26px;
+    max-width: 120px;
+    min-width: 120px;
+  }
 }

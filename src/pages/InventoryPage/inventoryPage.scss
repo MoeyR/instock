@@ -1,0 +1,107 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouses {
+  box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
+  border-radius: 0.125rem;
+  background-color: $white;
+  position: absolute;
+  top: 8.0625rem;
+  left: 50%;
+  margin-left: -44%;
+  width: 87%;
+  min-width: 18.375rem;
+
+  @include tablet {
+    top: 5.8125rem;
+    margin-left: -45.5%;
+    width: 91%;
+  }
+  @include desktop {
+    width: 63rem;
+    margin-left: -31.5625rem;
+  }
+
+  // Title Section Styles
+  &-title-section-wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem;
+
+    @include tablet {
+      margin: 2rem 2rem 1.6875rem 2rem;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-size: 1.625rem;
+    line-height: 1.75rem;
+    margin-top: 0.4rem;
+    @include tablet {
+      font-size: 1.75rem;
+    }
+  }
+
+  .search-button-wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  .search-bar-wrap {
+    position: relative;
+  }
+  &__search-bar,
+  &__add-button {
+    margin-top: 1rem;
+
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__search-bar {
+    padding: 0rem 0.8125rem;
+    width: 100%;
+    @include tablet {
+      width: 91%;
+    }
+    @include desktop {
+      width: 17.375rem;
+      margin-right: 1rem;
+    }
+
+    &::placeholder {
+      font-size: 0.75rem;
+      @include tablet {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+
+  &__search-icon {
+    position: absolute;
+    right: 0.8125rem;
+    top: 1.4375rem;
+    width: 1.4375rem;
+
+    @include tablet {
+      right: 1.875rem;
+      top: 0.4375rem;
+      width: 1.5625rem;
+    }
+  }
+
+  &__add-button {
+    font-size: 0.75rem;
+    font-weight: 100;
+    @include tablet {
+      font-size: 0.8125rem;
+    }
+  }
+}

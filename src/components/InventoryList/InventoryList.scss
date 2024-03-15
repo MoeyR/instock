@@ -1,0 +1,47 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-list {
+  &__headings-container {
+    display: none;
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      justify-content: space-between;
+      flex-direction: row;
+      padding: 0.5625rem 2rem;
+      color: $slate;
+      background-color: $lightgrey;
+      width: 100%;
+    }
+  }
+
+  &__headings {
+    display: flex;
+  }
+
+  &__headings-action {
+    font-size: 0.6875rem;
+    display: flex;
+    justify-content: right;
+    text-align: right;
+  }
+
+  &__sort-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.125rem;
+  }
+
+  &__header-item {
+    font-size: 0.6875rem;
+    text-align: left;
+  }
+}
+
+.qty-warehouse {
+  display: flex;
+  width: 30%;
+  gap: 40px;
+}
