@@ -54,21 +54,36 @@ hr {
   }
 
   &__larger {
-    height: 200px;
+    height: 150px;
+    resize: none;
   }
   &__category-select {
+    position: relative;
     height: 36px;
     background-color: $white;
     border: 1px solid $cloud;
     border-radius: 20px;
     padding: 5px 16px;
     width: 100%;
+    appearance: none;
+    background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    padding-right: 40px;
+
+    &:focus {
+      background-image: url("../../assets/icons/blue-arrow.svg");
+    }
   }
 
   &__hr {
     margin: 32px 0;
     width: calc(100% + 64px);
     margin-left: -32px;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__radial-container {
@@ -88,6 +103,34 @@ hr {
     display: flex;
     justify-content: center;
     gap: 32px;
+
+    @include tablet {
+      justify-content: right;
+    }
+  }
+
+  &__tablet-container {
+    @include tablet {
+      display: flex;
+      gap: 50px;
+    }
+  }
+
+  &__left {
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__right {
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__tablet-divider {
+    border-left: 1px solid $cloud;
+    margin: 0 20px;
   }
 }
 
