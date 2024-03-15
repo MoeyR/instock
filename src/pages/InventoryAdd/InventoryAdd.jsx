@@ -1,13 +1,12 @@
 import "./InventoryAdd.scss";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
-
-import { useState, useEffect } from "react";
 import axios from "axios";
 
 function InventoryAdd() {
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
     item_name: "",
@@ -45,6 +44,18 @@ function InventoryAdd() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Validation
+    if (
+      !formData.item_name.trim() ||
+      !formData.description.trim() ||
+      !formData.category.trim() ||
+      !formData.quantity.trim() ||
+      !formData.warehouse_id.trim()
+    ) {
+      setErrorMessage("This field is required");
+      return;
+    }
+
     axios
       .post("http://localhost:8080/api/inventory", formData)
       .then((response) => {
@@ -63,6 +74,7 @@ function InventoryAdd() {
         console.error("Error adding item", error);
       });
   };
+
   const handleClick = () => {
     window.history.back();
   };
@@ -88,11 +100,11 @@ function InventoryAdd() {
       </section>
       <hr />
       <section className="add-item__form-section">
-        <div className="form__tablet-container">
-          <div className="form__left">
-            <h2 className="form__header">Item Details</h2>
+        <h2 className="form__header">Item Details</h2>
 
-            <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="form">
+          <div className="form__tablet-container">
+            <div className="form__left">
               <h3>Item Name</h3>
               <input
                 className="form-input"
@@ -101,7 +113,11 @@ function InventoryAdd() {
                 placeholder="Item Name"
                 value={formData.item_name}
                 onChange={handleInputChange}
-              ></input>
+              />
+              {formData.item_name.trim() === "" && (
+                <p className="error-message">{errorMessage}</p>
+              )}
+
               <h3>Description</h3>
               <textarea
                 className="form-input form__larger"
@@ -110,7 +126,10 @@ function InventoryAdd() {
                 placeholder="Please enter a brief item description..."
                 value={formData.description}
                 onChange={handleInputChange}
-              ></textarea>
+              />
+              {formData.description.trim() === "" && (
+                <p className="error-message">{errorMessage}</p>
+              )}
 
               <h3>Category</h3>
               <select
@@ -126,83 +145,93 @@ function InventoryAdd() {
                   <option key={index}>{singleCategory}</option>
                 ))}
               </select>
-            </form>
-          </div>
-          <hr className="form__hr" />
-          <div class="form__tablet-divider"></div>
-          <div className="form__right">
-            <h2 className="form__header">Item Availability</h2>
-            <h3>Status</h3>
-            <div className="form__radial-container">
-              <div className="radial">
-                <input
-                  className="radio"
-                  type="radio"
-                  name="status"
-                  value="in_stock"
-                  checked={formData.status === "in_stock"}
-                  onChange={handleInputChange}
-                />
-                <label>In Stock</label>
-              </div>
-              <div className="radial">
-                <input
-                  className="radio"
-                  type="radio"
-                  name="status"
-                  value="out_of_stock"
-                  checked={formData.status === "out_of_stock"}
-                  onChange={handleInputChange}
-                />
-                <label>Out of Stock</label>
-              </div>
+              {formData.category.trim() === "" && (
+                <p className="error-message">{errorMessage}</p>
+              )}
             </div>
+            <hr className="form__hr" />
+            <div className="form__tablet-divider"></div>
+            <div className="form__right">
+              <h2 className="form__header">Item Availability</h2>
+              <h3>Status</h3>
+              <div className="form__radial-container">
+                <div className="radial">
+                  <input
+                    className="radio"
+                    type="radio"
+                    name="status"
+                    value="in_stock"
+                    checked={formData.status === "in_stock"}
+                    onChange={handleInputChange}
+                  />
+                  <label>In Stock</label>
+                </div>
+                <div className="radial">
+                  <input
+                    className="radio"
+                    type="radio"
+                    name="status"
+                    value="out_of_stock"
+                    checked={formData.status === "out_of_stock"}
+                    onChange={handleInputChange}
+                  />
+                  <label>Out of Stock</label>
+                </div>
+              </div>
 
-            {formData.status === "in_stock" && (
-              <>
-                <h3>Quantity</h3>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="quantity"
-                  value={formData.quantity}
-                  onChange={handleInputChange}
-                />
-              </>
-            )}
+              {formData.status === "in_stock" && (
+                <>
+                  <h3>Quantity</h3>
+                  <input
+                    className="form-input"
+                    type="text"
+                    name="quantity"
+                    value={formData.quantity}
+                    onChange={handleInputChange}
+                  />
+                  {formData.quantity.trim() === "" && (
+                    <p className="error-message">{errorMessage}</p>
+                  )}
+                </>
+              )}
 
-            <h3>Warehouse</h3>
-            <select
-              className="form__category-select"
-              name="warehouse_id"
-              value={formData.warehouse_id}
-              onChange={handleInputChange}
-            >
-              <option value="">Please select</option>
-              {Object.keys(warehouses).map((warehouseId) => (
-                <option key={warehouseId} value={warehouseId}>
-                  {warehouses[warehouseId]}
-                </option>
-              ))}
-            </select>
+              <h3>Warehouse</h3>
+              <select
+                className="form__category-select"
+                name="warehouse_id"
+                value={formData.warehouse_id}
+                onChange={handleInputChange}
+              >
+                <option value="">Please select</option>
+                {Object.keys(warehouses).map((warehouseId) => (
+                  <option key={warehouseId} value={warehouseId}>
+                    {warehouses[warehouseId]}
+                  </option>
+                ))}
+              </select>
+              {formData.warehouse_id.trim() === "" && (
+                <p className="error-message">{errorMessage}</p>
+              )}
+            </div>
           </div>
-        </div>
 
-        <div className="form__buttons">
-          <button
-            className="secondary-button"
-            type="button"
-            onClick={handleClick}
-          >
-            Cancel
-          </button>
+          <div className="form__buttons">
+            <button
+              className="secondary-button"
+              type="button"
+              onClick={handleClick}
+            >
+              Cancel
+            </button>
 
-          <button className="primary-button" type="submit">
-            + Add Item
-          </button>
-        </div>
+            <button className="primary-button" type="submit">
+              + Add Item
+            </button>
+          </div>
+        </form>
       </section>
     </main>
   );
 }
+
 export default InventoryAdd;
