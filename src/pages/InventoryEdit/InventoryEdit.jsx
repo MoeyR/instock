@@ -2,28 +2,41 @@ import "./InventoryEdit.scss";
 import React, { useState, useEffect } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function InventoryEdit() {
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const { id } = useParams();
 
   const [formData, setFormData] = useState({
-    id: "",
-    item_name: "",
-    description: "",
-    category: "",
-    status: "",
-    quantity: "",
-    warehouse_id: "",
+    id: null,
+    item_name: null,
+    description: null,
+    category: null,
+    status: null,
+    quantity: null,
+    warehouse_id: null,
   });
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/inventory/${formData.id}`)
+      .get(`http://localhost:8080/api/inventories/${id}`)
       .then((response) => {
         const data = response.data;
         setFormData(data);
+        if (data.quantity > 0) {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            status: "in_stock",
+          }));
+        } else {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            status: "out_of_stock",
+          }));
+        }
       })
       .catch((error) => {
         console.error("Error fetching inventory item", error);
@@ -50,18 +63,18 @@ function InventoryEdit() {
       .catch((error) => {
         console.error("Error fetching warehouses", error);
       });
-  }, []);
+  }, [id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Validation
     if (
-      !formData.item_name.trim() ||
-      !formData.description.trim() ||
-      !formData.category.trim() ||
-      !formData.quantity.trim() ||
-      !formData.warehouse_id.trim()
+      !formData.item_name ||
+      !formData.description ||
+      !formData.category ||
+      !formData.quantity ||
+      !formData.warehouse_id
     ) {
       setErrorMessage("All fields are required");
       return;
@@ -83,10 +96,7 @@ function InventoryEdit() {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -102,11 +112,11 @@ function InventoryEdit() {
       </section>
       <hr />
       <section className="edit-item__form-section">
-        <h2 className="form__header">Item Details</h2>
-
         <form onSubmit={handleSubmit} className="form">
           <div className="form__tablet-container">
             <div className="form__left">
+              <h2 className="form__header">Item Details</h2>
+
               <h3>Item Name</h3>
               <input
                 className="form-input"
@@ -116,7 +126,7 @@ function InventoryEdit() {
                 value={formData.item_name}
                 onChange={handleInputChange}
               />
-              {errorMessage && !formData.item_name.trim() && (
+              {formData.item_name === "" && (
                 <p className="error-message">{errorMessage}</p>
               )}
 
@@ -129,7 +139,7 @@ function InventoryEdit() {
                 value={formData.description}
                 onChange={handleInputChange}
               />
-              {errorMessage && !formData.description.trim() && (
+              {formData.description === "" && (
                 <p className="error-message">{errorMessage}</p>
               )}
 
@@ -141,13 +151,13 @@ function InventoryEdit() {
                 onChange={handleInputChange}
               >
                 <option value="">Please Select</option>
-                {categories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
+                {[
+                  ...new Set(categories.map((category) => category.category)),
+                ].map((singleCategory, index) => (
+                  <option key={index}>{singleCategory}</option>
                 ))}
               </select>
-              {errorMessage && !formData.category.trim() && (
+              {formData.category === "" && (
                 <p className="error-message">{errorMessage}</p>
               )}
             </div>
@@ -191,7 +201,7 @@ function InventoryEdit() {
                     value={formData.quantity}
                     onChange={handleInputChange}
                   />
-                  {errorMessage && !formData.quantity.trim() && (
+                  {formData.quantity === "" && (
                     <p className="error-message">{errorMessage}</p>
                   )}
                 </>
@@ -211,7 +221,7 @@ function InventoryEdit() {
                   </option>
                 ))}
               </select>
-              {errorMessage && !formData.warehouse_id.trim() && (
+              {formData.warehouse_id === "" && (
                 <p className="error-message">{errorMessage}</p>
               )}
             </div>
@@ -227,7 +237,7 @@ function InventoryEdit() {
             </button>
 
             <button className="primary-button" type="submit">
-              Save Changes
+              Save
             </button>
           </div>
         </form>
