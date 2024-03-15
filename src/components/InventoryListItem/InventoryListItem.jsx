@@ -26,17 +26,24 @@ function InventoryListItem({ inventoryItem }) {
           <div className="status-qty-warehouse">
             <div className="inventory-items__item-wrap">
               <h4 className="inventory-items__heading">STATUS</h4>
-              <p className="inventory-items__detail">{inventoryItem.status}</p>
+              <p
+                className={`inventory-items__detail ${
+                  inventoryItem.status === "In Stock"
+                    ? "in-stock"
+                    : "out-of-stock"
+                }`}
+              >
+                {inventoryItem.status}
+              </p>
             </div>
 
-            <div className="quantity-warehouse">
-              <div className="inventory-items__item-wrap">
-                <h4 className="inventory-items__heading">QTY</h4>
-                <p className="inventory-items__detail">
-                  {inventoryItem.quantity}
-                </p>
-              </div>
+            <div className="inventory-items__item-wrap">
+              <h4 className="inventory-items__heading">QTY</h4>
+              <p className="inventory-items__detail">
+                {inventoryItem.quantity}
+              </p>
             </div>
+
             <div className="inventory-items__item-wrap">
               <h4 className="inventory-items__heading">WAREHOUSE</h4>
               <p className="inventory-items__detail">

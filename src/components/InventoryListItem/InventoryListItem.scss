@@ -10,6 +10,9 @@
   }
 }
 .inventory-items {
+  &:hover {
+    background-color: $cloud;
+  }
   &__wrap {
     display: flex;
     flex-direction: row;
@@ -126,20 +129,10 @@
   min-width: 9.0625rem;
   @include tablet {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr 1fr;
     flex-direction: row;
     align-items: center;
     width: 140%;
-    margin-left: 30%;
-  }
-}
-
-.quantity-warehouse {
-  @include tablet {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    flex-direction: row;
-    align-items: center;
-    margin-left: 41%;
+    margin-left: 27%;
   }
 }
