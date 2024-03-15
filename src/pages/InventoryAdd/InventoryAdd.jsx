@@ -14,14 +14,9 @@ function InventoryAdd() {
     description: "",
     category: "",
     status: "",
-    quantity: 0,
+    quantity: "",
     warehouse_id: "",
   });
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   useEffect(() => {
     axios
@@ -51,17 +46,25 @@ function InventoryAdd() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8080/api/inventory")
+      .post("http://localhost:8080/api/inventory", formData)
       .then((response) => {
         console.log("Item added successfully");
       })
       .catch((error) => {
-        console.error("Error adding item");
+        console.error("Error adding item", error);
       });
   };
 
   const handleClick = () => {
     window.history.back();
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
   return (
@@ -85,6 +88,8 @@ function InventoryAdd() {
             type="text"
             name="item_name"
             placeholder="Item Name"
+            value={formData.item_name}
+            onChange={handleInputChange}
           ></input>
           <h3>Description</h3>
           <textarea
@@ -92,6 +97,8 @@ function InventoryAdd() {
             type="text"
             name="description"
             placeholder="Please enter a brief item description..."
+            value={formData.description}
+            onChange={handleInputChange}
           ></textarea>
 
           <h3>Category</h3>
@@ -158,7 +165,7 @@ function InventoryAdd() {
           >
             <option value="">Please select</option>
             {Object.keys(warehouses).map((warehouseId) => (
-              <option key={warehouseId} value={warehouseId.warehouse_name}>
+              <option key={warehouseId} value={warehouseId}>
                 {warehouses[warehouseId]}
               </option>
             ))}
