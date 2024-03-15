@@ -39,49 +39,52 @@ function InventoryList() {
   return (
     <ul className="inventory-list">
       <li className="inventory-list__headings-container">
-        <div className="inventory-list__headings">
-          <h4 className="inventory-list__header-item">INVENTORY ITEM</h4>
-          <img
-            className="inventory-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="inventory-list__headings">
-          <h4 className="inventory-list__header-item">CATEGORY</h4>
-          <img
-            className="inventory-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-
-        <div className="inventory-list__headings">
-          <h4 className="inventory-list__header-item">STATUS</h4>
-          <img
-            className="inventory-list__sort-icon"
-            src={sortIcon}
-            alt="sort icon"
-          />
-        </div>
-        <div className="qty-warehouse">
+        <div class="item-category">
           <div className="inventory-list__headings">
-            <h4 className="inventory-list__header-item">QTY</h4>
+            <h4 className="inventory-list__header-item">INVENTORY ITEM</h4>
             <img
               className="inventory-list__sort-icon"
               src={sortIcon}
               alt="sort icon"
             />
           </div>
-
           <div className="inventory-list__headings">
-            <h4 className="inventory-list__header-item">WAREHOUSE</h4>
+            <h4 className="inventory-list__header-item">CATEGORY</h4>
             <img
               className="inventory-list__sort-icon"
               src={sortIcon}
               alt="sort icon"
             />
           </div>
+        </div>
+
+        <div className="status-qty-warehouse">
+          <div className="inventory-list__headings">
+            <h4 className="inventory-list__header-item">STATUS</h4>
+            <img
+              className="inventory-list__sort-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
+          </div>
+          
+            <div className="inventory-list__headings">
+              <h4 className="inventory-list__header-item">QTY</h4>
+              <img
+                className="inventory-list__sort-icon"
+                src={sortIcon}
+                alt="sort icon"
+              />
+            </div>
+
+            <div className="inventory-list__headings">
+              <h4 className="inventory-list__header-item">WAREHOUSE</h4>
+              <img
+                className="inventory-list__sort-icon"
+                src={sortIcon}
+                alt="sort icon"
+              />
+            </div>
         </div>
         <div className="inventory-list__headings-action">
           <h4 className="inventory-list__header-item">ACTIONS</h4>
