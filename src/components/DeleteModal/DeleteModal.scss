@@ -3,7 +3,6 @@
 @use '../../styles/partials/mixins' as *;
 
 .deletemodal {
-    box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
     padding:1rem;
     height: 100%;
     position: fixed;
@@ -14,7 +13,7 @@
 
     @include tablet{
         width: 600px;
-        height:15rem;
+        height:20rem;
         padding: 2rem;
         top: 15%;
         left: 10%;
@@ -28,31 +27,48 @@
 
     &__close{
         position: absolute;
-        right: 0%;
+        right: 1rem;
+        top: 1rem;
+
+    }
+    &__header{
+        margin: 3.75rem 1rem 1rem 1rem;
     }
 
     &__text{
-        margin:1rem 0;
+        margin:1rem;
         font-weight: 400;
     }
 
     &__cancel{
         position: absolute;
         bottom: 0%;
-        width: 8rem;
+        width: 8rem !important;
         @include tablet{
-            left:65%;
+            left:60%;
             width: 5rem;
-        }
+        } 
     }
     &__delete{
         position: absolute;
         left:50%;
         bottom: 0%;
-        width: 8rem;
+        width: 8rem !important;
         @include tablet{
-            left: 85%;
-            width: 5rem;
-        }
+            left: 80%;
+            width: 5rem; 
+        } 
+    }
+
+    &__backdrop{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(19, 24, 44, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

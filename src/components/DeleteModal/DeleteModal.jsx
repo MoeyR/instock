@@ -1,5 +1,6 @@
 import "./DeleteModal.scss";
 import close from "../../assets/icons/close-24px.svg";
+import axios from "axios";
 
 function DeleteModal({ name, id, isOpen, onCancel, onConfirm }) {
   if (!isOpen) return null; // 如果isOpen为false，不渲染模态
@@ -21,7 +22,7 @@ function DeleteModal({ name, id, isOpen, onCancel, onConfirm }) {
           className="deletemodal__close"
           onClick={onCancel}
         />
-        <h1>Delete {name} warehouse?</h1>
+        <h1 className="deletemodal__header">Delete {name} warehouse?</h1>
         <p className="p1 deletemodal__text">
           Please confirm that you’d like to delete the {name} from the list of
           warehouses. You won’t be able to undo this action.
