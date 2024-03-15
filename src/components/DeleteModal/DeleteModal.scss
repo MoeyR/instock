@@ -12,17 +12,19 @@
     z-Index: 1000;
 
     @include tablet{
-        width: 600px;
-        height:20rem;
-        padding: 2rem;
-        top: 15%;
-        left: 10%;
+        // width: 42rem; 
+        height: 16.375rem;
+        top: 11.5625rem;
+        width: 88%;
+        left: 6%;
         border-radius: 4px;
+        padding: 1rem 4rem;
     }
 
     @include desktop{
-        top: 20%;
-        left: 25%;
+        width: 42rem;
+        margin-left: -21rem;
+        left: 50%;
     }
 
     &__close{
@@ -33,30 +35,46 @@
     }
     &__header{
         margin: 3.75rem 1rem 1rem 1rem;
+        @include tablet{
+        margin-top: 1rem;
+        }
     }
 
     &__text{
         margin:1rem;
         font-weight: 400;
     }
-
-    &__cancel{
+    &__buttonwrapper{
+        display: flex;
+        justify-content: space-around;
         position: absolute;
         bottom: 0%;
-        width: 8rem !important;
+        right: 5%;
+        margin-bottom: 1rem;
+        width: 90%;
+        box-sizing: border-box;
+
         @include tablet{
-            left:60%;
-            width: 5rem;
+            width: 88%;
+            justify-content: flex-end;
+            margin-right: 1rem;
+            bottom: 10%;
+        }
+    }
+
+    &__cancel{
+
+        width: 45%;
+        margin-right: 1rem;
+
+        @include tablet{
+            width: fit-content;
         } 
     }
     &__delete{
-        position: absolute;
-        left:50%;
-        bottom: 0%;
-        width: 8rem !important;
+        width: 45%;
         @include tablet{
-            left: 80%;
-            width: 5rem; 
+            width: fit-content; 
         } 
     }
 

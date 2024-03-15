@@ -18,9 +18,9 @@ function WarehouseListItem({ warehouse }) {
   };
 
   const handleConfirm = async (event) => {
-      setTimeout(() => {
-        navigate("/warehouses");
-    }, 2000);
+    //   setTimeout(() => {
+    //     navigate("/warehouses");
+    // }, 2000);
     closeModal();
   };
 

@@ -27,20 +27,22 @@ function DeleteModal({ name, id, isOpen, onCancel, onConfirm }) {
           Please confirm that you’d like to delete the {name} from the list of
           warehouses. You won’t be able to undo this action.
         </p>
-        <button
-          className="secondary-button deletemodal__cancel"
-          onClick={() => {
-            onCancel(); //close modal
-          }}
-        >
-          Cancel
-        </button>
-        <button
-          className="delete-button deletemodal__delete"
-          onClick={handleDelete}
-        >
-          Delete
-        </button>
+        <div className="deletemodal__buttonwrapper">
+          <button
+            className="secondary-button deletemodal__cancel"
+            onClick={() => {
+              onCancel(); //close modal
+            }}
+          >
+            Cancel
+          </button>
+          <button
+            className="delete-button deletemodal__delete"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );
