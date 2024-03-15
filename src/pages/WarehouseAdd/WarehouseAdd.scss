@@ -1,95 +1,144 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.main{
-    box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
-    border-radius: 0.125rem;
-    background-color: $white;
-    position: absolute;
-    top: 8.0625rem;
-    left: 50%;
-    margin-left: -46%;
-    width: 92%;
-    min-width: 18.375rem;
-    z-index: 1;
+.main {
+  box-shadow: 0 2px 5px 0 $cloud;
+  border-radius: 2px;
+  background-color: $white;
+  position: absolute;
+  top: 129px;
+  left: 50%;
+  margin-left: -46%;
+  width: 92%;
+  min-width: 294px;
+  z-index: 1;
+
+  @include tablet {
+    top: 93px;
+    margin-left: -45.5%;
+    width: 91%;
+  }
+  @include desktop {
+    width: 1008px;
+    margin-left: -505px;
+  }
+
+  //----- title section ----- //
+  .title-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 2.25rem 1.5rem 1.4375rem;
 
     @include tablet {
-      top: 5.8125rem;
-      margin-left: -45.5%;
-      width: 91%;
-    }
-    @include desktop {
-      width: 63rem;
-      margin-left: -31.5625rem;
+      border-bottom: 0.0625rem solid $cloud;
     }
 
-    //----- title section ----- //
-    .title-section{
+    &__back-icon {
+      margin-left: -0.125rem;
+    }
+
+    &__page-title {
+      font-size: 1.625rem;
+      margin-left: 0.3125rem;
+
+      @include tablet {
+        font-size: 1.875rem;
+        line-height: 2.125rem;
+      }
+    }
+  }
+
+  // ----- form ----- //
+  .form {
+    width: 100%;
+
+    &-wrap {
       display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      padding: 36px 24px 23px;
+      flex-direction: column;
 
-      &__back-icon{
-        margin-left: -2px;
+      @include tablet {
+        flex-direction: row;
       }
-
-       &__page-title{
-        font-size: 26px;
-        margin-left: 5px;
-       }
     }
 
+    .subtitle {
+      font-size: 1.1875rem;
+      line-height: 1.25rem;
+      margin-bottom: 1.9375rem;
 
-    // ----- form ----- //
-    .form{
+      @include tablet {
+        font-size: 1.4375rem;
+        line-height: 2.1875rem;
+      }
+    }
 
-      &-wrap{
-        display: flex;
-        flex-direction: column;
+    &__label-inputs-wrap {
+      border-top: 0.0625rem solid $cloud;
+      padding: 1.5rem;
+      @include tablet {
+        width: 50%;
+        border-top: none;
+        padding: 0;
+        margin: 1.8125rem 0;
+        padding: 0 2rem;
+      }
+    }
 
-        @include tablet{
-          flex-direction: row;
-        }
+    &__label-inputs-wrap:first-of-type {
+      border-right: 0.0625rem solid $cloud;
+    }
+
+    &__labels {
+      display: block;
+      margin-top: 1.375rem;
+      @include tablet {
+        margin-top: 1.5625rem;
       }
 
-      .subtitle{
-        font-size: 19px;
-        line-height: 20px;
-        margin-bottom: 31px;
-      }
-
-      &__label-inputs-wrap{
-        border-top: 1px solid $cloud;
-        padding: 24px;
-      }
-
-      &__labels{
-        display: block;
-        margin-top: 22px;
-
-        .label-text{
-          font-weight: 600;
-          margin-bottom: 4px;
-          line-height: 17px;
-        }
-      }
-
-      &-input{
-        width: 100%;
-      }
-
-      &__buttons{
-        @include flex-space-between;
-        background-color: $lightgrey;
-        padding: 16px 24px;
-
-        .secondary-button, .primary-button{
-          width: 47%;
-        }
-        .primary-button{
-          font-weight: 500;
+      .label-text {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        line-height: 1.0625rem;
+        @include tablet {
+          margin-bottom: 0.375rem;
         }
       }
     }
+
+    &-input {
+      width: 100%;
+    }
+
+    &__buttons {
+      @include flex-space-between;
+      background-color: $lightgrey;
+      padding: 1rem 1.5rem;
+      @include tablet {
+        justify-content: flex-end;
+      }
+
+      .secondary-button,
+      .primary-button {
+        width: 47%;
+      }
+
+      .secondary-button {
+        @include tablet {
+          width: 4.5rem;
+          padding: 0 0.375rem;
+          font-size: 0.8125rem;
+          margin-right: 16px;
+        }
+      }
+
+      .primary-button {
+        font-weight: 500;
+        @include tablet {
+          width: 8.625rem;
+          font-size: 0.8125rem;
+        }
+      }
+    }
+  }
 }
