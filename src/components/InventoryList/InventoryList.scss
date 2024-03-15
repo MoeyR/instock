@@ -5,8 +5,7 @@
   &__headings-container {
     display: none;
     @include tablet {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      display: flex;
 
       justify-content: space-between;
       flex-direction: row;
