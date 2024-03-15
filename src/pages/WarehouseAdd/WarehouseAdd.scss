@@ -2,25 +2,25 @@
 @use "../../styles/partials/mixins" as *;
 
 .main {
-  box-shadow: 0 2px 5px 0 $cloud;
-  border-radius: 2px;
+  box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
+  border-radius: 0.125rem;
   background-color: $white;
   position: absolute;
-  top: 129px;
+  top: 8.0625rem;
   left: 50%;
   margin-left: -46%;
   width: 92%;
-  min-width: 294px;
+  min-width: 18.375rem;
   z-index: 1;
 
   @include tablet {
-    top: 93px;
+    top: 9.1875rem;
     margin-left: -45.5%;
     width: 91%;
   }
   @include desktop {
-    width: 1008px;
-    margin-left: -505px;
+    width: 63rem;
+    margin-left: -31.5625rem;
   }
 
   //----- title section ----- //
@@ -110,12 +110,51 @@
       width: 100%;
     }
 
-    &__buttons {
-      @include flex-space-between;
+    .error-message {
+      font-size: 0.75rem;
+      color: $red;
+
+      // &::before {
+      //   content: "";
+      //   width: 14px;
+      //   height: 14px;
+      //   //display: inline-block;
+      //   margin-right: 5px;
+      //   background-image: url(../../assets/icons/error-24px.svg);
+      //   background-size: contain;
+      // }
+    }
+
+    .button-message-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       background-color: $lightgrey;
       padding: 1rem 1.5rem;
+
       @include tablet {
+        padding: 1rem 2rem;
+        flex-direction: row;
         justify-content: flex-end;
+      }
+
+      .success-message {
+        font-size: 0.875rem;
+        margin-bottom: 0.375rem;
+        color: $green;
+        @include tablet {
+          margin-right: 10.625rem;
+        }
+      }
+
+      .buttons-wrap {
+        @include flex-space-between;
+        width: 100%;
+
+        @include tablet {
+          width: fit-content;
+          justify-content: baseline;
+        }
       }
 
       .secondary-button,
@@ -128,7 +167,7 @@
           width: 4.5rem;
           padding: 0 0.375rem;
           font-size: 0.8125rem;
-          margin-right: 16px;
+          margin-right: 1rem;
         }
       }
 
