@@ -9,7 +9,7 @@ function InventoryListItem({ inventoryItem }) {
       <div className="tablet-wrap">
         <section className="inventory-items__wrap">
           <div className="name-category">
-            <div className="inventory-items__item-wrap">
+            <div className="inventory-items__item-wrap item-link-wrap">
               <h4 className="inventory-items__heading">INVENTORY ITEM</h4>
               <Link className="link-style inventory-items__detail">
                 <p>{inventoryItem.item_name}</p>
@@ -24,7 +24,7 @@ function InventoryListItem({ inventoryItem }) {
             </div>
           </div>
           <div className="status-qty-warehouse">
-            <div className="inventory-items__item-wrap">
+            <div className="inventory-items__item-wrap status-wrap">
               <h4 className="inventory-items__heading">STATUS</h4>
               <p
                 className={`inventory-items__detail ${
@@ -54,20 +54,18 @@ function InventoryListItem({ inventoryItem }) {
         </section>
 
         {/* icons */}
-        <div className="inventory-items__item-wrap">
           <div className="inventory-items__icons-wrap">
             <img
-              className="inventory-items__heading__delete-icon"
+              className="delete-icon"
               src={deleteIcon}
               alt="delete icon"
             />
             <img
-              className="inventory-items__heading__edit-icon"
+              className="edit-icon"
               src={editIcon}
               alt="delete icon"
             />
           </div>
-        </div>
       </div>
     </li>
   );

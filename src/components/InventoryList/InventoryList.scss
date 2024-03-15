@@ -20,11 +20,74 @@
     display: flex;
   }
 
+
+  .inventory-header-wrap{
+    @include tablet{
+      display: flex;
+      width: 89%;
+    }
+    @include desktop{
+      width: 100%;
+    }
+    
+  }
+
+  .name-category{
+    @include tablet{
+      flex-direction: row;
+      width: 50%;
+      justify-content: flex-start;
+      align-items: center;
+      margin-right: -24px;
+    }
+    
+
+    .name-wrap{
+      @include tablet{
+        width: 47%;
+      }
+    }
+
+    .category-wrap{
+      @include tablet{
+        width: 125px;
+      }
+    }
+  }
+
+  .status-qty-warehouse {
+    @include tablet {
+      
+    flex-direction: row;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+
+    }
+
+    .status-wrap {
+      @include tablet{
+        width: 240px;
+      }
+  }
+
+  }
+
+
+  .qty-wrap, .warehouse-wrap{
+    @include tablet{
+      width: 125px;
+
+    }
+  }
+
+
   &__headings-action {
     font-size: 0.6875rem;
     display: flex;
     justify-content: right;
     text-align: right;
+    width: 90px;
   }
 
   &__sort-icon {
