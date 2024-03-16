@@ -27,7 +27,15 @@ function InventoryEdit() {
       .get(`http://localhost:8080/api/inventories/${id}`)
       .then((response) => {
         const data = response.data;
-        setFormData(data);
+        setFormData({
+          id: data.id,
+          item_name: data.item_name,
+          description: data.description,
+          category: data.category,
+          status: data.status,
+          quantity: data.quantity,
+          warehouse_id: data.warehouse_id,
+        });
 
         //prefill radials if quantity is greater than 0
         if (data.quantity > 0) {
@@ -84,7 +92,6 @@ function InventoryEdit() {
       return;
     }
 
-
     //send put
     axios
       .put(`http://localhost:8080/api/inventories/${id}`, formData)
@@ -104,6 +111,8 @@ function InventoryEdit() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  console.log(formData);
 
   return (
     <main className="edit-item">
