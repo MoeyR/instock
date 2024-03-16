@@ -1,13 +1,11 @@
 import "./WarehouseListItem.scss";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useState } from "react";
-import DeleteModal from "../DeleteModal/DeleteModal";
-import axios from "axios";
+import DeleteModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
 
 function WarehouseListItem({ warehouse }) {
-  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -18,9 +16,6 @@ function WarehouseListItem({ warehouse }) {
   };
 
   const handleConfirm = async (event) => {
-    //   setTimeout(() => {
-    //     navigate("/warehouses");
-    // }, 2000);
     closeModal();
   };
 
@@ -76,7 +71,7 @@ function WarehouseListItem({ warehouse }) {
           <img
             className="warehouses-list__edit-icon"
             src={editIcon}
-            alt="delete-icon"
+            alt="edit-icon"
           />
         </section>
       </li>

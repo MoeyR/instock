@@ -1,6 +1,7 @@
 import "./inventoryPage.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import InventoryList from "../../components/InventoryList/InventoryList";
+import { Link } from "react-router-dom";
 
 function InventoryPage() {
   return (
@@ -21,9 +22,11 @@ function InventoryPage() {
               alt="search-icon"
             />
           </div>
-          <button className="primary-button warehouses__add-button">
-            + Add New Item
-          </button>
+          <Link to="/inventory/add">
+            <button className="primary-button warehouses__add-button">
+              + Add New Item
+            </button>
+          </Link>
         </section>
       </section>
       {/* ---- Lists Section ---- */}
