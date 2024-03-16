@@ -1,0 +1,138 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+// warehouses list details
+
+.tablet-wrap {
+  @include tablet {
+    display: flex;
+    border-bottom: 0.0625rem solid $cloud;
+  }
+}
+.inventory-items {
+  &:hover {
+    background-color: $cloud;
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 0.0625rem solid $cloud;
+    padding: 12px;
+
+    @include tablet {
+      border-top: none;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item-wrap {
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      @include flex-space-between;
+      padding: 12px 22px;
+      flex-direction: row;
+      border-top: none;
+    }
+  }
+
+  &__item-wrap {
+    @include tablet {
+      justify-content: space-around;
+      margin: 0;
+    }
+  }
+
+  &__heading {
+    display: block;
+    font-size: 0.625rem;
+    color: $slate;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__detail {
+    font-size: 0.75rem;
+    margin-top: 0.125rem;
+    margin-right: 1.25rem;
+    line-height: 1.125rem;
+
+    @include tablet {
+      font-size: 0.8125rem;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  // icons
+  &__icons-wrap {
+    @include flex-space-between;
+    width: 100%;
+    padding: 12px;
+    @include tablet {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+
+  &__delete-icon,
+  &__edit-icon {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1.4375rem;
+    height: 1.4375rem;
+    margin-bottom: 0.1875rem;
+  }
+}
+
+.right-arrow {
+  display: inline-block;
+  width: 1.1875rem;
+  height: 1.1875rem;
+  margin-left: 0.1875rem;
+  background-image: url(../../assets/icons/chevron_right-24px.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.link-style {
+  color: $indigo;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.name-category {
+  display: flex;
+  flex-direction: column;
+  min-width: 9.0625rem;
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    width: 130%;
+  }
+}
+
+.status-qty-warehouse {
+  display: flex;
+  flex-direction: column;
+  min-width: 9.0625rem;
+  @include tablet {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    flex-direction: row;
+    align-items: center;
+    width: 140%;
+    margin-left: 27%;
+  }
+}
