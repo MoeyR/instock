@@ -17,11 +17,8 @@ function WarehouseEdit() {
     contact_phone: '',
     contact_email: ''
   });
-  const [isLoading, setIsLoading] = useState(true);
-  const [phoneError, setPhoneError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const phoneRegex = /^\+\d{1,3} \(\d{3}\) \d{3}-\d{4}$/;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchWarehouseData = async () => {
@@ -38,44 +35,53 @@ function WarehouseEdit() {
     fetchWarehouseData();
   }, [id]);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  const { warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = warehouseData;
-
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validatePhoneNumber(contact_phone)) {
-      setPhoneError(true);
-      setErrorMessage("Please enter a valid phone number");
+  e.preventDefault();
+  const { id, ...requestData } = warehouseData; 
+    // Form validation
+    if (
+      !warehouse_name.trim() ||
+      !address.trim() ||
+      !city.trim() ||
+      !country.trim() ||
+      !contact_name.trim() ||
+      !contact_position.trim() ||
+      !contact_phone.trim() ||
+      !contact_email.trim()
+    ) {
+      setErrorMessage('All fields are required');
       return;
     }
-    if (!validateEmail(contact_email)) {
-      setEmailError(true);
-      setErrorMessage("Please enter a valid email");
+
+    const phoneFormat = /^\+\d{1,3} \(\d{3}\) \d{3}-\d{4}$/;
+    const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!phoneFormat.test(contact_phone)) {
+      setErrorMessage('Phone number must be in the format +1 (123) 456-7890');
       return;
     }
+
+    if (!emailFormat.test(contact_email)) {
+      setErrorMessage('Please enter a valid email address');
+      return;
+    }
+
+    // Clear error message if form is valid
+    setErrorMessage('');
 
     try {
-      await axios.put(`http://localhost:8080/api/warehouses/${id}`, {
-        warehouse_name,
-        address,
-        city,
-        country,
-        contact_name,
-        contact_position,
-        contact_phone,
-        contact_email
-      });
+      await axios.put(`http://localhost:8080/api/warehouses/${id}`, requestData);
       navigate('/warehouses');
     } catch (error) {
       console.error('Error updating warehouse data:', error);
     }
   };
 
-  const validatePhoneNumber = (value) => phoneRegex.test(value);
-  const validateEmail = (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  const { warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = warehouseData;
 
   return (
     <section className="main">
@@ -86,6 +92,7 @@ function WarehouseEdit() {
         <h1 className="title-section__page-title">Edit Warehouse</h1>
       </section>
       <form className="form" onSubmit={handleSubmit}>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <section className="form-wrap">
           <section className="form__label-inputs-wrap">
             <h2 className="subtitle">Warehouse Details</h2>
@@ -98,6 +105,7 @@ function WarehouseEdit() {
                 onChange={(e) => setWarehouseData({ ...warehouseData, warehouse_name: e.target.value })}
                 placeholder="Warehouse Name"
               />
+              {errorMessage && !warehouse_name.trim() && <p className="error-message">This field is required</p>}
             </label>
             <label className="form__labels">
               <h3 className="label-text">Street Address</h3>
@@ -108,6 +116,7 @@ function WarehouseEdit() {
                 onChange={(e) => setWarehouseData({ ...warehouseData, address: e.target.value })}
                 placeholder="Street Address"
               />
+              {errorMessage && !address.trim() && <p className="error-message">This field is required</p>}
             </label>
             <label className="form__labels">
               <h3 className="label-text">City</h3>
@@ -118,6 +127,7 @@ function WarehouseEdit() {
                 onChange={(e) => setWarehouseData({ ...warehouseData, city: e.target.value })}
                 placeholder="City"
               />
+              {errorMessage && !city.trim() && <p className="error-message">This field is required</p>}
             </label>
             <label className="form__labels">
               <h3 className="label-text">Country</h3>
@@ -128,6 +138,7 @@ function WarehouseEdit() {
                 onChange={(e) => setWarehouseData({ ...warehouseData, country: e.target.value })}
                 placeholder="Country"
               />
+              {errorMessage && !country.trim() && <p className="error-message">This field is required</p>}
             </label>
           </section>
           <section className="form__label-inputs-wrap">
@@ -141,6 +152,7 @@ function WarehouseEdit() {
                 onChange={(e) => setWarehouseData({ ...warehouseData, contact_name: e.target.value })}
                 placeholder="Contact Name"
               />
+              {errorMessage && !contact_name.trim() && <p className="error-message">This field is required</p>}
             </label>
             <label className="form__labels">
               <h3 className="label-text">Position</h3>
@@ -151,34 +163,31 @@ function WarehouseEdit() {
                 onChange={(e) => setWarehouseData({ ...warehouseData, contact_position: e.target.value })}
                 placeholder="Position"
               />
+              {errorMessage && !contact_position.trim() && <p className="error-message">This field is required</p>}
             </label>
-                        <label className="form__labels">
+            <label className="form__labels">
               <h3 className="label-text">Phone Number</h3>
               <input
-                className={`form-input ${phoneError ? 'error' : ''}`}
+                className="form-input"
                 type="text"
                 value={contact_phone}
-                onChange={(e) => {
-                  setWarehouseData({ ...warehouseData, contact_phone: e.target.value });
-                  setPhoneError(false);
-                }}
+                onChange={(e) => setWarehouseData({ ...warehouseData, contact_phone: e.target.value })}
                 placeholder="Phone Number"
               />
-              {phoneError && <p className="error-message">Please enter a valid phone number</p>}
+              {errorMessage && !contact_phone.trim() && <p className="error-message">This field is required</p>}
+              {/* {errorMessage && !phoneFormat.test(contact_phone) && <p className="error-message">Phone number must be in the format +1 (123) 456-7890</p>} */}
             </label>
             <label className="form__labels">
               <h3 className="label-text">Email</h3>
               <input
-                className={`form-input ${emailError ? 'error' : ''}`}
+                className="form-input"
                 type="text"
                 value={contact_email}
-                onChange={(e) => {
-                  setWarehouseData({ ...warehouseData, contact_email: e.target.value });
-                  setEmailError(false);
-                }}
+                onChange={(e) => setWarehouseData({ ...warehouseData, contact_email: e.target.value })}
                 placeholder="Email"
               />
-              {emailError && <p className="error-message">Please enter a valid email</p>}
+              {errorMessage && !contact_email.trim() && <p className="error-message">This field is required</p>}
+              {/* {errorMessage && !emailFormat.test(contact_email) && <p className="error-message">Please enter a valid email address</p>} */}
             </label>
           </section>
         </section>
@@ -192,5 +201,3 @@ function WarehouseEdit() {
 }
 
 export default WarehouseEdit;
-  
-
