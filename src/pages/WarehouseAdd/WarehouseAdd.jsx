@@ -298,13 +298,20 @@ function WarehouseAdd() {
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message">This field is required</p>
                   </div>
                 )}
                 {phoneNumber.trim() && !phoneFormat.test(phoneNumber) && (
-                  <p className="error-message">
-                    Phone number: must be 10 digits, with no space
-                  </p>
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">
+                      Phone number: must be 10 digits, with no space
+                    </p>
+                  </div>
                 )}
               </div>
             </label>
@@ -319,8 +326,19 @@ function WarehouseAdd() {
                   placeholder="Email"
                   onChange={handleEmailChange}
                 />
+                {!email.trim() &&
+                  errorMessage && ( // Check if email is empty and error message exists
+                    <div className="form__error-wrapper">
+                      <img
+                        className="error-icon"
+                        src={errorIcon}
+                        alt="Error Icon"
+                      />
+                      <p className="error-message">This field is required</p>
+                    </div>
+                  )}
                 {email.trim() &&
-                  !emailFormat.test(email) && ( // Check if email is not empty
+                  !emailFormat.test(email) && ( // Check if email is not empty and format is invalid
                     <div className="form__error-wrapper">
                       <img
                         className="error-icon"
