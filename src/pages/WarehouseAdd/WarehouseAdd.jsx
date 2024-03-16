@@ -319,16 +319,19 @@ function WarehouseAdd() {
                   placeholder="Email"
                   onChange={handleEmailChange}
                 />
-                {!email.trim() && !emailFormat.test(email) && (
-                  <div className="form__error-wrapper">
-                    <img
-                      className="error-icon"
-                      src={errorIcon}
-                      alt="Error Icon"
-                    />
-                    <p className="error-message">Please enter a valid email</p>
-                  </div>
-                )}
+                {email.trim() &&
+                  !emailFormat.test(email) && ( // Check if email is not empty
+                    <div className="form__error-wrapper">
+                      <img
+                        className="error-icon"
+                        src={errorIcon}
+                        alt="Error Icon"
+                      />
+                      <p className="error-message">
+                        Please enter a valid email
+                      </p>
+                    </div>
+                  )}
               </div>
             </label>
           </section>
