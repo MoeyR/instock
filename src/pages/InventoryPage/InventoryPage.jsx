@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function InventoryPage() {
   return (
-    <main className="warehouses">
+    <main className="inventory-container">
       {/* ---- Title Section ---- */}
       <section className="warehouses-title-section-wrap">
         <h1 className="warehouses__title">Inventory</h1>

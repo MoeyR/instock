@@ -2,13 +2,15 @@
 import "./WarehousePage.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
+import { Link } from "react-router-dom";
 
 function WarehousePage() {
 
   return (
-    <main className="warehouses">
+    <section className="warehouses">
+
       {/* ---- Title Section ---- */}
-      <section className="warehouses-title-section-wrap">
+      <section className="warehouses-title-section-wrap page-title-section">
         <h1 className="warehouses__title">Warehouses</h1>
         <section className="search-button-wrap">
           <div className="search-bar-wrap">
@@ -23,17 +25,21 @@ function WarehousePage() {
               alt="search-icon"
             />
           </div>
-          <button className="primary-button warehouses__add-button">
-            + Add New Warehouse
-          </button>
+          <Link to="/warehouses/add">
+            <button className="primary-button warehouses__add-button">
+              + Add New Warehouse
+            </button>
+          </Link>
         </section>
       </section>
       {/* ---- Lists Section ---- */}
-      <section className="warehouses-list-section">
+      <section className="main-contents-section">
         <WarehouseList />
         
       </section>
-    </main>
+
+
+    </section>
   );
 }
 export default WarehousePage;

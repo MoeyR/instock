@@ -307,3 +307,46 @@ h4 {
     min-width: 120px;
   }
 }
+
+
+// Page Title Section Styles
+.page-title-section {
+  background-color: #ffffff;
+    position: absolute;
+    top: 107px;
+    left: 49.5%;
+    margin-left: -43%;
+    width: 87%;
+    min-width: 18.375rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-bottom: 1px solid $cloud;
+    border-radius: 0.125rem;
+    box-shadow: 0 -1px 4px 0 $cloud;
+
+  @include tablet {
+    top: 5.8125rem;
+    margin-left: -45.5%;
+    width: 91%;
+    margin: 2rem 1.6875rem 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @include desktop {
+    width: 63rem;
+    margin-left: -31.5625rem;
+  }
+}
+
+// Main Contents Section Styles (container for ul)
+.main-contents-section{
+  margin-top: 131px;
+  width: 87%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 $cloud;
+  border-radius: 0.125rem;
+  @include tablet{
+    margin-top: 0;
+  }
+}
