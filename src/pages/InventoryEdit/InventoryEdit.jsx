@@ -91,6 +91,7 @@ function InventoryEdit() {
     ) {
       setErrorMessage("All fields are required");
     }
+ 
 
     console.log(formData);
 
@@ -109,13 +110,17 @@ function InventoryEdit() {
     window.history.back();
   };
 
-const handleInputChange = (event) => {
-  const { name, value } = event.target;
-  setFormData((prevFormData) => ({
-    ...prevFormData,
-    [name]: value,
-  }));
-};
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    const updatedValue =
+      name === "warehouse_id" && value !== "" ? parseInt(value) : value;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: updatedValue,
+    }));
+  };
 
   return (
     <main className="edit-item">
