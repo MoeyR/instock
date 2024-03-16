@@ -10,23 +10,39 @@ function WarehouseItemList({ warehouseId }) {
   const [hasError, setHasError] = useState(false);
   const baseUrl = "http://localhost:8080";
 
-  useEffect(() => {
-    const fetchInventory = async () => {
-      try {
-        const response = await axios.get(
-          `${baseUrl}/api/inventory?warehouse_id=${warehouseId}`
-        );
-        document.title = "Inventory | InStock";
-        setInventoryList(response.data);
-        setDataLoading(false);
-      } catch (error) {
-        console.error(`error:  ${error}`);
-        setHasError(true);
-        setDataLoading(false);
-      }
-    };
-    fetchInventory();
-  }, [warehouseId]);
+  const warehouseNameToIdMap = {
+    "Manhattan": 1,
+    "Washington": 2,
+    "Jersey": 3,
+    "SF": 4,
+    "Santa Monica": 5,
+    "Seattle": 6,
+    "Miami": 7,
+    "Boston": 8,
+  };
+
+ useEffect(() => {
+   const fetchInventory = async () => {
+     try {
+       const response = await axios.get(`${baseUrl}/api/inventory`);
+
+       const mappedInventory = response.data.map((item) => ({
+         ...item,
+         warehouse_id: warehouseNameToIdMap[item.warehouse_name],
+       }));
+
+       setInventoryList(mappedInventory);
+       setDataLoading(false);
+     } catch (error) {
+       console.error(`Error fetching inventory data: ${error}`);
+       setHasError(true);
+       setDataLoading(false);
+     }
+   };
+   fetchInventory();
+ }, []);
+
+  console.log(inventoryList)
 
   if (hasError) {
     return (
@@ -90,15 +106,15 @@ function WarehouseItemList({ warehouseId }) {
 
         {/* inventory list items */}
       </li>
-      {inventoryList.map((inventoryItem) => {
-        return (
+      {inventoryList
+        .filter((inventoryItem) => inventoryItem.warehouse_id === warehouseId)
+        .map((inventoryItem) => (
           <WarehouseItemListItem
             key={inventoryItem.id}
             inventoryItem={inventoryItem}
-            warehouseId={warehouseId}
+            warehouseId={warehouseId} // Ensure warehouseId is passed here
           />
-        );
-      })}
+        ))}
     </ul>
   );
 }

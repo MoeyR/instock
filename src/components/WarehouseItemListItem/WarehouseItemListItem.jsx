@@ -20,9 +20,8 @@ function WarehouseItemListItem({ inventoryItem, warehouseId }) {
   };
 
     if (inventoryItem.warehouse_id !== warehouseId) {
-      return null;
+      return null; 
     }
-
 
   return (
     <>
