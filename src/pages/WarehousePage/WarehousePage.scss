@@ -56,6 +56,10 @@
 
   .search-bar-wrap {
     position: relative;
+    @include tablet{
+      width: 186px;
+      margin-right: 16px;
+    }
   }
   &__search-bar,
   &__add-button {
@@ -103,6 +107,9 @@
     font-weight: 100;
     @include tablet {
       font-size: 0.8125rem;
+    }
+    &:hover{
+      cursor: pointer;
     }
   }
 

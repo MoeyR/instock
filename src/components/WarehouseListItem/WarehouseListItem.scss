@@ -8,7 +8,9 @@
         border-top: 0.0625rem solid $cloud;
         display: flex;
         flex-direction: column;
-    
+        &:hover{
+          background-color: $cloud;
+        }
         @include tablet {
           @include flex-space-between;
           padding: 1.1875rem 2rem;
@@ -86,7 +88,9 @@
         font-weight: 600;
         display: flex;
         align-items: center;
-    
+        &:hover{
+          text-decoration: underline;
+        }
         .right-arrow {
           display: inline-block;
           width: 1.1875rem;
@@ -114,6 +118,9 @@
         width: 1.4375rem;
         height: 1.4375rem;
         margin-bottom: 0.1875rem;
+        &:hover{
+          cursor: pointer;
+        }
       }
    }
   
