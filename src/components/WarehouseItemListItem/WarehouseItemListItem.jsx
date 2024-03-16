@@ -19,6 +19,11 @@ function WarehouseItemListItem({ inventoryItem, warehouseId }) {
     closeModal();
   };
 
+    if (inventoryItem.warehouse_id !== warehouseId) {
+      return null;
+    }
+
+
   return (
     <>
       <li className="inventory-items">
