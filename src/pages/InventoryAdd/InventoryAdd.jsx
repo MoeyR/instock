@@ -55,7 +55,7 @@ function InventoryAdd() {
       setErrorMessage("This field is required");
       return;
     }
-
+    console.log(formData);
     axios
       .post("http://localhost:8080/api/inventory", formData)
       .then((response) => {
