@@ -1,12 +1,12 @@
-import "./DeleteModal.scss";
+import "./DeleteInventoryModal.scss";
 import close from "../../assets/icons/close-24px.svg";
 import axios from "axios";
 
-function DeleteModal({ name, id, isOpen, onCancel, onConfirm }) {
+function DeleteInventoryModal({ name, id, isOpen, onCancel, onConfirm }) {
   if (!isOpen) return null; // 如果isOpen为false，不渲染模态
   const handleDelete = async (event) => {
     try {
-      await axios.delete(`http://localhost:8080/api/warehouses/${id}`);
+      await axios.delete(`http://localhost:8080/api/inventories/${id}`);
       onConfirm();
     } catch (error) {
       console.log(`error is ${error}`);
@@ -22,10 +22,10 @@ function DeleteModal({ name, id, isOpen, onCancel, onConfirm }) {
           className="deletemodal__close"
           onClick={onCancel}
         />
-        <h1 className="deletemodal__header">Delete {name} warehouse?</h1>
+        <h1 className="deletemodal__header">Delete {name} inventory item?</h1>
         <p className="p1 deletemodal__text">
-          Please confirm that you’d like to delete the {name} from the list of
-          warehouses. You won’t be able to undo this action.
+          Please confirm that you’d like to delete the {name} from the inventory list.
+          You won’t be able to undo this action.
         </p>
         <div className="deletemodal__buttonwrapper">
           <button
@@ -47,4 +47,4 @@ function DeleteModal({ name, id, isOpen, onCancel, onConfirm }) {
     </div>
   );
 }
-export default DeleteModal;
+export default DeleteInventoryModal;

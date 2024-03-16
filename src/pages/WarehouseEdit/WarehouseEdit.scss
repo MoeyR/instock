@@ -1,0 +1,193 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.main {
+    box-shadow: 0 2px 5px 0 $cloud;
+    border-radius: 2px;
+    background-color: $white;
+    position: absolute;
+    top: 129px;
+    left: 50%;
+    margin-left: -46%;
+    width: 92%;
+    min-width: 294px;
+    z-index: 1;
+
+    @include tablet {
+        top: 93px;
+        margin-left: -45.5%;
+        width: 91%;
+    }
+
+    @include desktop {
+        width: 1008px;
+        margin-left: -505px;
+    }
+
+    //----- title section ----- //
+    .title-section {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        padding: 2.25rem 1.5rem 1.4375rem;
+
+        @include tablet {
+            border-bottom: 0.0625rem solid $cloud;
+        }
+
+        &__back-icon {
+            margin-left: -0.125rem;
+        }
+
+        &__page-title {
+            font-size: 1.625rem;
+            margin-left: 0.3125rem;
+
+            @include tablet {
+                font-size: 1.875rem;
+                line-height: 2.125rem;
+            }
+        }
+    }
+
+    // ----- form ----- //
+    .form {
+        width: 100%;
+
+        &-wrap {
+            display: flex;
+            flex-direction: column;
+
+            @include tablet {
+                flex-direction: row;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.1875rem;
+            line-height: 1.25rem;
+            margin-bottom: 1.9375rem;
+
+            @include tablet {
+                font-size: 1.4375rem;
+                line-height: 2.1875rem;
+            }
+        }
+
+        &__label-inputs-wrap {
+            border-top: 0.0625rem solid $cloud;
+            padding: 1.5rem;
+
+            @include tablet {
+                width: 50%;
+                border-top: none;
+                padding: 0;
+                margin: 1.8125rem 0;
+                padding: 0 2rem;
+            }
+        }
+
+        &__label-inputs-wrap:first-of-type {
+            border-right: 0.0625rem solid $cloud;
+        }
+
+        &__error{ 
+            &-container {
+            position: relative;
+        }
+
+            &-wrapper {
+            position: absolute;
+            top: 100%;
+            display: flex;
+            align-items: center;
+            margin-top: -1rem;
+        }
+
+    }
+        
+    .error-icon {
+        margin-right: 5px;
+    }
+        
+    .error-message {
+        margin: 0;
+    }
+
+        &__labels {
+            display: block;
+            margin-top: 1.375rem;
+
+            @include tablet {
+                margin-top: 1.5625rem;
+            }
+
+            .label-text {
+                font-weight: 600;
+                margin-bottom: 0.25rem;
+                line-height: 1.0625rem;
+
+                @include tablet {
+                    margin-bottom: 0.375rem;
+                }
+            }
+        }
+
+        &-input {
+            width: 100%;
+        }
+
+        &__buttons {
+            @include flex-space-between;
+            background-color: $lightgrey;
+            padding: 1rem 1.5rem;
+
+            @include tablet {
+                justify-content: flex-end;
+            }
+
+            .secondary-button,
+            .primary-button {
+                width: 47%;
+            }
+
+            .secondary-button {
+                @include tablet {
+                    width: 4.5rem;
+                    padding: 0 0.375rem;
+                    font-size: 0.8125rem;
+                    margin-right: 16px;
+                }
+            }
+
+            .primary-button {
+                font-weight: 500;
+
+                @include tablet {
+                    width: 8.625rem;
+                    font-size: 0.8125rem;
+                }
+            }
+        }
+    }
+}
+.form-error__container {
+    position: relative;
+}
+
+.form-error__wrapper {
+    position: absolute;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: -1rem;
+}
+
+.error-icon {
+    margin-right: 5px;
+    /* Adjust as needed */
+}
+
+// .error-message {
+//     margin: 0;
+// }
