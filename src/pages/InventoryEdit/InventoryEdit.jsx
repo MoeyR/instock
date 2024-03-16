@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function InventoryEdit() {
+  const navigate = useNavigate();
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -91,7 +93,6 @@ function InventoryEdit() {
     ) {
       setErrorMessage("All fields are required");
     }
- 
 
     console.log(formData);
 
@@ -100,6 +101,7 @@ function InventoryEdit() {
       .put(`http://localhost:8080/api/inventories/${id}`, formData)
       .then((response) => {
         console.log("Item updated successfully");
+        navigate("/inventory");
       })
       .catch((error) => {
         console.error("Error updating item", error);
