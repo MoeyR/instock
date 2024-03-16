@@ -4,7 +4,7 @@ import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import errorIcon from "../../assets/icons/error-24px.svg";
+import errorIcon from "../../assets/icons/error-24px.svg";
 
 function WarehouseAdd() {
   const BASE_URL = "http://localhost:8080";
@@ -139,72 +139,94 @@ function WarehouseAdd() {
             <h2 className="subtitle">Warehouse Details</h2>
             <label className="form__labels">
               <h3 className="label-text">Warehouse Name</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="warehouseName"
-                id="warehouseName"
-                placeholder="Warehouse Name"
-                onChange={handleWarehouseNameChange}
-              />
-              <div>
-                {warehouseName.trim() === "" && (
-                  <p
-                    className={`${
-                      warehouseName.trim() === "" ? "error-message" : ""
-                    }`}
-                  >
-                    {/* <img className="error-icon" src={errorIcon} alt="Error Icon" /> */}
-                    {errorMessage}
-                  </p>
+              <div className="form__error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="warehouseName"
+                  id="warehouseName"
+                  placeholder="Warehouse Name"
+                  onChange={handleWarehouseNameChange}
+                />
+                {warehouseName.trim() === "" && errorMessage && (
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
                 )}
               </div>
             </label>
+
             <label className="form__labels" htmlFor="address">
               <h3 className="label-text">Street Address</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="address"
-                id="address"
-                placeholder="Street Address"
-                onChange={handleAddressChange}
-              />
-              <div>
-                {address.trim() === "" && (
-                  <p className="error-message">{errorMessage}</p>
+              <div className="form__error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="Street Address"
+                  onChange={handleAddressChange}
+                />
+                {address.trim() === "" && errorMessage && (
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
                 )}
               </div>
             </label>
             <label className="form__labels" htmlFor="city">
               <h3 className="label-text">City</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="city"
-                id="city"
-                placeholder="City"
-                onChange={handleCityChange}
-              />
-              <div>
-                {city.trim() === "" && (
-                  <p className="error-message">{errorMessage}</p>
+              <div className="form__error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="City"
+                  onChange={handleCityChange}
+                />
+                {city.trim() === "" && errorMessage && (
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
                 )}
               </div>
             </label>
             <label className="form__labels" htmlFor="country">
               <h3 className="label-text">Country</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="country"
-                id="country"
-                placeholder="Country"
-                onChange={handleCountryChange}
-              />
-              <div>
-                {country.trim() === "" && (
-                  <p className="error-message">{errorMessage}</p>
+              <div className="form__error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="country"
+                  id="country"
+                  placeholder="Country"
+                  onChange={handleCountryChange}
+                />
+                {country.trim() === "" && errorMessage && (
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
                 )}
               </div>
             </label>
@@ -213,50 +235,71 @@ function WarehouseAdd() {
           <section className="form__label-inputs-wrap">
             <h2 className="subtitle">Contact Details</h2>
             <label className="form__labels" htmlFor="contactName">
-              <h3 className="label-text">Contact Name</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="contactName"
-                id="contactName"
-                placeholder="Contact Name"
-                onChange={handleContactNameChange}
-              />
-              <div>
-                {contactName.trim() === "" && (
-                  <p className="error-message">{errorMessage}</p>
+              <div className="form__error-container">
+                <h3 className="label-text">Contact Name</h3>
+                <input
+                  className="form-input"
+                  type="text"
+                  name="contactName"
+                  id="contactName"
+                  placeholder="Contact Name"
+                  onChange={handleContactNameChange}
+                />
+                {contactName.trim() === "" && errorMessage && (
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
                 )}
               </div>
             </label>
             <label className="form__labels" htmlFor="position">
               <h3 className="label-text">Position</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="position"
-                id="position"
-                placeholder="Position"
-                onChange={handlePositionChange}
-              />
-              <div>
-                {position.trim() === "" && (
-                  <p className="error-message">{errorMessage}</p>
+              <div className="form__error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="position"
+                  id="position"
+                  placeholder="Position"
+                  onChange={handlePositionChange}
+                />
+                {position.trim() === "" && errorMessage && (
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
                 )}
               </div>
             </label>
             <label className="form__labels" htmlFor="phoneNumber">
               <h3 className="label-text">Phone Number</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="phoneNumber"
-                id="phoneNumber"
-                placeholder="Phone Number"
-                onChange={handlePhoneChange}
-              />
-              <div>
+              <div className="form__error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  placeholder="Phone Number"
+                  onChange={handlePhoneChange}
+                />
                 {!phoneNumber.trim() && errorMessage && (
-                  <p className="error-message">{errorMessage}</p>
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
                 )}
                 {phoneNumber.trim() && !phoneFormat.test(phoneNumber) && (
                   <p className="error-message">
@@ -267,20 +310,24 @@ function WarehouseAdd() {
             </label>
             <label className="form__labels" htmlFor="email">
               <h3 className="label-text">Email</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="email"
-                id="email"
-                placeholder="Email"
-                onChange={handleEmailChange}
-              />
-              <div>
-                {!email.trim() && errorMessage && (
-                  <p className="error-message">{errorMessage}</p>
-                )}
-                {email.trim() && !emailFormat.test(email) && (
-                  <p className="error-message">Please enter a valid email</p>
+              <div className="form__error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  onChange={handleEmailChange}
+                />
+                {!email.trim() && !emailFormat.test(email) && (
+                  <div className="form__error-wrapper">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">Please enter a valid email</p>
+                  </div>
                 )}
               </div>
             </label>

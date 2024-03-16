@@ -88,6 +88,27 @@
     &__label-inputs-wrap:first-of-type {
       border-right: 0.0625rem solid $cloud;
     }
+    &__error {
+      &-container {
+        position: relative;
+      }
+    
+      &-wrapper {
+        position: absolute;
+        top: 100%;
+        display: flex;
+        align-items: center;
+        margin-top: -1rem;
+        }   
+    }
+    
+  .error-icon {
+    margin-right: 5px;
+  }
+    
+  .error-message {
+    margin: 0;
+  }
 
     &__labels {
       display: block;
