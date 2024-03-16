@@ -20,13 +20,16 @@ function InventoryEdit() {
     warehouse_name: "",
   });
 
+  //fetch data
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/api/inventories/${id}`)
       .then((response) => {
         const data = response.data;
-        console.log("Inventory data:", data);
         setFormData(data);
+
+        //prefill radials if quantity is greater than 0
         if (data.quantity > 0) {
           setFormData((prevFormData) => ({
             ...prevFormData,
@@ -43,6 +46,8 @@ function InventoryEdit() {
         console.error("Error fetching inventory item:", error);
       });
 
+    //fetch categories
+
     axios
       .get("http://localhost:8080/api/inventory")
       .then((response) => {
@@ -51,6 +56,8 @@ function InventoryEdit() {
       .catch((error) => {
         console.error("Error fetching inventory data:", error);
       });
+
+    //fetch warehouse names
 
     axios
       .get("http://localhost:8080/api/warehouses")
@@ -65,7 +72,7 @@ function InventoryEdit() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Validation
+    // validation
     if (
       !formData.item_name ||
       !formData.description ||
@@ -77,8 +84,9 @@ function InventoryEdit() {
       return;
     }
 
+    //send put
     axios
-      .put(`http://localhost:8080/api/inventory/${formData.id}`, formData)
+      .put(`http://localhost:8080/api/inventories/${id}`, formData)
       .then((response) => {
         console.log("Item updated successfully");
       })
