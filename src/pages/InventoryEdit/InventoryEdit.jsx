@@ -17,7 +17,7 @@ function InventoryEdit() {
     category: "",
     status: "",
     quantity: "",
-    warehouse_name: "",
+    warehouse_id: "",
   });
 
   //fetch data
@@ -78,11 +78,12 @@ function InventoryEdit() {
       !formData.description ||
       !formData.category ||
       !formData.quantity ||
-      !formData.warehouse_name
+      !formData.warehouse_id
     ) {
       setErrorMessage("All fields are required");
       return;
     }
+
 
     //send put
     axios
@@ -195,7 +196,6 @@ function InventoryEdit() {
                   <label>Out of Stock</label>
                 </div>
               </div>
-
               {formData.status === "in_stock" && (
                 <>
                   <h3>Quantity</h3>
@@ -211,22 +211,21 @@ function InventoryEdit() {
                   )}
                 </>
               )}
-
               <h3>Warehouse</h3>
               <select
                 className="form__category-select"
-                name="warehouse_name"
-                value={formData.warehouse_name}
+                name="warehouse_id"
+                value={formData.warehouse_id}
                 onChange={handleInputChange}
               >
                 <option value="">Please select</option>
                 {warehouses.map((warehouse) => (
-                  <option key={warehouse.id} value={warehouse.warehouse_name}>
+                  <option key={warehouse.id} value={warehouse.id}>
                     {warehouse.warehouse_name}
                   </option>
                 ))}
               </select>
-              {formData.warehouse_name === "" && (
+              {formData.warehouse_id === "" && (
                 <p className="error-message">{errorMessage}</p>
               )}
             </div>
