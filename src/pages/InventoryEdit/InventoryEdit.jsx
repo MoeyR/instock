@@ -11,13 +11,13 @@ function InventoryEdit() {
   const { id } = useParams();
 
   const [formData, setFormData] = useState({
-    id: null,
-    item_name: null,
-    description: null,
-    category: null,
-    status: null,
-    quantity: null,
-    warehouse_id: null,
+    id: "",
+    item_name: "",
+    description: "",
+    category: "",
+    status: "",
+    quantity: "",
+    warehouse_name: "",
   });
 
   useEffect(() => {
@@ -25,6 +25,7 @@ function InventoryEdit() {
       .get(`http://localhost:8080/api/inventories/${id}`)
       .then((response) => {
         const data = response.data;
+        console.log("Inventory data:", data);
         setFormData(data);
         if (data.quantity > 0) {
           setFormData((prevFormData) => ({
@@ -39,7 +40,7 @@ function InventoryEdit() {
         }
       })
       .catch((error) => {
-        console.error("Error fetching inventory item", error);
+        console.error("Error fetching inventory item:", error);
       });
 
     axios
@@ -48,20 +49,16 @@ function InventoryEdit() {
         setCategories(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching inventory");
+        console.error("Error fetching inventory data:", error);
       });
 
     axios
       .get("http://localhost:8080/api/warehouses")
       .then((response) => {
-        const warehouseMap = {};
-        response.data.forEach((warehouse) => {
-          warehouseMap[warehouse.id] = warehouse.warehouse_name;
-        });
-        setWarehouses(warehouseMap);
+        setWarehouses(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching warehouses", error);
+        console.error("Error fetching warehouses information:", error);
       });
   }, [id]);
 
@@ -74,7 +71,7 @@ function InventoryEdit() {
       !formData.description ||
       !formData.category ||
       !formData.quantity ||
-      !formData.warehouse_id
+      !formData.warehouse_name
     ) {
       setErrorMessage("All fields are required");
       return;
@@ -210,18 +207,18 @@ function InventoryEdit() {
               <h3>Warehouse</h3>
               <select
                 className="form__category-select"
-                name="warehouse_id"
-                value={formData.warehouse_id}
+                name="warehouse_name"
+                value={formData.warehouse_name}
                 onChange={handleInputChange}
               >
                 <option value="">Please select</option>
-                {Object.keys(warehouses).map((warehouseId) => (
-                  <option key={warehouseId} value={warehouseId}>
-                    {warehouses[warehouseId]}
+                {warehouses.map((warehouse) => (
+                  <option key={warehouse.id} value={warehouse.warehouse_name}>
+                    {warehouse.warehouse_name}
                   </option>
                 ))}
               </select>
-              {formData.warehouse_id === "" && (
+              {formData.warehouse_name === "" && (
                 <p className="error-message">{errorMessage}</p>
               )}
             </div>
