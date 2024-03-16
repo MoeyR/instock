@@ -71,7 +71,7 @@ function WarehouseListItem({ warehouse }) {
           <img
             className="warehouses-list__edit-icon"
             src={editIcon}
-            alt="delete-icon"
+            alt="edit-icon"
           />
         </section>
       </li>

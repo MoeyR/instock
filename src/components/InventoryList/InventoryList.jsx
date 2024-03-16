@@ -24,7 +24,7 @@ function InventoryList() {
       }
     };
     fetchInventory();
-  }, []);
+  }, [inventoryList]);
 
   if (hasError) {
     return (
