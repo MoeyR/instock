@@ -326,16 +326,14 @@ h4 {
     box-shadow: 0 -1px 4px 0 $cloud;
 
   @include tablet {
-    top: 5.8125rem;
-    margin-left: -45.5%;
-    width: 91%;
-    margin: 2rem 1.6875rem 2rem;
     flex-direction: row;
+    padding: 1.29rem 1.5rem;
     justify-content: space-between;
+    border-bottom: none;
   }
   @include desktop {
     width: 63rem;
-    margin-left: -31.5625rem;
+    margin-left: -498px;
   }
 }
 
@@ -347,6 +345,9 @@ h4 {
   box-shadow: 0 2px 5px 0 $cloud;
   border-radius: 0.125rem;
   @include tablet{
-    margin-top: 0;
+    margin-top: -1px;
+  }
+  @include desktop{
+    width: 63rem;
   }
 }
