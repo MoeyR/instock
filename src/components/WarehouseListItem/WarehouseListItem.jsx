@@ -68,11 +68,13 @@ function WarehouseListItem({ warehouse }) {
             alt="delete-icon"
             onClick={openModal}
           />
-          <img
-            className="warehouses-list__edit-icon"
-            src={editIcon}
-            alt="edit-icon"
-          />
+          <Link to={`/warehouses/${warehouse.id}/edit`}>
+            <img
+              className="warehouses-list__edit-icon"
+              src={editIcon}
+              alt="edit-icon"
+            />
+          </Link>
         </section>
       </li>
       <DeleteModal
