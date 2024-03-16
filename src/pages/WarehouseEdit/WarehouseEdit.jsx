@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import backIcon from '../../assets/icons/arrow_back-24px.svg';
+import errorIcon from '../../assets/icons/error-24px.svg'
 import axios from 'axios';
 import './WarehouseEdit.scss';
 
@@ -85,15 +86,17 @@ function WarehouseEdit() {
 
   return (
     <section className="main">
+      {/* ----- title section ----- */}
       <section className="title-section">
         <Link to={"/"} className="title-section__back-link">
           <img className="title-section__back-icon" src={backIcon} alt="back-button" />
         </Link>
         <h1 className="title-section__page-title">Edit Warehouse</h1>
       </section>
+       {/* ----- form ----- */}
       <form className="form" onSubmit={handleSubmit}>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <section className="form-wrap">
+           {/* warehouse details */}
           <section className="form__label-inputs-wrap">
             <h2 className="subtitle">Warehouse Details</h2>
             <label className="form__labels">
@@ -105,7 +108,10 @@ function WarehouseEdit() {
                 onChange={(e) => setWarehouseData({ ...warehouseData, warehouse_name: e.target.value })}
                 placeholder="Warehouse Name"
               />
+              <div>
+              <img className="error-icon" src={errorIcon} alt="Error Icon" />
               {errorMessage && !warehouse_name.trim() && <p className="error-message">This field is required</p>}
+              </div>
             </label>
             <label className="form__labels">
               <h3 className="label-text">Street Address</h3>
