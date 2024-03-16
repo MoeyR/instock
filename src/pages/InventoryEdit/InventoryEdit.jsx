@@ -85,12 +85,14 @@ function InventoryEdit() {
       !formData.item_name ||
       !formData.description ||
       !formData.category ||
+      !formData.status ||
       !formData.quantity ||
       !formData.warehouse_id
     ) {
       setErrorMessage("All fields are required");
-      return;
     }
+
+    console.log(formData);
 
     //send put
     axios
@@ -107,12 +109,13 @@ function InventoryEdit() {
     window.history.back();
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  console.log(formData);
+const handleInputChange = (event) => {
+  const { name, value } = event.target;
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    [name]: value,
+  }));
+};
 
   return (
     <main className="edit-item">
