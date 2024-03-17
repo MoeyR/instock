@@ -1,159 +1,162 @@
 @use "../../styles/partials/fonts" as *;
-@use '../../styles/partials/colors' as *;
-@use '../../styles/partials/global' as *;
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
 
 .inventory-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__imgname {
+    display: flex;
+    align-items: center;
+    color: $black;
+  }
+
+  &__img {
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  // &__title {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     padding: 1rem 1rem;
+
+  //     @include tablet {
+  //         padding: 1.65rem 2rem;
+  //     }
+  // }
+  .inv-detail-title-icon-wrap {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
+  }
+
+  &__edit {
+    width: 2.25rem; //36px
+    height: 2.25rem; //36px
+    border-radius: 50%;
+    background-color: $indigo;
+    background-image: url(../../assets/icons/edit-24px-white.svg);
+    background-repeat: no-repeat;
+    background-size: 1.25rem 1.25rem;
+    background-position: 0.5rem center;
+    border: none;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @include tablet {
+      width: 5.0625rem;
+      height: 2.375rem;
+      border-radius: 1.25rem;
+      text-indent: 0;
+      background-position: 0.8rem center;
+      padding: 10px 10px 10px 25px;
+      color: $white;
+      text-align: center;
+    }
+  }
+
+  &__info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-
-    &__imgname {
-        display: flex;
-        align-items: center;
-        color: $black;
-
+    border-top: 1px solid $cloud;
+    border-bottom: 1px solid $cloud;
+    margin-top: 29px;
+    width: 87%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px 0 $cloud;
+    border-radius: 0.125rem;
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-start;
+      border-bottom: none;
+      padding: 1rem 2rem;
+      margin-top: -1px;
     }
-
-    &__img {
-        height: 1.5rem;
-        margin-right: 0.5rem;
+    @include desktop {
+      width: 63rem;
     }
+  }
 
-    // &__title {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     padding: 1rem 1rem;
-
-    //     @include tablet {
-    //         padding: 1.65rem 2rem;
-    //     }
-    // }
-    .inv-detail-title-icon-wrap{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+  &__descat {
+    padding: 1rem 1rem;
+    @include tablet {
+      width: 50%;
+      border-right: 1px solid $cloud;
+      padding: 0rem 1rem;
     }
+  }
 
-    &__edit {
-        width: 2.25rem; //36px
-        height: 2.25rem; //36px
-        border-radius: 50%;
-        background-color: $indigo;
-        background-image: url(../../assets/icons/edit-24px-white.svg);
-        background-repeat: no-repeat;
-        background-size: 1.25rem 1.25rem;
-        background-position: 0.5rem center;
-        border: none;
-        text-indent: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-
-        @include tablet {
-            width: 5.0625rem;
-            height: 2.375rem;
-            border-radius: 1.25rem;
-            text-indent: 0;
-            background-position: 0.8rem center;
-            padding: 10px 10px 10px 25px;
-            color: $white;
-            text-align: center;
-        }
+  &__category {
+    padding-top: 1rem;
+    @include tablet {
+      padding-top: 2rem;
     }
+  }
 
-    &__info {
-        display: flex;
-        flex-direction: column;
-        border-top: 1px solid $cloud;
-        border-bottom: 1px solid $cloud;
-        margin-top: 29px;
-        width: 87%;
-        background-color: #ffffff;
-        box-shadow: 0 2px 5px 0 $cloud;
-        border-radius: 0.125rem;
-        @include tablet{
-            flex-direction: row;
-            justify-content: flex-start;
-            border-bottom: none;
-            padding: 1rem 2rem;
-            margin-top: -1px;
-        }
-        @include desktop{
-            width: 63rem;
-          }
+  &__statusquantitywarehouse {
+    padding: 1rem 1rem;
+
+    @include tablet {
+      padding: 0rem 2rem;
     }
+  }
 
-    &__descat{
-        padding: 1rem 1rem;
-        @include tablet{
-            width: 50%;
-            border-right: 1px solid $cloud;
-            padding: 0rem 1rem;
-        }
-    }   
-
-    &__category{
-        padding-top: 1rem;
-        @include tablet{
-            padding-top: 2rem;
-        }
+  &__statusquantity {
+    display: flex;
+    padding-bottom: 1rem;
+    @include tablet {
+      padding-bottom: 2rem;
     }
+  }
+  &__status {
+    width: 50%;
 
-    &__statusquantitywarehouse{
-        padding: 1rem 1rem;
-
-        @include tablet{
-            padding: 0rem 2rem;
-        }
+    @include tablet {
+      margin-right: 5rem;
     }
-
-    &__statusquantity{
-        display: flex;
-        padding-bottom: 1rem;
-        @include tablet{
-            padding-bottom: 2rem;
-        }
-    }
-    &__status{
-        width: 50%;
-
-        @include tablet{
-            margin-right: 5rem;
-        }
-    }
-   &__statustext{
-     width:fit-content;
-     font-size: 0.875rem;
-   }
-
+  }
+  &__statustext {
+    width: fit-content;
+    font-size: 0.875rem;
+  }
 }
-.tag--instock{
-    color: $green;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    height: 1.5rem;
-    padding: 0 0.5rem;
-    background: rgb(21, 132, 99, 7%);
-    border-radius: 20px;
-
-    @include tablet{
-        height: 1.625rem;
-    }
+.tag--instock {
+  color: $green;
+  background-color: #15846312;
+  text-transform: uppercase;
+  border-radius: 20px;
+  height: 24px;
+  text-align: center;
+  padding: 4px 16px;
+  display: inline-block;
+  width: 75%;
+  @include tablet {
+    height: 26px;
+    max-width: 95px;
+    min-width: 100px;
+  }
 }
 
-.tag--outofstock{
-    color: $red;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    height: 1.5rem;
-    padding: 0 0.5rem;
-    background: rgb(201, 69, 21, 7%);
-    border-radius: 20px;
-    @include tablet{
-        height: 1.625rem;
-    }
+.tag--outofstock {
+  color: $red;
+  background-color: #c9451512;
+  text-transform: uppercase;
+
+  border-radius: 20px;
+  height: 24px;
+  text-align: center;
+  padding-top: 4px;
+  display: inline-block;
+
+  @include tablet {
+    height: 26px;
+    max-width: 120px;
+    min-width: 120px;
+  }
 }
