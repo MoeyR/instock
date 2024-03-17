@@ -8,13 +8,15 @@ function WarehouseList () {
   const BASE_URL = "http://localhost:8080"; 
 
   const [warehouses, setWarehouses] = useState(null);
+  const [sortColumn, setSortColumn] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
   const [dataLoading, setDataLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
   useEffect(()=>{
     const fetchWarehouses = async ()=>{
       try {
-        const response = await axios.get(`${BASE_URL}/api/warehouses`);
+        const response = await axios.get(`${BASE_URL}/api/warehouses?sort_by=${sortColumn}&order_by=${sortDirection}`);
         const warehousesList = response.data;
         setDataLoading(false);
         setWarehouses(warehousesList);
@@ -24,7 +26,13 @@ function WarehouseList () {
       }
     }
     fetchWarehouses();
-  }, [warehouses])
+  }, [warehouses,sortColumn,sortDirection])
+
+  const handleSort = (columnName) => {
+    const isSameColumn = sortColumn === columnName;
+    setSortColumn(columnName);
+    setSortDirection(prevDirection => isSameColumn ? (prevDirection === 'asc' ? 'desc' : 'asc') : 'asc');
+  };
 
   
   if (hasError) {
@@ -46,21 +54,21 @@ function WarehouseList () {
               <div className="name-address-headers">
                 <div className="main-headings-texts">
                   <h4 className="warehouse-headers">WAREHOUSE</h4>
-                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" onClick={()=>handleSort('warehouse_name')}/>
                 </div>
                 <div className="main-headings-texts address-header">
                   <h4 className="warehouse-headers">ADDRESS</h4>
-                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" onClick={()=>handleSort('address')}/>
                 </div>
               </div>
               <div className="contact-name-info-headers">
                 <div className="main-headings-texts">
                   <h4 className="warehouse-headers">CONTACT NAME</h4>
-                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" onClick={()=>handleSort('contact_name')}/>
                 </div>
                 <div className="main-headings-texts contact-info-header">
                   <h4 className="warehouse-headers">CONTACT INFORMATION</h4>
-                  <img className="sort-icon" src={sortIcon} alt="sort-icon" />
+                  <img className="sort-icon" src={sortIcon} alt="sort-icon" onClick={()=>handleSort('contact_phone')}/>
                 </div>
               </div>
             </div>
