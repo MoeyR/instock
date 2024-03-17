@@ -123,7 +123,7 @@ function WarehouseEdit() {
               <h3 className="label-text">Warehouse Name</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !warehouse_name.trim() ) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={warehouse_name}
                   onChange={(e) =>
@@ -151,7 +151,7 @@ function WarehouseEdit() {
               <h3 className="label-text">Street Address</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !address.trim() ) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={address}
                   onChange={(e) =>
@@ -178,7 +178,7 @@ function WarehouseEdit() {
               <h3 className="label-text">City</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !city.trim() ) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={city}
                   onChange={(e) =>
@@ -202,7 +202,7 @@ function WarehouseEdit() {
               <h3 className="label-text">Country</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !country.trim() ) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={country}
                   onChange={(e) =>
@@ -232,7 +232,7 @@ function WarehouseEdit() {
               <h3 className="label-text">Contact Name</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !contact_name.trim() ) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={contact_name}
                   onChange={(e) =>
@@ -259,7 +259,7 @@ function WarehouseEdit() {
               <h3 className="label-text">Position</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !contact_position.trim() ) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={contact_position}
                   onChange={(e) =>
@@ -286,7 +286,7 @@ function WarehouseEdit() {
               <h3 className="label-text">Phone Number</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !phoneFormat.test(contact_phone)) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={contact_phone}
                   onChange={(e) =>
@@ -315,7 +315,7 @@ function WarehouseEdit() {
               <h3 className="label-text">Email</h3>
               <div className="form__edit-error-container">
                 <input
-                  className="form-input"
+                  className={(errorMessage && !emailFormat.test(contact_email)) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   value={contact_email}
                   onChange={(e) =>
