@@ -4,7 +4,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import errorIcon from "../../assets/icons/error-24px.svg"
+import errorIcon from "../../assets/icons/error-24px.svg";
 
 function InventoryEdit() {
   const navigate = useNavigate();
@@ -175,7 +175,7 @@ function InventoryEdit() {
                 <textarea
                   className={
                     formData.description === "" && errorMessage
-                      ? "form-input form-input--error-state"
+                      ? "form-input form__larger form-input--error-state"
                       : "form-input form__larger"
                   }
                   type="text"

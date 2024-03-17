@@ -150,7 +150,7 @@ function InventoryAdd() {
                 <textarea
                   className={
                     formData.item_name.trim() === "" && errorMessage
-                      ? "form-input form-input--error-state"
+                      ? "form-input form__larger form-input--error-state"
                       : "form-input form__larger"
                   }
                   type="text"
