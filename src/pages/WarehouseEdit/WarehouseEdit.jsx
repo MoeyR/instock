@@ -24,6 +24,10 @@ function WarehouseEdit() {
   const phoneFormat = /^\+\d{1,3} \(\d{3}\) \d{3}-\d{4}$/;
   const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const clearFormBackHome = ()=>{
+    navigate("/");
+  }
+
   useEffect(() => {
     const fetchWarehouseData = async () => {
       try {
@@ -343,7 +347,7 @@ function WarehouseEdit() {
           </section>
         </section>
         <section className="edit-warehouse-form-buttons">
-          <button className="secondary-button">Cancel</button>
+          <button className="secondary-button" onClick={clearFormBackHome}>Cancel</button>
           <button type="submit" className="primary-button">
             Save
           </button>
