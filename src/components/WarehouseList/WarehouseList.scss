@@ -2,6 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouses-list {
+  border-radius: 4px;
     &:last-child {
       @include tablet {
         border-bottom: none;
