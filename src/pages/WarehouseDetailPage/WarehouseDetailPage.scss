@@ -1,124 +1,122 @@
 @use "../../styles/partials/fonts" as *;
-@use '../../styles/partials/colors' as *;
-@use '../../styles/partials/global' as *;
-@use '../../styles/partials/mixins' as *;
-.warehouse-detail{
-    box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
-    border-radius: 0.125rem;
-    background-color: $white;
-    position: absolute;
-    top: 8.0625rem;
-    left: 50%;
-    margin-left: -44%;
-    width: 87%;
-    min-width: 18.375rem;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+.warehouse-detail {
+  box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
+  border-radius: 0.125rem;
+  background-color: $white;
+  position: absolute;
+  top: 8.0625rem;
+  left: 50%;
+  margin-left: -44%;
+  width: 87%;
+  min-width: 18.375rem;
+  z-index: 1;
+
+  @include tablet {
+    top: 5.8125rem;
+    margin-left: -45.5%;
+    width: 91%;
+  }
+
+  @include desktop {
+    width: 63rem;
+    margin-left: -31.5625rem;
+  }
+
+  &__imgname {
+    display: flex;
+    align-items: center;
+    color: $black;
+  }
+  &__img {
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
 
     @include tablet {
-        top: 5.8125rem;
-        margin-left: -45.5%;
-        width: 91%;
+      padding: 1.65rem 2rem;
     }
-
-    @include desktop {
-        width: 63rem;
-        margin-left: -31.5625rem;
-    }
-
-    &__imgname{
-        display: flex;
-        align-items: center;
-        color: $black;
-
-    }
-    &__img{
-        height:1.5rem;
-        margin-right: 0.5rem;
-    }
-    &__title{
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 1rem;
-
-        @include tablet{
-            padding: 1.65rem 2rem;
-        }
-    }
-&__edit{
+  }
+  &__edit {
     width: 2.25rem; //36px
     height: 2.25rem; //36px
     border-radius: 50%;
     background-color: $indigo;
     background-image: url(../../assets/icons/edit-24px-white.svg);
     background-repeat: no-repeat;
-    background-size: 1.25rem 1.25rem; 
+    background-size: 1.25rem 1.25rem;
     background-position: 0.5rem center; /* 水平位置和垂直居中 */
     border: none;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
 
-    @include tablet{
-        width: 5.0625rem;
-        height: 2.375rem;
-        border-radius: 1.25rem;
-        text-indent: 0;
-        background-position: 0.8rem center;
-        padding: 10px 10px 10px 25px; 
-        color: $white;
-        text-align: center;
+    @include tablet {
+      width: 5.0625rem;
+      height: 2.375rem;
+      border-radius: 1.25rem;
+      text-indent: 0;
+      background-position: 0.8rem center;
+      padding: 10px 10px 10px 25px;
+      color: $white;
+      text-align: center;
     }
-}
-&__info{
+  }
+  &__info {
     display: flex;
     flex-direction: column;
     border-top: 1px solid $cloud;
     border-bottom: 1px solid $cloud;
-    @include tablet{
-        flex-direction: row;
-        justify-content: space-between;
-        border-bottom: none;
-        padding: 1rem 2rem;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: none;
+      padding: 1rem 2rem;
     }
-    @include desktop{
-        justify-content: flex-start;
-    }   
-}
-&__address{
+    @include desktop {
+      justify-content: flex-start;
+    }
+  }
+  &__address {
     padding: 1rem 1rem;
-    @include tablet{
-        padding: 0 1rem;
-        margin-top: 1rem;
+    @include tablet {
+      padding: 0 1rem;
+      margin-top: 1rem;
     }
-    @include desktop{
-        margin-right: 25rem;
+    @include desktop {
+      margin-right: 25rem;
     }
-
-}
-&__addressCity{
+  }
+  &__addressCity {
     display: flex;
     flex-direction: row;
 
-    @include tablet{
-        flex-direction: column;
+    @include tablet {
+      flex-direction: column;
     }
-}
-&__contact{
+  }
+  &__contact {
     display: flex;
     justify-content: space-between;
     padding: 1rem 1rem;
 
-    @include tablet{
-        margin-top: 1rem;
-        padding: 0 1rem 0 2rem;
-        border-left: 1px solid $cloud;
+    @include tablet {
+      margin-top: 1rem;
+      padding: 0 1rem 0 2rem;
+      border-left: 1px solid $cloud;
     }
+  }
 
-}
-
-&__contactName{
+  &__contactName {
     margin-right: 0.5rem;
-    @include tablet{
-        margin-right: 2rem;
+    @include tablet {
+      margin-right: 2rem;
     }
-}
+  }
 }
