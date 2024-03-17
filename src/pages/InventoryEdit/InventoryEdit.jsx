@@ -4,6 +4,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import errorIcon from "../../assets/icons/error-24px.svg"
 
 function InventoryEdit() {
   const navigate = useNavigate();
@@ -145,48 +146,85 @@ function InventoryEdit() {
               <h2 className="form__header">Item Details</h2>
 
               <h3>Item Name</h3>
-              <input
-                className="form-input"
-                type="text"
-                name="item_name"
-                placeholder="Item Name"
-                value={formData.item_name}
-                onChange={handleInputChange}
-              />
-              {formData.item_name === "" && (
-                <p className="error-message">{errorMessage}</p>
-              )}
-
+              <div className="form__error-container">
+                <input
+                  className={
+                    formData.item_name === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form-input"
+                  }
+                  type="text"
+                  name="item_name"
+                  placeholder="Item Name"
+                  value={formData.item_name}
+                  onChange={handleInputChange}
+                />
+                {formData.item_name === "" && errorMessage && (
+                  <div className="form__error-wrapper-inventory-edit">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
+                )}
+              </div>
               <h3>Description</h3>
-              <textarea
-                className="form-input form__larger"
-                type="text"
-                name="description"
-                placeholder="Please enter a brief item description..."
-                value={formData.description}
-                onChange={handleInputChange}
-              />
-              {formData.description === "" && (
-                <p className="error-message">{errorMessage}</p>
-              )}
-
+              <div className="form__error-container">
+                <textarea
+                  className={
+                    formData.description === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form-input form__larger"
+                  }
+                  type="text"
+                  name="description"
+                  placeholder="Please enter a brief item description..."
+                  value={formData.description}
+                  onChange={handleInputChange}
+                />
+                {formData.description === "" && errorMessage && (
+                  <div className="form__error-wrapper-inventory-edit">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
+                )}
+              </div>
               <h3>Category</h3>
-              <select
-                className="form__category-select"
-                name="category"
-                value={formData.category}
-                onChange={handleInputChange}
-              >
-                <option value="">Please Select</option>
-                {[
-                  ...new Set(categories.map((category) => category.category)),
-                ].map((singleCategory, index) => (
-                  <option key={index}>{singleCategory}</option>
-                ))}
-              </select>
-              {formData.category === "" && (
-                <p className="error-message">{errorMessage}</p>
-              )}
+              <div className="form__error-container">
+                <select
+                  className={
+                    formData.category === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form__category-select"
+                  }
+                  name="category"
+                  value={formData.category}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Please Select</option>
+                  {[
+                    ...new Set(categories.map((category) => category.category)),
+                  ].map((singleCategory, index) => (
+                    <option key={index}>{singleCategory}</option>
+                  ))}
+                </select>
+                {formData.category === "" && errorMessage && (
+                  <div className="form__error-wrapper-inventory-edit">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
+                )}
+              </div>
             </div>
             <hr className="form__hr" />
             <div className="form__tablet-divider"></div>
@@ -220,35 +258,61 @@ function InventoryEdit() {
               {formData.status === "in stock" && (
                 <>
                   <h3>Quantity</h3>
-                  <input
-                    className="form-input"
-                    type="text"
-                    name="quantity"
-                    value={formData.quantity}
-                    onChange={handleInputChange}
-                  />
-                  {formData.quantity === "" && (
-                    <p className="error-message">{errorMessage}</p>
-                  )}
+                  <div className="form__error-container">
+                    <input
+                      className={
+                        formData.quantity === "" && errorMessage
+                          ? "form-input form-input--error-state"
+                          : "form-input"
+                      }
+                      type="text"
+                      name="quantity"
+                      value={formData.quantity}
+                      onChange={handleInputChange}
+                    />
+                    {formData.quantity === "" && errorMessage && (
+                      <div className="form__error-wrapper-inventory-edit">
+                        <img
+                          className="error-icon"
+                          src={errorIcon}
+                          alt="Error Icon"
+                        />
+                        <p className="error-message">{errorMessage}</p>
+                      </div>
+                    )}
+                  </div>
                 </>
               )}
               <h3>Warehouse</h3>
-              <select
-                className="form__category-select"
-                name="warehouse_id"
-                value={formData.warehouse_id}
-                onChange={handleInputChange}
-              >
-                <option value="">Please select</option>
-                {warehouses.map((warehouse) => (
-                  <option key={warehouse.id} value={warehouse.id}>
-                    {warehouse.warehouse_name}
-                  </option>
-                ))}
-              </select>
-              {formData.warehouse_id === "" && (
-                <p className="error-message">{errorMessage}</p>
-              )}
+              <div className="form__error-container">
+                <select
+                  className={
+                    formData.warehouse_id === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form__category-select"
+                  }
+                  name="warehouse_id"
+                  value={formData.warehouse_id}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Please select</option>
+                  {warehouses.map((warehouse) => (
+                    <option key={warehouse.id} value={warehouse.id}>
+                      {warehouse.warehouse_name}
+                    </option>
+                  ))}
+                </select>
+                {formData.warehouse_id === "" && errorMessage && (
+                  <div className="form__error-wrapper-inventory-edit">
+                    <img
+                      className="error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">{errorMessage}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
