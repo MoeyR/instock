@@ -21,28 +21,45 @@ function WarehouseItemList({ warehouseId }) {
     "Boston": 8,
   };
 
- useEffect(() => {
-   const fetchInventory = async () => {
-     try {
-       const response = await axios.get(`${baseUrl}/api/inventory`);
+  
 
-       const mappedInventory = response.data.map((item) => ({
-         ...item,
-         warehouse_id: warehouseNameToIdMap[item.warehouse_name],
-       }));
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        
+        const response = await axios.get(`${baseUrl}/api/inventory`);
 
-       setInventoryList(mappedInventory);
-       setDataLoading(false);
-     } catch (error) {
-       console.error(`Error fetching inventory data: ${error}`);
-       setHasError(true);
-       setDataLoading(false);
-     }
-   };
-   fetchInventory();
- }, []);
+        const mappedInventory = response.data.map((item) => ({
+          ...item,
+          warehouse_id: warehouseNameToIdMap[item.warehouse_name],
+        }));
 
-  console.log(inventoryList)
+        console.log(warehouseId);
+        console.log(mappedInventory[2].warehouse_id)
+        
+
+        const filteredInventoryList = mappedInventory.filter ((inventory) =>
+        inventory.warehouse_id === warehouseId
+        );
+
+        
+
+console.log(filteredInventoryList)
+
+        setInventoryList(filteredInventoryList);
+        setDataLoading(false);
+      } catch (error) {
+        console.error(`Error fetching inventory data: ${error}`);
+        setHasError(true);
+        setDataLoading(false);
+      }
+    };
+    fetchInventory();
+  }, [warehouseId]);
+
+  if (!warehouseId) {
+    return <p>loading</p>;
+  }
 
   if (hasError) {
     return (
@@ -54,10 +71,10 @@ function WarehouseItemList({ warehouseId }) {
     return <p>Loading inventory list...</p>;
   }
 
+console.log(inventoryList);
   return (
     <ul className="inventory-list">
       <li className="inventory-list__headings-container">
-        {/* inventory headers */}
         <section className="inventory-header-wrap">
           <section className="name-category">
             <div className="inventory-list__headings name-wrap">
@@ -99,22 +116,19 @@ function WarehouseItemList({ warehouseId }) {
           </section>
         </section>
 
-        {/* action header */}
         <div className="inventory-list__headings-action">
           <h4 className="inventory-list__header-item">ACTIONS</h4>
         </div>
-
-        {/* inventory list items */}
       </li>
-      {inventoryList
-        .filter((inventoryItem) => inventoryItem.warehouse_id === warehouseId)
-        .map((inventoryItem) => (
-          <WarehouseItemListItem
-            key={inventoryItem.id}
-            inventoryItem={inventoryItem}
-            warehouseId={warehouseId} // Ensure warehouseId is passed here
-          />
-        ))}
+      {inventoryList.map((inventoryItem) => (
+        <WarehouseItemListItem
+          key={inventoryItem.id}
+          inventoryItem={inventoryItem}
+          warehouseId={warehouseId}
+          
+        />
+        
+      ))}
     </ul>
   );
 }
