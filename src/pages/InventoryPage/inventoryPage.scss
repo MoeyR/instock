@@ -24,6 +24,7 @@
 
     @include tablet {
       flex-direction: row;
+      gap: 1rem;
     }
   }
 
