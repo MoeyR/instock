@@ -3,11 +3,13 @@ import "./WarehousePage.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 
+
 function WarehousePage() {
   return (
-    <main className="warehouses">
+    <section className="warehouses">
+
       {/* ---- Title Section ---- */}
-      <section className="warehouses-title-section-wrap">
+      <section className="warehouses-title-section-wrap page-title-section">
         <h1 className="warehouses__title">Warehouses</h1>
         <section className="search-button-wrap">
           <div className="search-bar-wrap">
@@ -30,10 +32,12 @@ function WarehousePage() {
         </section>
       </section>
       {/* ---- Lists Section ---- */}
-      <section className="warehouses-list-section">
+      <section className="main-contents-section">
         <WarehouseList />
       </section>
-    </main>
+
+
+    </section>
   );
 }
 export default WarehousePage;

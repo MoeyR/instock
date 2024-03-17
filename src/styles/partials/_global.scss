@@ -308,3 +308,88 @@ h4 {
     min-width: 120px;
   }
 }
+
+
+// Page Title Section Styles
+.page-title-section {
+  background-color: #ffffff;
+    position: absolute;
+    top: 107px;
+    left: 49.5%;
+    margin-left: -43%;
+    width: 87%;
+    min-width: 18.375rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-bottom: 1px solid $cloud;
+    border-radius: 0.125rem;
+    box-shadow: 0 -1px 4px 0 $cloud;
+
+  @include tablet {
+    flex-direction: row;
+    padding: 1.29rem 1.5rem;
+    justify-content: space-between;
+    border-bottom: none;
+  }
+  @include desktop {
+    width: 63rem;
+    margin-left: -498px;
+  }
+}
+
+.page-title-short {
+  background-color: #ffffff;
+    position: absolute;
+    top: 107px;
+    left: 49.5%;
+    margin-left: -43%;
+    width: 87%;
+    min-width: 18.375rem;
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem;
+    border-bottom: 1px solid $cloud;
+    border-radius: 0.125rem;
+    box-shadow: 0 -1px 4px 0 $cloud;
+
+  @include tablet {
+    flex-direction: row;
+    padding: 1.29rem 1.5rem;
+    justify-content: space-between;
+    border-bottom: none;
+  }
+  @include desktop {
+    width: 63rem;
+    margin-left: -498px;
+  }
+}
+
+// Main Contents Section Styles (container for ul)
+.main-contents-section{
+  margin-top: 131px;
+  width: 87%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 $cloud;
+  border-radius: 0.125rem;
+  @include tablet{
+    margin-top: -1px;
+  }
+  @include desktop{
+    width: 63rem;
+  }
+}
+
+.main-section-short-title{
+  margin-top: 29px;
+  width: 87%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 $cloud;
+  border-radius: 0.125rem;
+  @include tablet{
+    margin-top: -1px;
+  }
+  @include desktop{
+    width: 63rem;
+  }
+}

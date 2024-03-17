@@ -1,8 +1,15 @@
 import './Header.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import instockLogo from '../../assets/logo/InStock-Logo.svg';
 
 function Header(){
+
+    const location = useLocation();
+
+    const isWarehousePage = location.pathname.startsWith('/warehouses');
+    const isInventoryPage = location.pathname.startsWith('/inventory');
+    const isRootPath = location.pathname === '/';
+
     return (
         <header className='header'>
             <div className='header__content-main-wrap'>
@@ -12,10 +19,10 @@ function Header(){
                 <nav className='header__nav'>
                     <ul className='header-list'>
                         <li className='header-list__item'>
-                            <Link to="/warehouses" className='header-list__link header-list__link--active'>Warehouses</Link>
+                            <Link to="/warehouses" className={`header-list__link ${isWarehousePage || isRootPath ? 'header-list__link--active' : ''}`}>Warehouses</Link>
                         </li>
                         <li className='header-list__item'>
-                            <Link to="/inventory" className='header-list__link'>Inventory</Link>
+                            <Link to="/inventory" className={`header-list__link ${isInventoryPage ? 'header-list__link--active' : ''}`}>Inventory</Link>
                         </li>
                     </ul>
                 </nav>

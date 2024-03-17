@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 function InventoryPage() {
   return (
-    <main className="warehouses">
+    <main className="inventory-container">
       {/* ---- Title Section ---- */}
-      <section className="warehouses-title-section-wrap">
+      <section className="page-title-section">
         <h1 className="warehouses__title">Inventory</h1>
         <section className="search-button-wrap">
           <div className="search-bar-wrap">
@@ -30,7 +30,7 @@ function InventoryPage() {
         </section>
       </section>
       {/* ---- Lists Section ---- */}
-      <section className="warehouses-list-section">
+      <section className="inventory-main-section">
         <InventoryList />
       </section>
     </main>
