@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 function InventoryEdit() {
     const navigate = useNavigate(); 
   const [warehouses, setWarehouses] = useState([]);
+  const [warehouseNameMap, setWarehouseNameMap] = useState({});
+  const [warehouseName, setWarehouseName] = useState("");
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const { id } = useParams();
@@ -25,6 +27,21 @@ function InventoryEdit() {
   //fetch data
 
   useEffect(() => {
+        //fetch warehouse names
+
+        axios
+        .get("http://localhost:8080/api/warehouses")
+        .then((response) => {
+          setWarehouses(response.data);
+          const warehouseMap = {};
+          response.data.forEach((warehouse) => {
+            warehouseMap[warehouse.id] = warehouse.warehouse_name;
+          });
+          setWarehouseNameMap(warehouseMap);
+        })
+        .catch((error) => {
+          console.error("Error fetching warehouses information:", error);
+        });
     axios
       .get(`http://localhost:8080/api/inventories/${id}`)
       .then((response) => {
@@ -36,8 +53,10 @@ function InventoryEdit() {
           category: data.category,
           status: data.status,
           quantity: data.quantity,
-          warehouse_id: data.warehouse_id,
+          warehouse_id: Object.keys(warehouseNameMap).find(key => warehouseNameMap[key] === data.warehouse_name)
         });
+
+        setWarehouseName(data.warehouse_name);
 
         //prefill radials if quantity is greater than 0
         if (data.quantity > 0) {
@@ -67,17 +86,8 @@ function InventoryEdit() {
         console.error("Error fetching inventory data:", error);
       });
 
-    //fetch warehouse names
 
-    axios
-      .get("http://localhost:8080/api/warehouses")
-      .then((response) => {
-        setWarehouses(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching warehouses information:", error);
-      });
-  }, [id]);
+  }, [id,warehouseNameMap]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -237,9 +247,9 @@ function InventoryEdit() {
                 value={formData.warehouse_id}
                 onChange={handleInputChange}
               >
-                <option value="">Please select</option>
+                <option value=""> </option>
                 {warehouses.map((warehouse) => (
-                  <option key={warehouse.id} value={warehouse.id}>
+                  <option key={warehouse.id} value={warehouse.id} defaultValue={warehouseName}>
                     {warehouse.warehouse_name}
                   </option>
                 ))}
