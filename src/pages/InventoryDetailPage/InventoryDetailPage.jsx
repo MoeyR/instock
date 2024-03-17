@@ -8,7 +8,7 @@ function InventoryDetailPage() {
   const params = useParams();
   const [activeInventory, setActiveInventory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [classNameStatus, setClassNameStatus] = useState("p2");
+  const [classNameStatus, setClassNameStatus] = useState("inventory-detail__statustext");
   const baseUrl = "http://localhost:8080";
 
   useEffect(() => {
@@ -22,10 +22,10 @@ function InventoryDetailPage() {
         setActiveInventory(response.data);
         let className = "";
         if (response.data.status === "In Stock") {
-          className = "p2 inventory-detail__statustext tag--instock";
+          className = "inventory-detail__statustext tag--instock";
         } else {
           if (response.data.status === "Out of Stock") {
-            className = "p2 inventory-detail__statustext tag--outofstock";
+            className = "inventory-detail__statustext tag--outofstock";
           }
         }
         setClassNameStatus(className);
@@ -86,7 +86,7 @@ function InventoryDetailPage() {
             </div>
           </div>
           <div className="inventory-detail__warehouse">
-            <h4>WARWHOUSE:</h4>
+            <h4>WAREHOUSE:</h4>
             <p className="p2">{warehouse_name}</p>
           </div>
         </div>

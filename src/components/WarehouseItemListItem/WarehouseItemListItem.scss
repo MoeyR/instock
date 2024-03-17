@@ -1,0 +1,109 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-list {
+  &__headings-container {
+    display: none;
+    @include tablet {
+      display: flex;
+
+      justify-content: space-between;
+      flex-direction: row;
+      padding: 0.5625rem 2rem;
+      color: $slate;
+      background-color: $lightgrey;
+      width: 100%;
+    }
+  }
+
+  &__headings {
+    display: flex;
+  }
+
+
+  .inventory-header-wrap{
+    @include tablet{
+      display: flex;
+      width: 89%;
+    }
+    @include desktop{
+      width: 100%;
+    }
+    
+  }
+
+  .name-category{
+    @include tablet{
+      flex-direction: row;
+      width: 50%;
+      justify-content: flex-start;
+      align-items: center;
+      margin-right: -24px;
+    }
+    
+
+    .name-wrap{
+      @include tablet{
+        width: 47%;
+      }
+    }
+
+    .category-wrap{
+      @include tablet{
+        width: 125px;
+      }
+    }
+  }
+
+  .status-qty-warehouse {
+    @include tablet {
+      
+    flex-direction: row;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+
+    }
+
+    .status-wrap {
+      @include tablet{
+        width: 240px;
+      }
+  }
+
+  }
+
+
+  .qty-wrap, .warehouse-wrap{
+    @include tablet{
+      width: 125px;
+
+    }
+  }
+
+
+  &__headings-action {
+    font-size: 0.6875rem;
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    width: 90px;
+  }
+
+  &__sort-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.125rem;
+  }
+
+  &__header-item {
+    font-size: 0.6875rem;
+    text-align: left;
+  }
+}
+
+.qty-warehouse {
+  display: flex;
+  width: 30%;
+  gap: 40px;
+}

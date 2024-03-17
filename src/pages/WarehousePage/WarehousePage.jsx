@@ -1,11 +1,10 @@
-
+import { Link } from "react-router-dom";
 import "./WarehousePage.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import { Link } from "react-router-dom";
 
 function WarehousePage() {
-
   return (
     <section className="warehouses">
 
@@ -25,7 +24,7 @@ function WarehousePage() {
               alt="search-icon"
             />
           </div>
-          <Link to="/warehouses/add">
+          <Link to={`/warehouses/add`}>
             <button className="primary-button warehouses__add-button">
               + Add New Warehouse
             </button>
@@ -35,7 +34,6 @@ function WarehousePage() {
       {/* ---- Lists Section ---- */}
       <section className="main-contents-section">
         <WarehouseList />
-        
       </section>
 
 

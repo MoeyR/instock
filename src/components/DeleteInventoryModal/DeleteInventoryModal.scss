@@ -69,13 +69,21 @@
 
         @include tablet{
             width: fit-content;
-        } 
+        }
+    :hover{
+        color: $indigo;
+        border-color: $indigo;
+    }
     }
     &__delete{
         width: 45%;
         @include tablet{
             width: fit-content; 
-        } 
+        }
+    :hover{
+            color: $graphite;
+            background-color: $graphite;
+        }
     }
 
     &__backdrop{

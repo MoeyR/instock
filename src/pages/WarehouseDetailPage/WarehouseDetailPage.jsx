@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import WarehouseItemList from "../../components/WarehouseItemList/WarehouseItemList";
+
 function WarehouseDetailPage() {
   const params = useParams();
   const [activeWarehouse, setActiveWarehouse] = useState([]);
@@ -64,7 +66,7 @@ function WarehouseDetailPage() {
         <div className="warehouse-detail__address">
           <h4>WAREHOUSE ADDRESS:</h4>
           <div className="warehouse-detail__addressCity">
-            <p className="p2">{address}</p>
+            <p className="p2">{address},</p>
             <p className="p2">
               {city},{country}
             </p>
@@ -83,6 +85,9 @@ function WarehouseDetailPage() {
           </div>
         </div>
       </div>
+      <section className="warehouses-list-section">
+        <WarehouseItemList warehouseId={params.id} />
+      </section>
     </div>
   );
 }
