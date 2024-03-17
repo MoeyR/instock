@@ -55,6 +55,11 @@ function WarehouseAdd() {
     setEmail(event.target.value);
   };
 
+  const clearFormBackHome = ()=>{
+    clearForm();
+    navigate("/");
+  }
+
   const phoneFormat = /^[0-9]{10}$/;
   const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -116,6 +121,8 @@ function WarehouseAdd() {
     setPosition("");
     setPhoneNumber("");
     setEmail("");
+    setErrorMessage("");
+    setHasError(false);
   };
 
   return (
@@ -157,13 +164,13 @@ function WarehouseAdd() {
                   onChange={handleWarehouseNameChange}
                 />
                 {warehouseName.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -181,13 +188,13 @@ function WarehouseAdd() {
                   onChange={handleAddressChange}
                 />
                 {address.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -204,13 +211,13 @@ function WarehouseAdd() {
                   onChange={handleCityChange}
                 />
                 {city.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -227,13 +234,13 @@ function WarehouseAdd() {
                   onChange={handleCountryChange}
                 />
                 {country.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -254,13 +261,13 @@ function WarehouseAdd() {
                   onChange={handleContactNameChange}
                 />
                 {contactName.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -277,13 +284,13 @@ function WarehouseAdd() {
                   onChange={handlePositionChange}
                 />
                 {position.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -300,23 +307,23 @@ function WarehouseAdd() {
                   onChange={handlePhoneChange}
                 />
                 {!phoneNumber.trim() && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">This field is required</p>
+                    <p className="error-message-warehouse-add">This field is required</p>
                   </div>
                 )}
                 {phoneNumber.trim() && !phoneFormat.test(phoneNumber) && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">
+                    <p className="error-message-warehouse-add">
                       Phone number: must be 10 digits, with no space
                     </p>
                   </div>
@@ -336,24 +343,24 @@ function WarehouseAdd() {
                 />
                 {!email.trim() &&
                   errorMessage && ( // Check if email is empty and error message exists
-                    <div className="form__error-wrapper">
+                    <div className="form__error-wrapper-warehouse-add">
                       <img
-                        className="error-icon"
+                        className="error-icon-warehouse-add"
                         src={errorIcon}
                         alt="Error Icon"
                       />
-                      <p className="error-message">This field is required</p>
+                      <p className="error-message-warehouse-add">This field is required</p>
                     </div>
                   )}
                 {email.trim() &&
                   !emailFormat.test(email) && ( // Check if email is not empty and format is invalid
-                    <div className="form__error-wrapper">
+                    <div className="form__error-wrapper-warehouse-add">
                       <img
-                        className="error-icon"
+                        className="error-icon-warehouse-add"
                         src={errorIcon}
                         alt="Error Icon"
                       />
-                      <p className="error-message">
+                      <p className="error-message-warehouse-add">
                         Please enter a valid email
                       </p>
                     </div>
@@ -370,13 +377,13 @@ function WarehouseAdd() {
             </div>
           )}
           {hasError && (
-            <div className="error-message">
+            <div className="error-message-warehouse-add">
               Form has errors, please come back later
             </div>
           )}
 
           <section className="buttons-wrap">
-            <button className="secondary-button" onClick={clearForm}>
+            <button className="secondary-button" onClick={clearFormBackHome}>
               Cancel
             </button>
             <button className="primary-button" type="submit">
