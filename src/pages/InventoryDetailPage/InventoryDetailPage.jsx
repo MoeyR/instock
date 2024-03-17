@@ -49,7 +49,8 @@ function InventoryDetailPage() {
 
   return (
     <div className="inventory-detail">
-      <div className="inventory-detail__title">
+      <div className="page-title-section">
+        <div className="inv-detail-title-icon-wrap">
         <div className="inventory-detail__imgname">
           <img
             src={backarrow}
@@ -62,6 +63,8 @@ function InventoryDetailPage() {
         <Link to={`/inventory/${params.id}/edit`}>
           <button className="inventory-detail__edit">Edit</button>
         </Link>
+        </div>
+        
       </div>
       <div className="inventory-detail__info">
         <div className="inventory-detail__descat">

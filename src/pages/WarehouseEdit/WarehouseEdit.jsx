@@ -99,9 +99,10 @@ function WarehouseEdit() {
   } = warehouseData;
 
   return (
-    <section className="main">
+    <section className="warehouse-edit-main">
       {/* ----- title section ----- */}
       <section className="title-section">
+        <div className="title-icon-wrap">
         <Link to={"/"} className="title-section__back-link">
           <img
             className="title-section__back-icon"
@@ -110,9 +111,11 @@ function WarehouseEdit() {
           />
         </Link>
         <h1 className="title-section__page-title">Edit Warehouse</h1>
+        </div>
+        
       </section>
       {/* ----- form ----- */}
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form main-section-short-title" onSubmit={handleSubmit}>
         <section className="form-wrap">
           {/* warehouse details */}
           <section className="form__label-inputs-wrap">
@@ -330,13 +333,14 @@ function WarehouseEdit() {
               </div>
             </label>
           </section>
+            
         </section>
-        <section className="form__buttons">
-          <button className="secondary-button">Cancel</button>
-          <button type="submit" className="primary-button">
-            Save
-          </button>
-        </section>
+        <section className="edit-warehouse-form-buttons">
+              <button className="secondary-button">Cancel</button>
+              <button type="submit" className="primary-button">
+                Save
+              </button>
+          </section>
       </form>
     </section>
   );

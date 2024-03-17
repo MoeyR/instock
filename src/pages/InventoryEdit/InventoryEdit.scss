@@ -7,31 +7,42 @@ hr {
 }
 
 .edit-item {
-  box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
-  border-radius: 0.125rem;
-  background-color: $white;
-  position: absolute;
-  top: 8.0625rem;
-  left: 50%;
-  margin-left: -44%;
-  width: 87%;
-  min-width: 18.375rem;
-  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @include tablet {
-    top: 5.8125rem;
-    margin-left: -45.5%;
-    width: 91%;
-  }
-  @include desktop {
-    width: 63rem;
-    margin-left: -31.5625rem;
-  }
+  .edit-inv-title-wrap {
+      display: flex;
+      padding-top: 35x;
+      background-color: #ffffff;
+      position: absolute;
+      top: 111px;
+      left: 49.5%;
+      margin-left: -43%;
+      width: 87%;
+      min-width: 18.375rem;
+      display: flex;
+      flex-direction: row;
+      padding: 1.5rem;
+      border-bottom: 1px solid $cloud;
+      border-radius: 0.125rem;
+      box-shadow: 0 -1px 4px 0 $cloud;
 
-  &__title-wrap {
-    display: flex;
-    padding: 30px;
-    padding-top: 35x;
+    @include tablet {
+      flex-direction: row;
+      padding: 1.29rem 1.5rem;
+      justify-content: space-between;
+      border-bottom: none;
+    }
+    @include desktop {
+      width: 63rem;
+      margin-left: -498px;
+    }
+
+    .edit-inv-icon-title-wrap{
+      display: flex;
+    }
   }
 
   &__title {
@@ -46,6 +57,17 @@ hr {
 
   &__form-section {
     padding: 32px;
+    margin-top: 25px;
+    width: 87%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px 0 $cloud;
+    border-radius: 0.125rem;
+    @include tablet{
+      margin-top: -1px;
+    }
+    @include desktop{
+      width: 63rem;
+    }
   }
 }
 

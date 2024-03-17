@@ -126,14 +126,16 @@ function InventoryEdit() {
 
   return (
     <main className="edit-item">
-      <section className="edit-item__title-wrap">
-        <img
-          onClick={handleClick}
-          className="edit-item__chevron"
-          src={backArrow}
-          alt="back arrow"
-        />
-        <h1 className="edit-item__title">Edit Inventory Item</h1>
+      <section className="edit-inv-title-wrap">
+        <div className="edit-inv-icon-title-wrap">
+          <img
+            onClick={handleClick}
+            className="edit-item__chevron"
+            src={backArrow}
+            alt="back arrow"
+          />
+          <h1 className="edit-item__title">Edit Inventory Item</h1>
+          </div>
       </section>
       <hr />
       <section className="edit-item__form-section">

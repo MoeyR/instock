@@ -89,14 +89,16 @@ function InventoryAdd() {
 
   return (
     <main className="add-item">
-      <section className="add-item__title-wrap">
-        <img
-          onClick={handleClick}
-          className="add-item__chevron"
-          src={backArrow}
-          alt="back arrow"
-        />
-        <h1 className="add-item__title">Add New Inventory Item</h1>
+      <section className="add-inv-title-wrap">
+        <div className="add-inv-icon-title-wrap">
+          <img
+            onClick={handleClick}
+            className="add-item__chevron"
+            src={backArrow}
+            alt="back arrow"
+          />
+          <h1 className="add-item__title">Add New Inventory Item</h1>
+        </div>
       </section>
       <hr />
       <section className="add-item__form-section">
