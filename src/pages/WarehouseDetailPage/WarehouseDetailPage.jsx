@@ -48,7 +48,8 @@ function WarehouseDetailPage() {
 
   return (
     <div className="warehouse-detail">
-      <div className="warehouse-detail__title">
+      {/* ----- title section ----- */}
+      <div className="warehouse-detail__title page-title-short">
         <div className="warehouse-detail__imgname">
           <img
             src={backarrow}
@@ -62,31 +63,36 @@ function WarehouseDetailPage() {
           <button className="warehouse-detail__edit">Edit</button>
         </Link>
       </div>
-      <div className="warehouse-detail__info">
-        <div className="warehouse-detail__address">
-          <h4>WAREHOUSE ADDRESS:</h4>
-          <div className="warehouse-detail__addressCity">
-            <p className="p2">{address},</p>
-            <p className="p2">
-              {city},{country}
-            </p>
+      {/* ----- details section ----- */}
+      <section className="main-section-short-title">
+        {/* warehouse info */}
+        <div className="warehouse-detail__info">
+          <div className="warehouse-detail__address">
+            <h4>WAREHOUSE ADDRESS:</h4>
+            <div className="warehouse-detail__addressCity">
+              <p className="p2">{address},</p>
+              <p className="p2">
+                {city},{country}
+              </p>
+            </div>
+          </div>
+          <div className="warehouse-detail__contact">
+            <div className="warehouse-detail__contactName">
+              <h4>CONTACT NAME:</h4>
+              <p className="p2">{contact_name}</p>
+              <p className="p2">{contact_position}</p>
+            </div>
+            <div className="warehouse-detail__contactInfo">
+              <h4>CONTACT INFORMATION:</h4>
+              <p className="p2">{contact_phone}</p>
+              <p className="p2">{contact_email}</p>
+            </div>
           </div>
         </div>
-        <div className="warehouse-detail__contact">
-          <div className="warehouse-detail__contactName">
-            <h4>CONTACT NAME:</h4>
-            <p className="p2">{contact_name}</p>
-            <p className="p2">{contact_position}</p>
-          </div>
-          <div className="warehouse-detail__contactInfo">
-            <h4>CONTACT INFORMATION:</h4>
-            <p className="p2">{contact_phone}</p>
-            <p className="p2">{contact_email}</p>
-          </div>
-        </div>
-      </div>
-      <section className="warehouses-list-section">
-        <WarehouseItemList warehouseId={params.id} />
+        {/* warehouse items list */}
+        <section className="warehouses-list-section">
+          <WarehouseItemList warehouseId={params.id} />
+        </section>
       </section>
     </div>
   );

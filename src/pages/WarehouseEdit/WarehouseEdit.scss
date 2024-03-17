@@ -1,40 +1,43 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.main {
-    box-shadow: 0 2px 5px 0 $cloud;
-    border-radius: 2px;
-    background-color: $white;
-    position: absolute;
-    top: 129px;
-    left: 50%;
-    margin-left: -46%;
-    width: 92%;
-    min-width: 294px;
-    z-index: 1;
-
-    @include tablet {
-        top: 93px;
-        margin-left: -45.5%;
-        width: 91%;
-    }
-
-    @include desktop {
-        width: 1008px;
-        margin-left: -505px;
-    }
+.warehouse-edit-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     //----- title section ----- //
     .title-section {
+        background-color: #ffffff;
+        position: absolute;
+        top: 111px;
+        left: 49.5%;
+        margin-left: -43%;
+        width: 87%;
+        min-width: 18.375rem;
         display: flex;
         flex-direction: row;
-        align-items: flex-end;
-        padding: 2.25rem 1.5rem 1.4375rem;
+        padding: 1.5rem;
+        border-bottom: 1px solid $cloud;
+        border-radius: 0.125rem;
+        box-shadow: 0 -1px 4px 0 $cloud;
 
-        @include tablet {
-            border-bottom: 0.0625rem solid $cloud;
-        }
-
+  @include tablet {
+    flex-direction: row;
+    padding: 1.29rem 1.5rem;
+    justify-content: space-between;
+    border-bottom: none;
+  }
+  @include desktop {
+    width: 63rem;
+    margin-left: -498px;
+  }
+       .title-icon-wrap{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+       }
         &__back-icon {
             margin-left: -0.125rem;
         }
@@ -52,8 +55,6 @@
 
     // ----- form ----- //
     .form {
-        width: 100%;
-
         &-wrap {
             display: flex;
             flex-direction: column;
@@ -84,6 +85,9 @@
                 padding: 0;
                 margin: 1.8125rem 0;
                 padding: 0 2rem;
+            }
+            .form-input{
+                margin-bottom: 0;
             }
         }
 
@@ -137,7 +141,7 @@
             width: 100%;
         }
 
-        &__buttons {
+        .edit-warehouse-form-buttons{
             @include flex-space-between;
             background-color: $lightgrey;
             padding: 1rem 1.5rem;
@@ -191,3 +195,4 @@
 // .error-message {
 //     margin: 0;
 // }
+

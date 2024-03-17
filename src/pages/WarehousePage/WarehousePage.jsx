@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./WarehousePage.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
-import { Link } from "react-router-dom";
+
 
 function WarehousePage() {
   return (
