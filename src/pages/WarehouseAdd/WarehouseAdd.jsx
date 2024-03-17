@@ -55,9 +55,14 @@ function WarehouseAdd() {
     setEmail(event.target.value);
   };
 
+  const clearFormBackHome = ()=>{
+    clearForm();
+    navigate("/");
+  }
+
   const phoneFormat = /^[0-9]{10}$/;
   const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+ 
   //form submit
   const submitAddWarehouse = async (event) => {
     event.preventDefault();
@@ -116,6 +121,8 @@ function WarehouseAdd() {
     setPosition("");
     setPhoneNumber("");
     setEmail("");
+    setErrorMessage("");
+    setHasError(false);
   };
 
   return (
@@ -149,7 +156,7 @@ function WarehouseAdd() {
               <h3 className="label-text">Warehouse Name</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={(warehouseName.trim() === "" && errorMessage) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   name="warehouseName"
                   id="warehouseName"
@@ -157,13 +164,13 @@ function WarehouseAdd() {
                   onChange={handleWarehouseNameChange}
                 />
                 {warehouseName.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -173,7 +180,7 @@ function WarehouseAdd() {
               <h3 className="label-text">Street Address</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={(address.trim() === "" && errorMessage) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   name="address"
                   id="address"
@@ -181,13 +188,13 @@ function WarehouseAdd() {
                   onChange={handleAddressChange}
                 />
                 {address.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -196,7 +203,7 @@ function WarehouseAdd() {
               <h3 className="label-text">City</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={(city.trim() === "" && errorMessage) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   name="city"
                   id="city"
@@ -204,13 +211,13 @@ function WarehouseAdd() {
                   onChange={handleCityChange}
                 />
                 {city.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -219,7 +226,7 @@ function WarehouseAdd() {
               <h3 className="label-text">Country</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={(country.trim() === "" && errorMessage) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   name="country"
                   id="country"
@@ -227,13 +234,13 @@ function WarehouseAdd() {
                   onChange={handleCountryChange}
                 />
                 {country.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -246,7 +253,7 @@ function WarehouseAdd() {
               <div className="form__error-container">
                 <h3 className="label-text">Contact Name</h3>
                 <input
-                  className="form-input"
+                  className={(contactName.trim() === "" && errorMessage) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   name="contactName"
                   id="contactName"
@@ -254,13 +261,13 @@ function WarehouseAdd() {
                   onChange={handleContactNameChange}
                 />
                 {contactName.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -269,7 +276,7 @@ function WarehouseAdd() {
               <h3 className="label-text">Position</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={(position.trim() === "" && errorMessage) ? "form-input form-input--error-state" : "form-input"}
                   type="text"
                   name="position"
                   id="position"
@@ -277,13 +284,13 @@ function WarehouseAdd() {
                   onChange={handlePositionChange}
                 />
                 {position.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">{errorMessage}</p>
+                    <p className="error-message-warehouse-add">{errorMessage}</p>
                   </div>
                 )}
               </div>
@@ -292,7 +299,7 @@ function WarehouseAdd() {
               <h3 className="label-text">Phone Number</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={`${(phoneNumber.trim() === "" && errorMessage) || (!phoneNumber.trim() && errorMessage) || (phoneNumber.trim() && !phoneFormat.test(phoneNumber)) ? "form-input form-input--error-state" : "form-input"}`}
                   type="text"
                   name="phoneNumber"
                   id="phoneNumber"
@@ -300,23 +307,23 @@ function WarehouseAdd() {
                   onChange={handlePhoneChange}
                 />
                 {!phoneNumber.trim() && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">This field is required</p>
+                    <p className="error-message-warehouse-add">This field is required</p>
                   </div>
                 )}
                 {phoneNumber.trim() && !phoneFormat.test(phoneNumber) && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-warehouse-add">
                     <img
-                      className="error-icon"
+                      className="error-icon-warehouse-add"
                       src={errorIcon}
                       alt="Error Icon"
                     />
-                    <p className="error-message">
+                    <p className="error-message-warehouse-add">
                       Phone number: must be 10 digits, with no space
                     </p>
                   </div>
@@ -327,7 +334,7 @@ function WarehouseAdd() {
               <h3 className="label-text">Email</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={`${(email.trim() === "" && errorMessage) || (email.trim() && !emailFormat.test(email)) ? "form-input form-input--error-state" : "form-input"}`}
                   type="text"
                   name="email"
                   id="email"
@@ -336,24 +343,24 @@ function WarehouseAdd() {
                 />
                 {!email.trim() &&
                   errorMessage && ( // Check if email is empty and error message exists
-                    <div className="form__error-wrapper">
+                    <div className="form__error-wrapper-warehouse-add">
                       <img
-                        className="error-icon"
+                        className="error-icon-warehouse-add"
                         src={errorIcon}
                         alt="Error Icon"
                       />
-                      <p className="error-message">This field is required</p>
+                      <p className="error-message-warehouse-add">This field is required</p>
                     </div>
                   )}
                 {email.trim() &&
                   !emailFormat.test(email) && ( // Check if email is not empty and format is invalid
-                    <div className="form__error-wrapper">
+                    <div className="form__error-wrapper-warehouse-add">
                       <img
-                        className="error-icon"
+                        className="error-icon-warehouse-add"
                         src={errorIcon}
                         alt="Error Icon"
                       />
-                      <p className="error-message">
+                      <p className="error-message-warehouse-add">
                         Please enter a valid email
                       </p>
                     </div>
@@ -370,13 +377,13 @@ function WarehouseAdd() {
             </div>
           )}
           {hasError && (
-            <div className="error-message">
+            <div className="error-message-warehouse-add">
               Form has errors, please come back later
             </div>
           )}
 
           <section className="buttons-wrap">
-            <button className="secondary-button" onClick={clearForm}>
+            <button className="secondary-button" onClick={clearFormBackHome}>
               Cancel
             </button>
             <button className="primary-button" type="submit">
