@@ -11,37 +11,35 @@ function WarehouseItemList({ warehouseId }) {
   const baseUrl = "http://localhost:8080";
 
   useEffect(() => {
-    const fetchInventory = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/inventory`);
-
-        const uniqueWarehouseNames = [
-          ...new Set(response.data.map((item) => item.warehouse_name)),
-        ];
-
-        const warehouseNameToIdMap = {};
-        uniqueWarehouseNames.forEach((name, index) => {
-          warehouseNameToIdMap[name] = index + 1;
+        const getWarehouseData= await axios.get(`${baseUrl}/api/warehouses`);
+        const warehouseNameToId = {};
+        getWarehouseData.data.forEach((warehouse) => {
+          warehouseNameToId[warehouse.warehouse_name] = warehouse.id;
         });
 
-        const mappedInventory = response.data.map((item) => ({
-          ...item,
-          warehouse_id: warehouseNameToIdMap[item.warehouse_name],
-        }));
+        const inventoryResponse = await axios.get(`${baseUrl}/api/inventory`);
 
-        const filteredInventoryList = mappedInventory.filter(
-          (inventory) => inventory.warehouse_id === parseInt(warehouseId)
-        );
+        const filteredInventoryList = inventoryResponse.data
+          .map((item) => ({
+            ...item,
+            warehouse_id: warehouseNameToId[item.warehouse_name],
+          }))
+          .filter(
+            (inventory) => inventory.warehouse_id === parseInt(warehouseId)
+          );
 
         setInventoryList(filteredInventoryList);
         setDataLoading(false);
       } catch (error) {
-        console.error(`Error fetching inventory data: ${error}`);
+        console.error(`Error fetching data: ${error}`);
         setHasError(true);
         setDataLoading(false);
       }
     };
-    fetchInventory();
+
+    fetchData();
   }, [warehouseId]);
 
   if (hasError) {
