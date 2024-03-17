@@ -2,11 +2,13 @@ import "./InventoryAdd.scss";
 import React, { useState, useEffect } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function InventoryAdd() {
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     item_name: "",
@@ -68,7 +70,10 @@ function InventoryAdd() {
           quantity: "",
           warehouse_id: "",
         });
-        window.location.href = "http://localhost:8080/api/inventory";
+
+        setTimeout(() => {
+          navigate("/inventory");
+        }, 2000);
       })
       .catch((error) => {
         console.error("Error adding item", error);
@@ -81,9 +86,14 @@ function InventoryAdd() {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
+    const quantity =
+      name === "status" && value === "out_of_stock" ? "0" : formData.quantity;
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
+      quantity: quantity,
     }));
   };
 
@@ -102,11 +112,10 @@ function InventoryAdd() {
       </section>
       <hr />
       <section className="add-item__form-section">
-        <h2 className="form__header">Item Details</h2>
-
         <form onSubmit={handleSubmit} className="form">
           <div className="form__tablet-container">
             <div className="form__left">
+              <h2 className="form__header">Item Details</h2>
               <h3>Item Name</h3>
               <input
                 className="form-input"
