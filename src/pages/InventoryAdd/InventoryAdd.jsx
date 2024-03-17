@@ -87,13 +87,15 @@ function InventoryAdd() {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
-    const quantity =
-      name === "status" && value === "out_of_stock" ? "0" : formData.quantity;
+    let updatedValue = value;
+
+    if (name === "status" && value !== "in stock") {
+      updatedValue = "";
+    }
 
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
-      quantity: quantity,
+      [name]: updatedValue,
     }));
   };
 
@@ -171,8 +173,8 @@ function InventoryAdd() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="in_stock"
-                    checked={formData.status === "in_stock"}
+                    value="in stock"
+                    checked={formData.status === "in stock"}
                     onChange={handleInputChange}
                   />
                   <label>In Stock</label>
@@ -182,15 +184,15 @@ function InventoryAdd() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="out_of_stock"
-                    checked={formData.status === "out_of_stock"}
+                    value="out of stock"
+                    checked={formData.status === "out of stock"}
                     onChange={handleInputChange}
                   />
                   <label>Out of Stock</label>
                 </div>
               </div>
 
-              {formData.status === "in_stock" && (
+              {formData.status === "in stock" && (
                 <>
                   <h3>Quantity</h3>
                   <input
