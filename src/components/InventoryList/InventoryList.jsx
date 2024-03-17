@@ -6,6 +6,8 @@ import InventoryListItem from "../InventoryListItem/InventoryListItem";
 
 function InventoryList() {
   const [inventoryList, setInventoryList] = useState([]);
+  const [sortColumn, setSortColumn] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
   const [dataLoading, setDataLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const baseUrl = "http://localhost:8080";
@@ -13,7 +15,7 @@ function InventoryList() {
   useEffect(() => {
     const fetchInventory = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/inventory`);
+        const response = await axios.get(`${baseUrl}/api/inventory?sort_by=${sortColumn}&order_by=${sortDirection}`);
         document.title = "Inventory | InStock";
         setInventoryList(response.data);
         setDataLoading(false);
@@ -24,7 +26,13 @@ function InventoryList() {
       }
     };
     fetchInventory();
-  }, [inventoryList]);
+  }, [inventoryList,sortColumn,sortDirection]);
+
+  const handleSort = (columnName) => {
+    const isSameColumn = sortColumn === columnName;
+    setSortColumn(columnName);
+    setSortDirection(prevDirection => isSameColumn ? (prevDirection === 'asc' ? 'desc' : 'asc') : 'asc');
+  };
 
   if (hasError) {
     return (
@@ -48,6 +56,7 @@ function InventoryList() {
                 className="inventory-list__sort-icon"
                 src={sortIcon}
                 alt="sort icon"
+                onClick={()=>handleSort('item_name')}
               />
             </div>
             <div className="inventory-list__headings category-wrap">
@@ -56,6 +65,7 @@ function InventoryList() {
                 className="inventory-list__sort-icon"
                 src={sortIcon}
                 alt="sort icon"
+                onClick={()=>handleSort('category')}
               />
             </div>
           </section>
@@ -67,6 +77,7 @@ function InventoryList() {
                 className="inventory-list__sort-icon"
                 src={sortIcon}
                 alt="sort icon"
+                onClick={()=>handleSort('status')}
               />
             </div>
             
@@ -76,6 +87,7 @@ function InventoryList() {
                   className="inventory-list__sort-icon"
                   src={sortIcon}
                   alt="sort icon"
+                  onClick={()=>handleSort('quantity')}
                 />
               </div>
 
@@ -85,6 +97,7 @@ function InventoryList() {
                   className="inventory-list__sort-icon"
                   src={sortIcon}
                   alt="sort icon"
+                  onClick={()=>handleSort('warehouse_name')}
                 />
               </div>
           </section>
