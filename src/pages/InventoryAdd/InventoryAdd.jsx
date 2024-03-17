@@ -87,13 +87,15 @@ function InventoryAdd() {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
-    const quantity =
-      name === "status" && value === "out_of_stock" ? "0" : formData.quantity;
+    let updatedValue = value;
+
+    if (name === "status" && value !== "in_stock") {
+      updatedValue = "";
+    }
 
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
-      quantity: quantity,
+      [name]: updatedValue,
     }));
   };
 
