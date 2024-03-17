@@ -89,7 +89,7 @@ function InventoryAdd() {
 
     let updatedValue = value;
 
-    if (name === "status" && value !== "in_stock") {
+    if (name === "status" && value !== "in stock") {
       updatedValue = "";
     }
 
@@ -114,11 +114,10 @@ function InventoryAdd() {
       </section>
       <hr />
       <section className="add-item__form-section">
-        <h2 className="form__header">Item Details</h2>
-
         <form onSubmit={handleSubmit} className="form">
           <div className="form__tablet-container">
             <div className="form__left">
+              <h2 className="form__header">Item Details</h2>
               <h3>Item Name</h3>
               <input
                 className="form-input"
@@ -174,8 +173,8 @@ function InventoryAdd() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="in_stock"
-                    checked={formData.status === "in_stock"}
+                    value="in stock"
+                    checked={formData.status === "in stock"}
                     onChange={handleInputChange}
                   />
                   <label>In Stock</label>
@@ -185,15 +184,15 @@ function InventoryAdd() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="out_of_stock"
-                    checked={formData.status === "out_of_stock"}
+                    value="out of stock"
+                    checked={formData.status === "out of stock"}
                     onChange={handleInputChange}
                   />
                   <label>Out of Stock</label>
                 </div>
               </div>
 
-              {formData.status === "in_stock" && (
+              {formData.status === "in stock" && (
                 <>
                   <h3>Quantity</h3>
                   <input

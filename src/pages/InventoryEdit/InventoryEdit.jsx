@@ -43,12 +43,12 @@ function InventoryEdit() {
         if (data.quantity > 0) {
           setFormData((prevFormData) => ({
             ...prevFormData,
-            status: "in_stock",
+            status: "in stock",
           }));
         } else {
           setFormData((prevFormData) => ({
             ...prevFormData,
-            status: "out_of_stock",
+            status: "out of stock",
           }));
         }
       })
@@ -199,8 +199,8 @@ function InventoryEdit() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="in_stock"
-                    checked={formData.status === "in_stock"}
+                    value="in stock"
+                    checked={formData.status === "in stock"}
                     onChange={handleInputChange}
                   />
                   <label>In Stock</label>
@@ -210,14 +210,14 @@ function InventoryEdit() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="out_of_stock"
-                    checked={formData.status === "out_of_stock"}
+                    value="out of stock"
+                    checked={formData.status === "out of stock"}
                     onChange={handleInputChange}
                   />
                   <label>Out of Stock</label>
                 </div>
               </div>
-              {formData.status === "in_stock" && (
+              {formData.status === "in stock" && (
                 <>
                   <h3>Quantity</h3>
                   <input
