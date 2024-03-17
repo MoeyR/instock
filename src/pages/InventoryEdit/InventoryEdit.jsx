@@ -8,8 +8,6 @@ import { useNavigate } from "react-router-dom";
 function InventoryEdit() {
     const navigate = useNavigate(); 
   const [warehouses, setWarehouses] = useState([]);
-  const [warehouseNameMap, setWarehouseNameMap] = useState({});
-  const [warehouseName, setWarehouseName] = useState("");
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const { id } = useParams();
@@ -27,25 +25,24 @@ function InventoryEdit() {
   //fetch data
 
   useEffect(() => {
+
+    const fetchData = async () => {
         //fetch warehouse names
 
-        axios
+      await axios
         .get("http://localhost:8080/api/warehouses")
         .then((response) => {
           setWarehouses(response.data);
-          const warehouseMap = {};
-          response.data.forEach((warehouse) => {
-            warehouseMap[warehouse.id] = warehouse.warehouse_name;
-          });
-          setWarehouseNameMap(warehouseMap);
         })
         .catch((error) => {
           console.error("Error fetching warehouses information:", error);
         });
-    axios
+
+    await axios
       .get(`http://localhost:8080/api/inventories/${id}`)
       .then((response) => {
         const data = response.data;
+        // const warehouse = warehouses.find(wh => wh.warehouse_name === data.warehouse_name);
         setFormData({
           id: data.id,
           item_name: data.item_name,
@@ -53,10 +50,8 @@ function InventoryEdit() {
           category: data.category,
           status: data.status,
           quantity: data.quantity,
-          warehouse_id: Object.keys(warehouseNameMap).find(key => warehouseNameMap[key] === data.warehouse_name)
+          warehouse_id: data.warehouse_name,
         });
-
-        setWarehouseName(data.warehouse_name);
 
         //prefill radials if quantity is greater than 0
         if (data.quantity > 0) {
@@ -77,7 +72,7 @@ function InventoryEdit() {
 
     //fetch categories
 
-    axios
+    await axios
       .get("http://localhost:8080/api/inventory")
       .then((response) => {
         setCategories(response.data);
@@ -85,11 +80,12 @@ function InventoryEdit() {
       .catch((error) => {
         console.error("Error fetching inventory data:", error);
       });
+    };
+    fetchData();
 
+  }, [id]);
 
-  }, [id,warehouseNameMap]);
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
 
     // validation
@@ -126,7 +122,9 @@ function InventoryEdit() {
     const { name, value } = event.target;
 
     const updatedValue =
-      name === "warehouse_id" && value !== "" ? parseInt(value) : value;
+      // name === "warehouse_id" && value !== "" ? parseInt(value) : value;
+      name === "warehouse_id" && value === (warehouses.find(wh => wh.warehouse_name === value)).id
+
 
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -247,9 +245,8 @@ function InventoryEdit() {
                 value={formData.warehouse_id}
                 onChange={handleInputChange}
               >
-                <option value=""> </option>
                 {warehouses.map((warehouse) => (
-                  <option key={warehouse.id} value={warehouse.id} defaultValue={warehouseName}>
+                  <option key={warehouse.id} value={warehouse.warehouse_name}>
                     {warehouse.warehouse_name}
                   </option>
                 ))}
