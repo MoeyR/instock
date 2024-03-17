@@ -73,7 +73,9 @@ function WarehouseItemListItem({ inventoryItem, warehouseId }) {
               alt="delete icon"
               onClick={openModal}
             />
-            <img className="edit-icon" src={editIcon} alt="edit icon" />
+            <Link to={`/inventory/${inventoryItem.id}/edit`}>
+              <img className="edit-icon" src={editIcon} alt="edit icon" />
+            </Link>
           </div>
         </div>
       </li>
