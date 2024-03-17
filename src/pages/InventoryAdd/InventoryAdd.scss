@@ -101,6 +101,7 @@ hr {
   &__error {
     &-container {
     position: relative;
+    
   }
 
   &-wrapper {
@@ -108,7 +109,6 @@ hr {
     top: 100%;
     display: flex;
     align-items: center;
-    margin-top: -1rem;
   }
   }
 
