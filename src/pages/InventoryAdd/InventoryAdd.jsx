@@ -112,11 +112,10 @@ function InventoryAdd() {
       </section>
       <hr />
       <section className="add-item__form-section">
-        <h2 className="form__header">Item Details</h2>
-
         <form onSubmit={handleSubmit} className="form">
           <div className="form__tablet-container">
             <div className="form__left">
+              <h2 className="form__header">Item Details</h2>
               <h3>Item Name</h3>
               <input
                 className="form-input"
