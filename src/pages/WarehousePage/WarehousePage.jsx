@@ -14,7 +14,7 @@ function WarehousePage() {
         <section className="search-button-wrap">
           <div className="search-bar-wrap">
             <input
-              className="form-input warehouses__search-bar"
+              className="form-input warehouses__search-bar-warehouse"
               type="search"
               placeholder="Search..."
             />

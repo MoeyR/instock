@@ -32,7 +32,7 @@
       margin-right: 16px;
     }
   }
-  &__search-bar,
+  &__search-bar-warehouse,
   &__add-button {
     margin-top: 1rem;
 
@@ -41,14 +41,14 @@
     }
   }
 
-  &__search-bar {
+  &__search-bar-warehouse {
     padding: 0rem 0.8125rem;
     width: 100%;
     @include tablet {
       width: 91%;
     }
     @include desktop {
-      width: 17.375rem;
+      width: 280px;
       margin-right: 1rem;
     }
 
