@@ -103,16 +103,15 @@ function WarehouseEdit() {
       {/* ----- title section ----- */}
       <section className="title-section">
         <div className="title-icon-wrap">
-        <Link to={"/"} className="title-section__back-link">
-          <img
-            className="title-section__back-icon"
-            src={backIcon}
-            alt="back-button"
-          />
-        </Link>
-        <h1 className="title-section__page-title">Edit Warehouse</h1>
+          <Link to={"/"} className="title-section__back-link">
+            <img
+              className="title-section__back-icon"
+              src={backIcon}
+              alt="back-button"
+            />
+          </Link>
+          <h1 className="title-section__page-title">Edit Warehouse</h1>
         </div>
-        
       </section>
       {/* ----- form ----- */}
       <form className="form main-section-short-title" onSubmit={handleSubmit}>
@@ -122,7 +121,7 @@ function WarehouseEdit() {
             <h2 className="subtitle">Warehouse Details</h2>
             <label className="form__labels">
               <h3 className="label-text">Warehouse Name</h3>
-              <div className="form__error-container">
+              <div className="form__edit-error-container">
                 <input
                   className="form-input"
                   type="text"
@@ -136,9 +135,9 @@ function WarehouseEdit() {
                   placeholder="Warehouse Name"
                 />
                 {errorMessage && !warehouse_name.trim() && (
-                  <div className="form__error-wrapper">
+                  <div className="form__edit-error-wrapper">
                     <img
-                      className="error-icon"
+                      className="edit-error-icon"
                       src={errorIcon}
                       alt="Error Icon"
                     />
@@ -150,7 +149,7 @@ function WarehouseEdit() {
 
             <label className="form__labels">
               <h3 className="label-text">Street Address</h3>
-              <div className="form__error-container">
+              <div className="form__edit-error-container">
                 <input
                   className="form-input"
                   type="text"
@@ -164,9 +163,9 @@ function WarehouseEdit() {
                   placeholder="Street Address"
                 />
                 {errorMessage && !address.trim() && (
-                  <div className="form__error-wrapper">
+                  <div className="form__edit-error-wrapper">
                     <img
-                      className="error-icon"
+                      className="edit-error-icon"
                       src={errorIcon}
                       alt="Error Icon"
                     />
@@ -177,7 +176,7 @@ function WarehouseEdit() {
             </label>
             <label className="form__labels">
               <h3 className="label-text">City</h3>
-              <div className="form__error-container">
+              <div className="form__edit-error-container">
                 <input
                   className="form-input"
                   type="text"
@@ -188,9 +187,9 @@ function WarehouseEdit() {
                   placeholder="City"
                 />
                 {errorMessage && !city.trim() && (
-                  <div className="form__error-wrapper">
+                  <div className="form__edit-error-wrapper">
                     <img
-                      className="error-icon"
+                      className="edit-error-icon"
                       src={errorIcon}
                       alt="Error Icon"
                     />
@@ -201,7 +200,7 @@ function WarehouseEdit() {
             </label>
             <label className="form__labels">
               <h3 className="label-text">Country</h3>
-              <div className="form__error-container">
+              <div className="form__edit-error-container">
                 <input
                   className="form-input"
                   type="text"
@@ -215,9 +214,9 @@ function WarehouseEdit() {
                   placeholder="Country"
                 />
                 {errorMessage && !country.trim() && (
-                  <div className="form__error-wrapper">
+                  <div className="form__edit-error-wrapper">
                     <img
-                      className="error-icon"
+                      className="edit-error-icon"
                       src={errorIcon}
                       alt="Error Icon"
                     />
@@ -231,7 +230,7 @@ function WarehouseEdit() {
             <h2 className="subtitle">Contact Details</h2>
             <label className="form__labels">
               <h3 className="label-text">Contact Name</h3>
-              <div className="form__error-container">
+              <div className="form__edit-error-container">
                 <input
                   className="form-input"
                   type="text"
@@ -245,9 +244,9 @@ function WarehouseEdit() {
                   placeholder="Contact Name"
                 />
                 {errorMessage && !contact_name.trim() && (
-                  <div className="form__error-wrapper">
+                  <div className="form__edit-error-wrapper">
                     <img
-                      className="error-icon"
+                      className="edit-error-icon"
                       src={errorIcon}
                       alt="Error Icon"
                     />
@@ -258,25 +257,34 @@ function WarehouseEdit() {
             </label>
             <label className="form__labels">
               <h3 className="label-text">Position</h3>
-              <input
-                className="form-input"
-                type="text"
-                value={contact_position}
-                onChange={(e) =>
-                  setWarehouseData({
-                    ...warehouseData,
-                    contact_position: e.target.value,
-                  })
-                }
-                placeholder="Position"
-              />
-              {errorMessage && !contact_position.trim() && (
-                <p className="error-message">This field is required</p>
-              )}
+              <div className="form__edit-error-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  value={contact_position}
+                  onChange={(e) =>
+                    setWarehouseData({
+                      ...warehouseData,
+                      contact_position: e.target.value,
+                    })
+                  }
+                  placeholder="Position"
+                />
+                {errorMessage && !contact_position.trim() && (
+                  <div className="form__edit-error-wrapper">
+                    <img
+                      className="edit-error-icon"
+                      src={errorIcon}
+                      alt="Error Icon"
+                    />
+                    <p className="error-message">This field is required</p>
+                  </div>
+                )}
+              </div>
             </label>
             <label className="form__labels">
               <h3 className="label-text">Phone Number</h3>
-              <div className="form__error-container">
+              <div className="form__edit-error-container">
                 <input
                   className="form-input"
                   type="text"
@@ -290,9 +298,9 @@ function WarehouseEdit() {
                   placeholder="Phone Number"
                 />
                 {errorMessage && !phoneFormat.test(contact_phone) && (
-                  <div className="form__error-wrapper">
+                  <div className="form__edit-error-wrapper">
                     <img
-                      className="error-icon"
+                      className="edit-error-icon"
                       src={errorIcon}
                       alt="Error Icon"
                     />
@@ -305,7 +313,7 @@ function WarehouseEdit() {
             </label>
             <label className="form__labels">
               <h3 className="label-text">Email</h3>
-              <div className="form__error-container">
+              <div className="form__edit-error-container">
                 <input
                   className="form-input"
                   type="text"
@@ -319,28 +327,27 @@ function WarehouseEdit() {
                   placeholder="Email"
                 />
                 {errorMessage && !emailFormat.test(contact_email) && (
-                  <div className="form__error-wrapper">
+                  <div className="form__edit-error-wrapper">
                     <img
-                      className="error-icon"
+                      className="edit-error-icon"
                       src={errorIcon}
                       alt="Error Icon"
                     />
                     <p className="error-message">
-                    Please enter a valid email address
-                  </p>
+                      Please enter a valid email address
+                    </p>
                   </div>
-                )}                 
+                )}
               </div>
             </label>
           </section>
-            
         </section>
         <section className="edit-warehouse-form-buttons">
-              <button className="secondary-button">Cancel</button>
-              <button type="submit" className="primary-button">
-                Save
-              </button>
-          </section>
+          <button className="secondary-button">Cancel</button>
+          <button type="submit" className="primary-button">
+            Save
+          </button>
+        </section>
       </form>
     </section>
   );
