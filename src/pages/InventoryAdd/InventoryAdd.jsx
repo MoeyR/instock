@@ -122,7 +122,11 @@ function InventoryAdd() {
               <h3>Item Name</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={
+                    formData.item_name.trim() === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form-input"
+                  }
                   type="text"
                   name="item_name"
                   placeholder="Item Name"
@@ -130,7 +134,7 @@ function InventoryAdd() {
                   onChange={handleInputChange}
                 />
                 {formData.item_name.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-add">
                     <img
                       className="error-icon"
                       src={errorIcon}
@@ -144,7 +148,11 @@ function InventoryAdd() {
               <h3>Description</h3>
               <div className="form__error-container">
                 <textarea
-                  className="form-input form__larger"
+                  className={
+                    formData.item_name.trim() === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form-input form__larger"
+                  }
                   type="text"
                   name="description"
                   placeholder="Please enter a brief item description..."
@@ -152,7 +160,7 @@ function InventoryAdd() {
                   onChange={handleInputChange}
                 />
                 {formData.item_name.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-add">
                     <img
                       className="error-icon"
                       src={errorIcon}
@@ -166,7 +174,11 @@ function InventoryAdd() {
               <h3>Category</h3>
               <div className="form__error-container">
                 <select
-                  className="form__category-select"
+                  className={
+                    formData.category.trim() === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form__category-select"
+                  }
                   name="category"
                   value={formData.category}
                   onChange={handleInputChange}
@@ -179,7 +191,7 @@ function InventoryAdd() {
                   ))}
                 </select>
                 {formData.category.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-add">
                     <img
                       className="error-icon"
                       src={errorIcon}
@@ -225,14 +237,18 @@ function InventoryAdd() {
                   <h3>Quantity</h3>
                   <div className="form__error-container">
                     <input
-                      className="form-input"
+                      className={
+                        formData.quantity.trim() === "" && errorMessage
+                          ? "form-input form-input--error-state"
+                          : "form-input"
+                      }
                       type="text"
                       name="quantity"
                       value={formData.quantity}
                       onChange={handleInputChange}
                     />
                     {formData.quantity.trim() === "" && errorMessage && (
-                      <div className="form__error-wrapper">
+                      <div className="form__error-wrapper-inventory-add">
                         <img
                           className="error-icon"
                           src={errorIcon}
@@ -248,7 +264,11 @@ function InventoryAdd() {
               <h3>Warehouse</h3>
               <div className="form__error-container">
                 <select
-                  className="form__category-select"
+                  className={
+                    formData.warehouse_id.trim() === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form__category-select"
+                  }
                   name="warehouse_id"
                   value={formData.warehouse_id}
                   onChange={handleInputChange}
@@ -261,7 +281,7 @@ function InventoryAdd() {
                   ))}
                 </select>
                 {formData.warehouse_id.trim() === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-add">
                     <img
                       className="error-icon"
                       src={errorIcon}

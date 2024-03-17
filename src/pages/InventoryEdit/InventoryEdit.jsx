@@ -148,7 +148,11 @@ function InventoryEdit() {
               <h3>Item Name</h3>
               <div className="form__error-container">
                 <input
-                  className="form-input"
+                  className={
+                    formData.item_name === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form-input"
+                  }
                   type="text"
                   name="item_name"
                   placeholder="Item Name"
@@ -156,7 +160,7 @@ function InventoryEdit() {
                   onChange={handleInputChange}
                 />
                 {formData.item_name === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-edit">
                     <img
                       className="error-icon"
                       src={errorIcon}
@@ -169,7 +173,11 @@ function InventoryEdit() {
               <h3>Description</h3>
               <div className="form__error-container">
                 <textarea
-                  className="form-input form__larger"
+                  className={
+                    formData.description === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form-input form__larger"
+                  }
                   type="text"
                   name="description"
                   placeholder="Please enter a brief item description..."
@@ -177,7 +185,7 @@ function InventoryEdit() {
                   onChange={handleInputChange}
                 />
                 {formData.description === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-edit">
                     <img
                       className="error-icon"
                       src={errorIcon}
@@ -190,7 +198,11 @@ function InventoryEdit() {
               <h3>Category</h3>
               <div className="form__error-container">
                 <select
-                  className="form__category-select"
+                  className={
+                    formData.category === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form__category-select"
+                  }
                   name="category"
                   value={formData.category}
                   onChange={handleInputChange}
@@ -203,7 +215,7 @@ function InventoryEdit() {
                   ))}
                 </select>
                 {formData.category === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-edit">
                     <img
                       className="error-icon"
                       src={errorIcon}
@@ -248,14 +260,18 @@ function InventoryEdit() {
                   <h3>Quantity</h3>
                   <div className="form__error-container">
                     <input
-                      className="form-input"
+                      className={
+                        formData.quantity === "" && errorMessage
+                          ? "form-input form-input--error-state"
+                          : "form-input"
+                      }
                       type="text"
                       name="quantity"
                       value={formData.quantity}
                       onChange={handleInputChange}
                     />
                     {formData.quantity === "" && errorMessage && (
-                      <div className="form__error-wrapper">
+                      <div className="form__error-wrapper-inventory-edit">
                         <img
                           className="error-icon"
                           src={errorIcon}
@@ -270,7 +286,11 @@ function InventoryEdit() {
               <h3>Warehouse</h3>
               <div className="form__error-container">
                 <select
-                  className="form__category-select"
+                  className={
+                    formData.warehouse_id === "" && errorMessage
+                      ? "form-input form-input--error-state"
+                      : "form__category-select"
+                  }
                   name="warehouse_id"
                   value={formData.warehouse_id}
                   onChange={handleInputChange}
@@ -283,7 +303,7 @@ function InventoryEdit() {
                   ))}
                 </select>
                 {formData.warehouse_id === "" && errorMessage && (
-                  <div className="form__error-wrapper">
+                  <div className="form__error-wrapper-inventory-edit">
                     <img
                       className="error-icon"
                       src={errorIcon}
