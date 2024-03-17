@@ -11,22 +11,19 @@ function WarehouseItemList({ warehouseId }) {
   const baseUrl = "http://localhost:8080";
 
   const warehouseNameToIdMap = {
-    "Manhattan": 1,
-    "Washington": 2,
-    "Jersey": 3,
-    "SF": 4,
+    Manhattan: 1,
+    Washington: 2,
+    Jersey: 3,
+    SF: 4,
     "Santa Monica": 5,
-    "Seattle": 6,
-    "Miami": 7,
-    "Boston": 8,
+    Seattle: 6,
+    Miami: 7,
+    Boston: 8,
   };
-
-  
 
   useEffect(() => {
     const fetchInventory = async () => {
       try {
-        
         const response = await axios.get(`${baseUrl}/api/inventory`);
 
         const mappedInventory = response.data.map((item) => ({
@@ -34,17 +31,9 @@ function WarehouseItemList({ warehouseId }) {
           warehouse_id: warehouseNameToIdMap[item.warehouse_name],
         }));
 
-        console.log(warehouseId);
-        console.log(mappedInventory[2].warehouse_id)
-        
-
-        const filteredInventoryList = mappedInventory.filter ((inventory) =>
-        inventory.warehouse_id === warehouseId
+        const filteredInventoryList = mappedInventory.filter(
+          (inventory) => inventory.warehouse_id == warehouseId
         );
-
-        
-
-console.log(filteredInventoryList)
 
         setInventoryList(filteredInventoryList);
         setDataLoading(false);
@@ -57,10 +46,6 @@ console.log(filteredInventoryList)
     fetchInventory();
   }, [warehouseId]);
 
-  if (!warehouseId) {
-    return <p>loading</p>;
-  }
-
   if (hasError) {
     return (
       <p>Unable to access inventory data right now. Please try again later.</p>
@@ -71,7 +56,7 @@ console.log(filteredInventoryList)
     return <p>Loading inventory list...</p>;
   }
 
-console.log(inventoryList);
+  console.log(inventoryList);
   return (
     <ul className="inventory-list">
       <li className="inventory-list__headings-container">
@@ -125,9 +110,7 @@ console.log(inventoryList);
           key={inventoryItem.id}
           inventoryItem={inventoryItem}
           warehouseId={warehouseId}
-          
         />
-        
       ))}
     </ul>
   );
