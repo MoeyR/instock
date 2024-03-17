@@ -40,7 +40,7 @@ function WarehouseItemList({ warehouseId }) {
     };
 
     fetchData();
-  }, [warehouseId]);
+  }, [warehouseId,inventoryList]);
 
   if (hasError) {
     return (
