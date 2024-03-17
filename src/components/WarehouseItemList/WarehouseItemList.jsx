@@ -10,19 +10,19 @@ function WarehouseItemList({ warehouseId }) {
   const [hasError, setHasError] = useState(false);
   const baseUrl = "http://localhost:8080";
 
-  const warehouseNameToIdMap = {
-    Manhattan: 1,
-    Washington: 2,
-    Jersey: 3,
-    SF: 4,
-    "Santa Monica": 5,
-    Seattle: 6,
-    Miami: 7,
-    Boston: 8,
-  };
-
   useEffect(() => {
     const fetchInventory = async () => {
+      const warehouseNameToIdMap = {
+        Manhattan: 1,
+        Washington: 2,
+        Jersey: 3,
+        SF: 4,
+        "Santa Monica": 5,
+        Seattle: 6,
+        Miami: 7,
+        Boston: 8,
+      };
+
       try {
         const response = await axios.get(`${baseUrl}/api/inventory`);
 
@@ -32,7 +32,7 @@ function WarehouseItemList({ warehouseId }) {
         }));
 
         const filteredInventoryList = mappedInventory.filter(
-          (inventory) => inventory.warehouse_id == warehouseId
+          (inventory) => inventory.warehouse_id === parseInt(warehouseId, 10)
         );
 
         setInventoryList(filteredInventoryList);
