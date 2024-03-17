@@ -1,3 +1,4 @@
+
 import "./InventoryEdit.scss";
 import React, { useState, useEffect } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
@@ -25,24 +26,10 @@ function InventoryEdit() {
   //fetch data
 
   useEffect(() => {
-
-    const fetchData = async () => {
-        //fetch warehouse names
-
-      await axios
-        .get("http://localhost:8080/api/warehouses")
-        .then((response) => {
-          setWarehouses(response.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching warehouses information:", error);
-        });
-
-    await axios
+    axios
       .get(`http://localhost:8080/api/inventories/${id}`)
       .then((response) => {
         const data = response.data;
-        // const warehouse = warehouses.find(wh => wh.warehouse_name === data.warehouse_name);
         setFormData({
           id: data.id,
           item_name: data.item_name,
@@ -50,7 +37,7 @@ function InventoryEdit() {
           category: data.category,
           status: data.status,
           quantity: data.quantity,
-          warehouse_id: data.warehouse_name,
+          warehouse_id: data.warehouse_id,
         });
 
         //prefill radials if quantity is greater than 0
@@ -72,7 +59,7 @@ function InventoryEdit() {
 
     //fetch categories
 
-    await axios
+    axios
       .get("http://localhost:8080/api/inventory")
       .then((response) => {
         setCategories(response.data);
@@ -80,12 +67,20 @@ function InventoryEdit() {
       .catch((error) => {
         console.error("Error fetching inventory data:", error);
       });
-    };
-    fetchData();
 
+    //fetch warehouse names
+
+    axios
+      .get("http://localhost:8080/api/warehouses")
+      .then((response) => {
+        setWarehouses(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching warehouses information:", error);
+      });
   }, [id]);
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     // validation
@@ -122,9 +117,7 @@ function InventoryEdit() {
     const { name, value } = event.target;
 
     const updatedValue =
-      // name === "warehouse_id" && value !== "" ? parseInt(value) : value;
-      name === "warehouse_id" && value === (warehouses.find(wh => wh.warehouse_name === value)).id
-
+      name === "warehouse_id" && value !== "" ? parseInt(value) : value;
 
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -134,14 +127,16 @@ function InventoryEdit() {
 
   return (
     <main className="edit-item">
-      <section className="edit-item__title-wrap">
-        <img
-          onClick={handleClick}
-          className="edit-item__chevron"
-          src={backArrow}
-          alt="back arrow"
-        />
-        <h1 className="edit-item__title">Edit Inventory Item</h1>
+      <section className="edit-inv-title-wrap">
+        <div className="edit-inv-icon-title-wrap">
+          <img
+            onClick={handleClick}
+            className="edit-item__chevron"
+            src={backArrow}
+            alt="back arrow"
+          />
+          <h1 className="edit-item__title">Edit Inventory Item</h1>
+          </div>
       </section>
       <hr />
       <section className="edit-item__form-section">
@@ -245,8 +240,9 @@ function InventoryEdit() {
                 value={formData.warehouse_id}
                 onChange={handleInputChange}
               >
+                <option value="">Please select</option>
                 {warehouses.map((warehouse) => (
-                  <option key={warehouse.id} value={warehouse.warehouse_name}>
+                  <option key={warehouse.id} value={warehouse.id}>
                     {warehouse.warehouse_name}
                   </option>
                 ))}
