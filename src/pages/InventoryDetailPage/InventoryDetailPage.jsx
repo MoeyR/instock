@@ -21,10 +21,10 @@ function InventoryDetailPage() {
         setIsLoading(false);
         setActiveInventory(response.data);
         let className = "";
-        if (response.data.status === "In Stock") {
+        if (response.data.status === "In Stock" || response.data.status === "in_stock") {
           className = "inventory-detail__statustext tag--instock";
         } else {
-          if (response.data.status === "Out of Stock") {
+          if (response.data.status === "Out of Stock" || response.data.status === "out_of_stock") {
             className = "inventory-detail__statustext tag--outofstock";
           }
         }
