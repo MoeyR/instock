@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 20.875rem;
+
   &__imgname {
     display: flex;
     align-items: center;
@@ -20,15 +20,6 @@
     margin-right: 0.5rem;
   }
 
-  // &__title {
-  //     display: flex;
-  //     justify-content: space-between;
-  //     padding: 1rem 1rem;
-
-  //     @include tablet {
-  //         padding: 1.65rem 2rem;
-  //     }
-  // }
   .inv-detail-title-icon-wrap {
     display: flex;
     justify-content: space-between;
@@ -36,8 +27,8 @@
   }
 
   &__edit {
-    width: 2.25rem; //36px
-    height: 2.25rem; //36px
+    width: 2.25rem; 
+    height: 2.25rem; 
     border-radius: 50%;
     background-color: $indigo;
     background-image: url(../../assets/icons/edit-24px-white.svg);
@@ -55,7 +46,7 @@
       border-radius: 1.25rem;
       text-indent: 0;
       background-position: 0.8rem center;
-      padding: 10px 10px 10px 25px;
+      padding: .625rem .625rem .625rem 1.5625rem;
       color: $white;
       text-align: center;
     }
@@ -64,19 +55,19 @@
   &__info {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid $cloud;
-    border-bottom: 1px solid $cloud;
-    margin-top: 29px;
+    border-top: .0625rem solid $cloud;
+    border-bottom: .0625rem solid $cloud;
+    margin-top: 1.8125rem;
     width: 87%;
     background-color: #ffffff;
-    box-shadow: 0 2px 5px 0 $cloud;
+    box-shadow: 0 .125rem .3125rem 0 $cloud;
     border-radius: 0.125rem;
     @include tablet {
       flex-direction: row;
       justify-content: flex-start;
       border-bottom: none;
       padding: 1rem 2rem;
-      margin-top: -1px;
+      margin-top: -0.0625rem;
     }
     @include desktop {
       width: 63rem;
@@ -87,7 +78,7 @@
     padding: 1rem 1rem;
     @include tablet {
       width: 50%;
-      border-right: 1px solid $cloud;
+      border-right: .0625rem solid $cloud;
       padding: 0rem 1rem;
     }
   }
@@ -130,16 +121,16 @@
   color: $green;
   background-color: #15846312;
   text-transform: uppercase;
-  border-radius: 20px;
-  height: 24px;
+  border-radius: 1.25rem;
+  height: 1.5rem;
   text-align: center;
-  padding: 4px 16px;
+  padding: .25rem 1rem;
   display: inline-block;
   width: 75%;
   @include tablet {
-    height: 26px;
-    max-width: 95px;
-    min-width: 100px;
+    height: 1.625rem;
+    max-width: 5.9375rem;
+    min-width: 6.25rem;
   }
 }
 
@@ -148,15 +139,15 @@
   background-color: #c9451512;
   text-transform: uppercase;
 
-  border-radius: 20px;
-  height: 24px;
+  border-radius: 1.25rem;
+  height: 1.5rem;
   text-align: center;
-  padding-top: 4px;
+  padding-top: .25rem;
   display: inline-block;
 
   @include tablet {
-    height: 26px;
-    max-width: 120px;
-    min-width: 120px;
+    height: 1.625rem;
+    max-width: 7.5rem;
+    min-width: 7.5rem;
   }
 }

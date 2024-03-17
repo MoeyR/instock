@@ -1,7 +1,6 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-// warehouses list details
 .warehouses-list {
   &__item {
     padding: 1.125rem 1.5rem;
@@ -102,7 +101,7 @@
   }
 
   .warehouses-list__item:hover .right-arrow {
-    transform: translateX(4px);
+    transform: translateX(.25rem);
   }
 
   // icons

@@ -28,8 +28,8 @@
   .search-bar-wrap {
     position: relative;
     @include tablet{
-      width: 186px;
-      margin-right: 16px;
+      width: 11.625rem;
+      margin-right: 1rem;
     }
   }
   &__search-bar-warehouse,
@@ -48,7 +48,7 @@
       width: 91%;
     }
     @include desktop {
-      width: 280px;
+      width: 17.5rem;
       margin-right: 1rem;
     }
 

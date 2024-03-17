@@ -7,12 +7,12 @@ function InventoryPage() {
   return (
     <main className="inventory-container">
       {/* ---- Title Section ---- */}
-      <section className="page-title-section">
-        <h1 className="warehouses__title">Inventory</h1>
+      <section className="inv-page-title-section">
+        <h1 className="inv-title">Inventory</h1>
         <section className="search-button-wrap">
           <div className="search-bar-wrap">
             <input
-              className="form-input warehouses__search-bar"
+              className="form-input inv-search-bar"
               type="search"
               placeholder="Search..."
             />

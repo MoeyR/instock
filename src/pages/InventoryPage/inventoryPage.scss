@@ -8,11 +8,38 @@
   align-items: center;
 
   // Title Section Styles
+ .inv-page-title-section{
+  background-color: #ffffff;
+    position: absolute;
+    top: 6.6875rem;
+    left: 49.5%;
+    margin-left: -43%;
+    width: 87%;
+    min-width: 18.375rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-bottom: .0625rem solid $cloud;
+    border-radius: 0.125rem;
+    box-shadow: 0 -0.0625rem .25rem 0 $cloud;
 
-  &__title {
+  @include tablet {
+    flex-direction: row;
+    padding: 1.29rem 1.5rem;
+    justify-content: space-between;
+    border-bottom: none;
+  }
+  @include desktop {
+    width: 63rem;
+    margin-left: -31.125rem;
+  }
+ }
+
+  .inv-title {
     font-size: 1.625rem;
     line-height: 1.75rem;
     margin-top: 0.4rem;
+    margin-bottom: 1rem;
     @include tablet {
       font-size: 1.75rem;
     }
@@ -31,7 +58,7 @@
   .search-bar-wrap {
     position: relative;
   }
-  &__search-bar,
+  .inv-search-bar,
   &__add-button {
     margin-top: 1rem;
 
@@ -81,7 +108,7 @@
   }
 
   .inventory-main-section{
-    margin-top: 150px;
+    margin-top: 163px;
     width: 87%;
     background-color: #ffffff;
     box-shadow: 0 2px 5px 0 $cloud;

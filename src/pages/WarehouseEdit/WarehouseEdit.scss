@@ -11,7 +11,7 @@
     .title-section {
         background-color: #ffffff;
         position: absolute;
-        top: 111px;
+        top: 6.9375rem;
         left: 49.5%;
         margin-left: -43%;
         width: 87%;
@@ -19,9 +19,9 @@
         display: flex;
         flex-direction: row;
         padding: 1.5rem;
-        border-bottom: 1px solid $cloud;
+        border-bottom: .0625rem solid $cloud;
         border-radius: 0.125rem;
-        box-shadow: 0 -1px 4px 0 $cloud;
+        box-shadow: 0 -0.0625rem .25rem 0 $cloud;
 
         @include tablet {
             flex-direction: row;
@@ -31,7 +31,7 @@
         }
         @include desktop {
             width: 63rem;
-            margin-left: -498px;
+            margin-left: -31.125rem;
         }
        .title-icon-wrap{
         display: flex;
@@ -110,7 +110,7 @@
     }
         
     .edit-error-icon {
-        margin-right: 5px;
+        margin-right: .3125rem;
     }
         
     .error-message {
@@ -159,7 +159,7 @@
                     width: 4.5rem;
                     padding: 0 0.375rem;
                     font-size: 0.8125rem;
-                    margin-right: 16px;
+                    margin-right: 1rem;
                 }
             }
 
@@ -187,11 +187,6 @@
 }
 
 .error-icon {
-    margin-right: 5px;
-    /* Adjust as needed */
+    margin-right: .3125rem;
 }
-
-// .error-message {
-//     margin: 0;
-// }
 

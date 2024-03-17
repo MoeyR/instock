@@ -28,14 +28,14 @@
     }
   }
   &__edit {
-    width: 2.25rem; //36px
-    height: 2.25rem; //36px
+    width: 2.25rem; 
+    height: 2.25rem; 
     border-radius: 50%;
     background-color: $indigo;
     background-image: url(../../assets/icons/edit-24px-white.svg);
     background-repeat: no-repeat;
     background-size: 1.25rem 1.25rem;
-    background-position: 0.5rem center; /* 水平位置和垂直居中 */
+    background-position: 0.5rem center; 
     border: none;
     text-indent: 100%;
     white-space: nowrap;
@@ -47,7 +47,7 @@
       border-radius: 1.25rem;
       text-indent: 0;
       background-position: 0.8rem center;
-      padding: 10px 10px 10px 25px;
+      padding: .625rem .625rem .625rem 1.5625rem;
       color: $white;
       text-align: center;
     }
@@ -55,8 +55,8 @@
   &__info {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid $cloud;
-    border-bottom: 1px solid $cloud;
+    border-top: .0625rem solid $cloud;
+    border-bottom: .0625rem solid $cloud;
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
@@ -92,7 +92,7 @@
     @include tablet {
       margin-top: 1rem;
       padding: 0 1rem 0 2rem;
-      border-left: 1px solid $cloud;
+      border-left: .0625rem solid $cloud;
       width: 60%;
       justify-content: flex-start;
     }
