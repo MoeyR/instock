@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function InventoryEdit() {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -101,7 +101,7 @@ function InventoryEdit() {
       .put(`http://localhost:8080/api/inventories/${id}`, formData)
       .then((response) => {
         console.log("Item updated successfully");
-         navigate("/inventory");
+        navigate("/inventory");
       })
       .catch((error) => {
         console.error("Error updating item", error);
@@ -135,7 +135,7 @@ function InventoryEdit() {
             alt="back arrow"
           />
           <h1 className="edit-item__title">Edit Inventory Item</h1>
-          </div>
+        </div>
       </section>
       <hr />
       <section className="edit-item__form-section">
