@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function InventoryEdit() {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [warehouses, setWarehouses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -43,12 +43,12 @@ function InventoryEdit() {
         if (data.quantity > 0) {
           setFormData((prevFormData) => ({
             ...prevFormData,
-            status: "in_stock",
+            status: "in stock",
           }));
         } else {
           setFormData((prevFormData) => ({
             ...prevFormData,
-            status: "out_of_stock",
+            status: "out of stock",
           }));
         }
       })
@@ -101,7 +101,7 @@ function InventoryEdit() {
       .put(`http://localhost:8080/api/inventories/${id}`, formData)
       .then((response) => {
         console.log("Item updated successfully");
-         navigate("/inventory");
+        navigate("/inventory");
       })
       .catch((error) => {
         console.error("Error updating item", error);
@@ -135,7 +135,7 @@ function InventoryEdit() {
             alt="back arrow"
           />
           <h1 className="edit-item__title">Edit Inventory Item</h1>
-          </div>
+        </div>
       </section>
       <hr />
       <section className="edit-item__form-section">
@@ -199,8 +199,8 @@ function InventoryEdit() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="in_stock"
-                    checked={formData.status === "in_stock"}
+                    value="in stock"
+                    checked={formData.status === "in stock"}
                     onChange={handleInputChange}
                   />
                   <label>In Stock</label>
@@ -210,14 +210,14 @@ function InventoryEdit() {
                     className="radio"
                     type="radio"
                     name="status"
-                    value="out_of_stock"
-                    checked={formData.status === "out_of_stock"}
+                    value="out of stock"
+                    checked={formData.status === "out of stock"}
                     onChange={handleInputChange}
                   />
                   <label>Out of Stock</label>
                 </div>
               </div>
-              {formData.status === "in_stock" && (
+              {formData.status === "in stock" && (
                 <>
                   <h3>Quantity</h3>
                   <input

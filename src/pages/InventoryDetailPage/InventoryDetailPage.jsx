@@ -8,7 +8,9 @@ function InventoryDetailPage() {
   const params = useParams();
   const [activeInventory, setActiveInventory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [classNameStatus, setClassNameStatus] = useState("inventory-detail__statustext");
+  const [classNameStatus, setClassNameStatus] = useState(
+    "inventory-detail__statustext"
+  );
   const baseUrl = "http://localhost:8080";
 
   useEffect(() => {
@@ -21,10 +23,16 @@ function InventoryDetailPage() {
         setIsLoading(false);
         setActiveInventory(response.data);
         let className = "";
-        if (response.data.status === "In Stock" || response.data.status === "in_stock") {
+        if (
+          response.data.status === "In Stock" ||
+          response.data.status === "in stock"
+        ) {
           className = "inventory-detail__statustext tag--instock";
         } else {
-          if (response.data.status === "Out of Stock" || response.data.status === "out_of_stock") {
+          if (
+            response.data.status === "Out of Stock" ||
+            response.data.status === "out of stock"
+          ) {
             className = "inventory-detail__statustext tag--outofstock";
           }
         }
@@ -51,20 +59,19 @@ function InventoryDetailPage() {
     <div className="inventory-detail">
       <div className="page-title-section">
         <div className="inv-detail-title-icon-wrap">
-        <div className="inventory-detail__imgname">
-          <img
-            src={backarrow}
-            alt="back"
-            onClick={handleClick}
-            className="inventory-detail__img"
-          />
-          <h1>{item_name}</h1>
+          <div className="inventory-detail__imgname">
+            <img
+              src={backarrow}
+              alt="back"
+              onClick={handleClick}
+              className="inventory-detail__img"
+            />
+            <h1>{item_name}</h1>
+          </div>
+          <Link to={`/inventory/${params.id}/edit`}>
+            <button className="inventory-detail__edit">Edit</button>
+          </Link>
         </div>
-        <Link to={`/inventory/${params.id}/edit`}>
-          <button className="inventory-detail__edit">Edit</button>
-        </Link>
-        </div>
-        
       </div>
       <div className="inventory-detail__info">
         <div className="inventory-detail__descat">

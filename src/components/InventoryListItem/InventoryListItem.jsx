@@ -26,16 +26,16 @@ function InventoryListItem({ inventoryItem }) {
           <section className="inventory-items__wrap">
             <div className="name-category">
               <div className="inventory-items__item-wrap item-link-wrap">
-                  <h4 className="inventory-items__heading">INVENTORY ITEM</h4>
-                  <Link
-                    className="link-style inventory-items__detail"
-                    to={`/inventory/${inventoryItem.id}`}
-                  >
-                    <p>{inventoryItem.item_name}</p>
-                    <span className="right-arrow"> </span>
-                  </Link>
-                </div>
-              
+                <h4 className="inventory-items__heading">INVENTORY ITEM</h4>
+                <Link
+                  className="link-style inventory-items__detail"
+                  to={`/inventory/${inventoryItem.id}`}
+                >
+                  <p>{inventoryItem.item_name}</p>
+                  <span className="right-arrow"> </span>
+                </Link>
+              </div>
+
               <div className="inventory-items__item-wrap">
                 <h4 className="inventory-items__heading">CATEGORY</h4>
                 <p className="inventory-items__detail">
@@ -48,7 +48,7 @@ function InventoryListItem({ inventoryItem }) {
                 <h4 className="inventory-items__heading">STATUS</h4>
                 <p
                   className={`inventory-items__detail ${
-                    inventoryItem.status === "In Stock"
+                    inventoryItem.status.toLowerCase() === "in stock"
                       ? "in-stock"
                       : "out-of-stock"
                   }`}
@@ -82,11 +82,7 @@ function InventoryListItem({ inventoryItem }) {
               onClick={openModal}
             />
             <Link to={`/inventory/${inventoryItem.id}/edit`}>
-            <img
-              className="edit-icon"
-              src={editIcon}
-              alt="edit icon"
-            />
+              <img className="edit-icon" src={editIcon} alt="edit icon" />
             </Link>
           </div>
         </div>
