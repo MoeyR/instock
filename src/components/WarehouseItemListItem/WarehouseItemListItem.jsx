@@ -19,14 +19,6 @@ function WarehouseItemListItem({ inventoryItem, warehouseId }) {
     closeModal();
   };
 
-
-    // if (inventoryItem.warehouse_id !== warehouseId) {
-    //   console.log(warehouseId)
-    //   console.log(inventoryItem.warehouse_id)
-    //   return null;
-    // }
-  
-
   return (
     <>
       <li className="inventory-items">
