@@ -119,20 +119,28 @@ function WarehouseAdd() {
   };
 
   return (
-    <section className="main">
+    <section className="warehouse-add-main">
       {/* ----- title section ----- */}
       <section className="title-section">
-        <Link to={"/"} className="title-section__back-link">
-          <img
-            className="title-section__back-icon"
-            src={backIcon}
-            alt="back-button"
-          />
-        </Link>
-        <h1 className="title-section__page-title">Add New Warehouse</h1>
+        <div className="title-icon-wrap">
+          <Link to={"/"} className="title-section__back-link">
+            <img
+              className="title-section__back-icon"
+              src={backIcon}
+              alt="back-button"
+            />
+          </Link>
+          <h1 className="title-section__add-warehouse-page-title">
+            Add New Warehouse
+          </h1>
+        </div>
       </section>
       {/* ----- form ----- */}
-      <form className="form" method="POST" onSubmit={submitAddWarehouse}>
+      <form
+        className="form main-section-short-title"
+        method="POST"
+        onSubmit={submitAddWarehouse}
+      >
         <section className="form-wrap">
           {/* warehouse details */}
           <section className="form__label-inputs-wrap">

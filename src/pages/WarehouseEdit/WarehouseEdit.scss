@@ -23,16 +23,16 @@
         border-radius: 0.125rem;
         box-shadow: 0 -1px 4px 0 $cloud;
 
-  @include tablet {
-    flex-direction: row;
-    padding: 1.29rem 1.5rem;
-    justify-content: space-between;
-    border-bottom: none;
-  }
-  @include desktop {
-    width: 63rem;
-    margin-left: -498px;
-  }
+        @include tablet {
+            flex-direction: row;
+            padding: 1.29rem 1.5rem;
+            justify-content: space-between;
+            border-bottom: none;
+        }
+        @include desktop {
+            width: 63rem;
+            margin-left: -498px;
+        }
        .title-icon-wrap{
         display: flex;
         flex-direction: row;

@@ -1,45 +1,49 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.main {
-  box-shadow: 0 0.125rem 0.3125rem 0 $cloud;
-  border-radius: 0.125rem;
-  background-color: $white;
-  position: absolute;
-  top: 8.0625rem;
-  left: 50%;
-  margin-left: -46%;
-  width: 92%;
-  min-width: 18.375rem;
-  z-index: 1;
-
-  @include tablet {
-    top: 9.1875rem;
-    margin-left: -45.5%;
-    width: 91%;
-  }
-  @include desktop {
-    width: 63rem;
-    margin-left: -31.5625rem;
-  }
+.warehouse-add-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   //----- title section ----- //
   .title-section {
+    background-color: #ffffff;
+    position: absolute;
+    top: 111px;
+    left: 49.5%;
+    margin-left: -43%;
+    width: 87%;
+    min-width: 18.375rem;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    padding: 2.25rem 1.5rem 1.4375rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid $cloud;
+    border-radius: 0.125rem;
+    box-shadow: 0 -1px 4px 0 $cloud;
 
     @include tablet {
-      border-bottom: 0.0625rem solid $cloud;
+      flex-direction: row;
+      padding: 1.29rem 1.5rem;
+      justify-content: space-between;
+      border-bottom: none;
     }
-
+    @include desktop {
+      width: 63rem;
+      margin-left: -498px;
+    }
+    .title-icon-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
     &__back-icon {
       margin-left: -0.125rem;
     }
 
-    &__page-title {
-      font-size: 1.625rem;
+    &__add-warehouse-page-title {
+      font-size: 25px;
       margin-left: 0.3125rem;
 
       @include tablet {
@@ -51,8 +55,6 @@
 
   // ----- form ----- //
   .form {
-    width: 100%;
-
     &-wrap {
       display: flex;
       flex-direction: column;
@@ -92,23 +94,23 @@
       &-container {
         position: relative;
       }
-    
+
       &-wrapper {
         position: absolute;
         top: 100%;
         display: flex;
         align-items: center;
         margin-top: -1rem;
-        }   
+      }
     }
-    
-  .error-icon {
-    margin-right: 5px;
-  }
-    
-  .error-message {
-    margin: 0;
-  }
+
+    .error-icon {
+      margin-right: 5px;
+    }
+
+    .error-message {
+      margin: 0;
+    }
 
     &__labels {
       display: block;
@@ -124,6 +126,10 @@
         @include tablet {
           margin-bottom: 0.375rem;
         }
+      }
+
+      .form-input {
+        margin-bottom: 0;
       }
     }
 
@@ -181,6 +187,7 @@
       .secondary-button,
       .primary-button {
         width: 47%;
+        font-size: 12px;
       }
 
       .secondary-button {
