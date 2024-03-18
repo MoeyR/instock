@@ -9,10 +9,10 @@ function InventoryPage() {
       {/* ---- Title Section ---- */}
       <section className="inv-page-title-section">
         <h1 className="inv-title">Inventory</h1>
-        <section className="search-button-wrap">
+        <section className="search-button-wrap-inv">
           <div className="search-bar-wrap">
             <input
-              className="form-input inv-search-bar"
+              className="inv-search-bar"
               type="search"
               placeholder="Search..."
             />

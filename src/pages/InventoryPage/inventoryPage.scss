@@ -45,18 +45,27 @@
     }
   }
 
-  .search-button-wrap {
+  .search-button-wrap-inv {
     display: flex;
     flex-direction: column;
 
     @include tablet {
       flex-direction: row;
       gap: 1rem;
+      justify-content: flex-end;
     }
+
+    @include desktop{
+      width: 80%;
+    }
+
   }
 
   .search-bar-wrap {
     position: relative;
+    @include desktop{
+      width: 34%;
+    }
   }
   .inv-search-bar,
   &__add-button {
@@ -65,6 +74,34 @@
     @include tablet {
       margin-top: 0;
     }
+  }
+
+
+  .inv-search-bar{
+    height: 2.25rem;
+  width: 100%;
+  background-color: $white;
+  border: .0625rem solid $cloud;
+  border-radius: 1.25rem;
+  padding: .625rem 1rem;
+
+  @include tablet {
+    height: 2.375rem;
+  }
+
+  @include desktop {
+    height: 2.375rem;
+  }
+
+  &:focus {
+    border-color: $indigo;
+    outline: none;
+    border-color: $indigo;
+
+    &::placeholder {
+      color: $black;
+    }
+  }
   }
 
   &__search-bar {
@@ -108,13 +145,13 @@
   }
 
   .inventory-main-section{
-    margin-top: 163px;
+    margin-top: 147px;
     width: 87%;
     background-color: #ffffff;
     box-shadow: 0 2px 5px 0 $cloud;
     border-radius: 0.125rem;
     @include tablet{
-      margin-top: 21px;
+      margin-top: 13px;
     }
     @include desktop{
       width: 63rem;
