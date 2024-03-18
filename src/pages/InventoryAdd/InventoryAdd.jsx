@@ -114,7 +114,7 @@ function InventoryAdd() {
         </div>
       </section>
       <hr />
-      <section className="add-item__form-section">
+      <section className="add-item__form-section-add-inv">
         <form onSubmit={handleSubmit} className="form">
           <div className="form__tablet-container">
             <div className="form__left">

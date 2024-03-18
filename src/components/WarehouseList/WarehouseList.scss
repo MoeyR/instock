@@ -2,61 +2,59 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouses-list {
-  border-radius: 4px;
-    &:last-child {
-      @include tablet {
-        border-bottom: none;
-      }
+  border-radius: 0.25rem;
+  &:last-child {
+    @include tablet {
+      border-bottom: none;
     }
-    
-    //list main headings
-    &__main-headings {
-      display: none;
-      @include tablet {
-        display: block;
-        display: flex;
-        flex-direction: row;
-        padding: 0.5625rem 2rem;
-        color: $slate;
-        background-color: $lightgrey;
-      }
-
-      .warehouse-headers-wrap {
-        display: flex;
-        width: 100%;
-
-        .name-address-headers,
-        .contact-name-info-headers {
-          display: flex;
-          width: 50%;
-          margin-right: -2.6875rem;
-        }
-
-        .main-headings-texts {
-          width: 47%;
-          font-size: 0.6875rem;
-          display: flex;
-
-          .sort-icon {
-            width: 1rem;
-            height: 1rem;
-            margin-left: 0.125rem;
-          }
-        }
-
-        .contact-info-header {
-          width: 64%;
-        }
-      }
-      .warehouse-headers,
-      .action-text {
-        font-size: 0.6875rem;
-      }
-
-      .address-header {
-        margin-left: -0.8125rem;
-      }
-    }
-
- 
   }
+
+  //list main headings
+  &__main-headings {
+    display: none;
+    @include tablet {
+      display: block;
+      display: flex;
+      flex-direction: row;
+      padding: 0.5625rem 2rem;
+      color: $slate;
+      background-color: $lightgrey;
+    }
+
+    .warehouse-headers-wrap {
+      display: flex;
+      width: 100%;
+
+      .name-address-headers,
+      .contact-name-info-headers {
+        display: flex;
+        width: 50%;
+        margin-right: -2.6875rem;
+      }
+
+      .main-headings-texts {
+        width: 47%;
+        font-size: 0.6875rem;
+        display: flex;
+
+        .sort-icon {
+          width: 1rem;
+          height: 1rem;
+          margin-left: 0.125rem;
+        }
+      }
+
+      .contact-info-header {
+        width: 64%;
+      }
+    }
+    .warehouse-headers,
+    .action-text {
+      font-size: 0.6875rem;
+    }
+
+    .address-header {
+      margin-left: -0.8125rem;
+    }
+  }
+}

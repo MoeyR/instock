@@ -1,13 +1,11 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-// warehouses list details
-
 .tablet-wrap {
   @include tablet {
     display: flex;
     border-bottom: 0.0625rem solid $cloud;
-    padding: 3px 24px;
+    padding: 0.1875rem 1.5rem;
   }
 }
 .inventory-items {
@@ -20,7 +18,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     border-top: 0.0625rem solid $cloud;
-    padding: 12px;
+    padding: 0.75rem;
     width: 100%;
     @include tablet {
       border-top: none;
@@ -29,7 +27,7 @@
   }
 
   &__item-wrap {
-    margin: 12px;
+    margin: 0.75rem;
     display: flex;
     flex-direction: column;
 
@@ -38,13 +36,13 @@
       flex-direction: row;
       border-top: none;
       margin: 0;
-      width: 125px;
+      width: 7.8125rem;
     }
   }
 
   .status-wrap {
     @include tablet {
-      width: 240px;
+      width: 15rem;
     }
   }
 
@@ -74,12 +72,12 @@
   &__icons-wrap {
     @include flex-space-between;
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
     @include tablet {
       align-items: center;
       display: flex;
       justify-content: space-between;
-      width: 90px;
+      width: 5.625rem;
     }
   }
 
@@ -90,7 +88,7 @@
     width: 1.4375rem;
     height: 1.4375rem;
     margin-bottom: 0.1875rem;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
@@ -108,7 +106,7 @@
 }
 
 .tablet-wrap:hover .right-arrow {
-  transform: translateX(4px);
+  transform: translateX(0.25rem);
 }
 
 .item-link-wrap {
@@ -134,7 +132,7 @@
     width: 50%;
     justify-content: flex-start;
     align-items: center;
-    margin-right: -24px;
+    margin-right: -1.5rem;
   }
 }
 

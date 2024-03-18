@@ -38,7 +38,7 @@
       width: 50%;
       justify-content: flex-start;
       align-items: center;
-      margin-right: -24px;
+      margin-right: -1.5rem;
     }
     
 
@@ -50,7 +50,7 @@
 
     .category-wrap{
       @include tablet{
-        width: 125px;
+        width: 7.8125rem;
       }
     }
   }
@@ -67,7 +67,7 @@
 
     .status-wrap {
       @include tablet{
-        width: 240px;
+        width: 15rem;
       }
   }
 
@@ -76,7 +76,7 @@
 
   .qty-wrap, .warehouse-wrap{
     @include tablet{
-      width: 125px;
+      width: 7.8125rem;
 
     }
   }
@@ -87,7 +87,7 @@
     display: flex;
     justify-content: right;
     text-align: right;
-    width: 90px;
+    width: 5.625rem;
   }
 
   &__sort-icon {
@@ -105,5 +105,5 @@
 .qty-warehouse {
   display: flex;
   width: 30%;
-  gap: 40px;
+  gap: 2.5rem;
 }

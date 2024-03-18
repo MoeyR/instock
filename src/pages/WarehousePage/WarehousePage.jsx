@@ -11,10 +11,10 @@ function WarehousePage() {
       {/* ---- Title Section ---- */}
       <section className="warehouses-title-section-wrap page-title-section">
         <h1 className="warehouses__title">Warehouses</h1>
-        <section className="search-button-wrap">
-          <div className="search-bar-wrap">
+        <section className="search-button-wrap-warehouse">
+          <div className="search-bar-wrap-warehouse">
             <input
-              className="form-input warehouses__search-bar"
+              className="warehouses__search-bar-warehouse"
               type="search"
               placeholder="Search..."
             />

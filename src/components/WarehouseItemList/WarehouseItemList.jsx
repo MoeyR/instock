@@ -40,7 +40,7 @@ function WarehouseItemList({ warehouseId }) {
     };
 
     fetchData();
-  }, [warehouseId]);
+  }, [warehouseId,inventoryList]);
 
   if (hasError) {
     return (
@@ -52,7 +52,6 @@ function WarehouseItemList({ warehouseId }) {
     return <p>Loading inventory list...</p>;
   }
 
-  console.log(inventoryList);
   return (
     <ul className="inventory-list">
       <li className="inventory-list__headings-container">
